@@ -8,6 +8,16 @@
 #include "../include/Square.hpp"
 #include "../include/Circle.hpp"
 
+/*
+
+*Press key:
+    'esc' activates: Close window.
+    'w'   activates: glPolygonMode FILL.
+    'e'   activates: glPolygonMode LINE.
+    'r'   activates: glPolygonMode POINT.
+
+*/
+
 int main()
 {
     // Cria janela
