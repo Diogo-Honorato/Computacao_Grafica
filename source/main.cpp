@@ -1,12 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <memory>
-#include "../include/Window.hpp"
-#include "../include/Shader.hpp"
-#include "../include/Shape.hpp"
-#include "../include/Triangle.hpp"
-#include "../include/Square.hpp"
-#include "../include/Circle.hpp"
+#include"../include/main.hpp"
 
 /*
 
@@ -33,9 +25,6 @@ int main()
 
     Shapes.push_back(std::make_unique<Circle>());
     Shapes.push_back(std::make_unique<Triangle>());
-
-    
-
 
 
 

@@ -1,7 +1,7 @@
 CMakeFiles/casa_v2.dir/source/Window.cpp.o: \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/Window.cpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Window.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/../include/Window.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Window.hpp \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -158,6 +158,6 @@ CMakeFiles/casa_v2.dir/source/Window.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/../include/../dep/glad/include/glad/glad.h \
- /home/diogo/Documentos/uni/CG/Casa_V2/dep/glad/include/KHR/khrplatform.h \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/../include/../dep/glfw/include/GLFW/glfw3.h
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glfw/include/GLFW/glfw3.h

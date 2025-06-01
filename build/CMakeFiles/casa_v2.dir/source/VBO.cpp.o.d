@@ -1,9 +1,9 @@
 CMakeFiles/casa_v2.dir/source/VBO.cpp.o: \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/VBO.cpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VBO.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/../include/VBO.hpp \
- /home/diogo/Documentos/uni/CG/Casa_V2/source/../include/../dep/glad/include/glad/glad.h \
- /home/diogo/Documentos/uni/CG/Casa_V2/dep/glad/include/KHR/khrplatform.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

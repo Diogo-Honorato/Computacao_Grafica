@@ -11,12 +11,21 @@ target_include_directories(glad PUBLIC dep/glad/include)
 set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE)
 add_subdirectory(dep/glfw)
 
+#SOURCES
 file(GLOB SOURCES "source/*.cpp")
 
 #Executable
 add_executable(casa_v2 ${SOURCES})
 
-#Link
-target_include_directories(casa_v2 PRIVATE  include dep/glad/include dep/glfw/include)
+#INCLUDES
+target_include_directories(
+    casa_v2 PRIVATE  
+    include 
+    dep/glad/include 
+    dep/glfw/include
+    dep/glm
+)
+
+#LINK
 target_link_libraries(casa_v2 PRIVATE glad glfw)
 

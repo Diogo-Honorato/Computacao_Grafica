@@ -1126,6 +1126,7 @@ CMakeFiles/casa_v2.dir/source/Window.cpp.o: ../source/Window.cpp \
 
 CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
   /usr/include/stdc-predef.h \
+  ../include/main.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -1388,14 +1389,451 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
   /usr/include/c++/11/bits/sstream.tcc \
   ../include/Shape.hpp \
   ../include/Triangle.hpp \
-  ../include/Shape.hpp \
-  ../include/Shader.hpp \
   ../include/VAO.hpp \
   ../include/VBO.hpp \
   ../include/EBO.hpp \
   ../include/Square.hpp \
-  ../include/Circle.hpp
+  ../include/Circle.hpp \
+  ../dep/glm/glm.hpp \
+  ../dep/glm/detail/_fixes.hpp \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  ../dep/glm/detail/setup.hpp \
+  /usr/include/c++/11/cassert \
+  /usr/include/assert.h \
+  /usr/include/c++/11/cstddef \
+  ../dep/glm/simd/platform.h \
+  /usr/include/c++/11/cfloat \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
+  ../dep/glm/fwd.hpp \
+  ../dep/glm/detail/qualifier.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/vec2.hpp \
+  ../dep/glm/ext/vector_bool2.hpp \
+  ../dep/glm/detail/type_vec2.hpp \
+  ../dep/glm/detail/type_vec2.inl \
+  ../dep/glm/detail/compute_vector_relational.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/vector_bool2_precision.hpp \
+  ../dep/glm/ext/vector_float2.hpp \
+  ../dep/glm/ext/vector_float2_precision.hpp \
+  ../dep/glm/ext/vector_double2.hpp \
+  ../dep/glm/ext/vector_double2_precision.hpp \
+  ../dep/glm/ext/vector_int2.hpp \
+  ../dep/glm/ext/vector_int2_sized.hpp \
+  ../dep/glm/ext/scalar_int_sized.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/vector_uint2.hpp \
+  ../dep/glm/ext/vector_uint2_sized.hpp \
+  ../dep/glm/ext/scalar_uint_sized.hpp \
+  ../dep/glm/vec3.hpp \
+  ../dep/glm/ext/vector_bool3.hpp \
+  ../dep/glm/detail/type_vec3.hpp \
+  ../dep/glm/detail/type_vec3.inl \
+  ../dep/glm/ext/vector_bool3_precision.hpp \
+  ../dep/glm/ext/vector_float3.hpp \
+  ../dep/glm/ext/vector_float3_precision.hpp \
+  ../dep/glm/ext/vector_double3.hpp \
+  ../dep/glm/ext/vector_double3_precision.hpp \
+  ../dep/glm/ext/vector_int3.hpp \
+  ../dep/glm/ext/vector_int3_sized.hpp \
+  ../dep/glm/ext/vector_uint3.hpp \
+  ../dep/glm/ext/vector_uint3_sized.hpp \
+  ../dep/glm/vec4.hpp \
+  ../dep/glm/ext/vector_bool4.hpp \
+  ../dep/glm/detail/type_vec4.hpp \
+  ../dep/glm/detail/type_vec4.inl \
+  ../dep/glm/ext/vector_bool4_precision.hpp \
+  ../dep/glm/ext/vector_float4.hpp \
+  ../dep/glm/ext/vector_float4_precision.hpp \
+  ../dep/glm/ext/vector_double4.hpp \
+  ../dep/glm/ext/vector_double4_precision.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/vector_int4.hpp \
+  ../dep/glm/ext/vector_int4_sized.hpp \
+  ../dep/glm/ext/vector_uint4.hpp \
+  ../dep/glm/ext/vector_uint4_sized.hpp \
+  ../dep/glm/mat2x2.hpp \
+  ../dep/glm/ext/matrix_double2x2.hpp \
+  ../dep/glm/detail/type_mat2x2.hpp \
+  ../dep/glm/detail/type_mat2x2.inl \
+  ../dep/glm/matrix.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/mat2x3.hpp \
+  ../dep/glm/ext/matrix_double2x3.hpp \
+  ../dep/glm/detail/type_mat2x3.hpp \
+  ../dep/glm/detail/type_mat2x3.inl \
+  ../dep/glm/ext/matrix_double2x3_precision.hpp \
+  ../dep/glm/ext/matrix_float2x3.hpp \
+  ../dep/glm/ext/matrix_float2x3_precision.hpp \
+  ../dep/glm/mat2x4.hpp \
+  ../dep/glm/ext/matrix_double2x4.hpp \
+  ../dep/glm/detail/type_mat2x4.hpp \
+  ../dep/glm/detail/type_mat2x4.inl \
+  ../dep/glm/ext/matrix_double2x4_precision.hpp \
+  ../dep/glm/ext/matrix_float2x4.hpp \
+  ../dep/glm/ext/matrix_float2x4_precision.hpp \
+  ../dep/glm/mat3x2.hpp \
+  ../dep/glm/ext/matrix_double3x2.hpp \
+  ../dep/glm/detail/type_mat3x2.hpp \
+  ../dep/glm/detail/type_mat3x2.inl \
+  ../dep/glm/ext/matrix_double3x2_precision.hpp \
+  ../dep/glm/ext/matrix_float3x2.hpp \
+  ../dep/glm/ext/matrix_float3x2_precision.hpp \
+  ../dep/glm/mat3x3.hpp \
+  ../dep/glm/ext/matrix_double3x3.hpp \
+  ../dep/glm/detail/type_mat3x3.hpp \
+  ../dep/glm/detail/type_mat3x3.inl \
+  ../dep/glm/ext/matrix_double3x3_precision.hpp \
+  ../dep/glm/ext/matrix_float3x3.hpp \
+  ../dep/glm/ext/matrix_float3x3_precision.hpp \
+  ../dep/glm/mat3x4.hpp \
+  ../dep/glm/ext/matrix_double3x4.hpp \
+  ../dep/glm/detail/type_mat3x4.hpp \
+  ../dep/glm/detail/type_mat3x4.inl \
+  ../dep/glm/ext/matrix_double3x4_precision.hpp \
+  ../dep/glm/ext/matrix_float3x4.hpp \
+  ../dep/glm/ext/matrix_float3x4_precision.hpp \
+  ../dep/glm/mat4x2.hpp \
+  ../dep/glm/ext/matrix_double4x2.hpp \
+  ../dep/glm/detail/type_mat4x2.hpp \
+  ../dep/glm/detail/type_mat4x2.inl \
+  ../dep/glm/ext/matrix_double4x2_precision.hpp \
+  ../dep/glm/ext/matrix_float4x2.hpp \
+  ../dep/glm/ext/matrix_float4x2_precision.hpp \
+  ../dep/glm/mat4x3.hpp \
+  ../dep/glm/ext/matrix_double4x3.hpp \
+  ../dep/glm/detail/type_mat4x3.hpp \
+  ../dep/glm/detail/type_mat4x3.inl \
+  ../dep/glm/ext/matrix_double4x3_precision.hpp \
+  ../dep/glm/ext/matrix_float4x3.hpp \
+  ../dep/glm/ext/matrix_float4x3_precision.hpp \
+  ../dep/glm/mat4x4.hpp \
+  ../dep/glm/ext/matrix_double4x4.hpp \
+  ../dep/glm/detail/type_mat4x4.hpp \
+  ../dep/glm/detail/type_mat4x4.inl \
+  ../dep/glm/ext/matrix_double4x4_precision.hpp \
+  ../dep/glm/ext/matrix_float4x4.hpp \
+  ../dep/glm/ext/matrix_float4x4_precision.hpp \
+  ../dep/glm/detail/func_matrix.inl \
+  ../dep/glm/geometric.hpp \
+  ../dep/glm/detail/func_geometric.inl \
+  ../dep/glm/exponential.hpp \
+  ../dep/glm/detail/type_vec1.hpp \
+  ../dep/glm/detail/type_vec1.inl \
+  ../dep/glm/detail/func_exponential.inl \
+  ../dep/glm/vector_relational.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/detail/func_vector_relational.inl \
+  ../dep/glm/detail/_vectorize.hpp \
+  ../dep/glm/common.hpp \
+  ../dep/glm/detail/_fixes.hpp \
+  ../dep/glm/detail/func_common.inl \
+  ../dep/glm/detail/compute_common.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/matrix_double2x2_precision.hpp \
+  ../dep/glm/ext/matrix_float2x2.hpp \
+  ../dep/glm/ext/matrix_float2x2_precision.hpp \
+  ../dep/glm/trigonometric.hpp \
+  ../dep/glm/detail/func_trigonometric.inl \
+  ../dep/glm/packing.hpp \
+  ../dep/glm/detail/func_packing.inl \
+  ../dep/glm/detail/type_half.hpp \
+  ../dep/glm/detail/type_half.inl \
+  ../dep/glm/integer.hpp \
+  ../dep/glm/detail/func_integer.inl \
+  ../dep/glm/gtc/matrix_transform.hpp \
+  ../dep/glm/ext/matrix_projection.hpp \
+  ../dep/glm/gtc/constants.hpp \
+  ../dep/glm/ext/scalar_constants.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/scalar_constants.inl \
+  ../dep/glm/gtc/constants.inl \
+  ../dep/glm/ext/matrix_projection.inl \
+  ../dep/glm/ext/matrix_clip_space.hpp \
+  ../dep/glm/ext/matrix_clip_space.inl \
+  ../dep/glm/ext/matrix_transform.hpp \
+  ../dep/glm/ext/matrix_transform.inl \
+  ../dep/glm/gtc/matrix_transform.inl \
+  ../dep/glm/gtc/type_ptr.hpp \
+  ../dep/glm/gtc/quaternion.hpp \
+  ../dep/glm/ext/vector_relational.hpp \
+  ../dep/glm/ext/vector_relational.inl \
+  ../dep/glm/detail/type_float.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/ext/quaternion_common.hpp \
+  ../dep/glm/ext/quaternion_geometric.hpp \
+  ../dep/glm/ext/quaternion_geometric.inl \
+  ../dep/glm/ext/quaternion_common.inl \
+  ../dep/glm/ext/quaternion_float.hpp \
+  ../dep/glm/detail/type_quat.hpp \
+  ../dep/glm/ext/quaternion_relational.hpp \
+  ../dep/glm/ext/quaternion_relational.inl \
+  ../dep/glm/detail/type_quat.inl \
+  ../dep/glm/ext/quaternion_float_precision.hpp \
+  ../dep/glm/ext/quaternion_double.hpp \
+  ../dep/glm/ext/quaternion_double_precision.hpp \
+  ../dep/glm/ext/quaternion_trigonometric.hpp \
+  ../dep/glm/ext/quaternion_trigonometric.inl \
+  ../dep/glm/ext/quaternion_transform.hpp \
+  ../dep/glm/ext/quaternion_transform.inl \
+  ../dep/glm/gtc/quaternion.inl \
+  ../dep/glm/gtc/epsilon.hpp \
+  ../dep/glm/detail/setup.hpp \
+  ../dep/glm/gtc/epsilon.inl \
+  ../dep/glm/gtc/vec1.hpp \
+  ../dep/glm/ext/vector_bool1.hpp \
+  ../dep/glm/ext/vector_bool1_precision.hpp \
+  ../dep/glm/ext/vector_float1.hpp \
+  ../dep/glm/ext/vector_float1_precision.hpp \
+  ../dep/glm/ext/vector_double1.hpp \
+  ../dep/glm/ext/vector_double1_precision.hpp \
+  ../dep/glm/ext/vector_int1.hpp \
+  ../dep/glm/ext/vector_int1_sized.hpp \
+  ../dep/glm/ext/vector_uint1.hpp \
+  ../dep/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  ../dep/glm/gtc/type_ptr.inl
 
+
+../dep/glm/ext/vector_uint1_sized.hpp:
+
+../dep/glm/ext/vector_uint1.hpp:
+
+../dep/glm/ext/vector_int1.hpp:
+
+../dep/glm/ext/vector_double1_precision.hpp:
+
+../dep/glm/ext/vector_float1_precision.hpp:
+
+../dep/glm/ext/vector_float1.hpp:
+
+../dep/glm/ext/vector_bool1_precision.hpp:
+
+../dep/glm/gtc/vec1.hpp:
+
+../dep/glm/gtc/quaternion.inl:
+
+../dep/glm/ext/quaternion_transform.hpp:
+
+../dep/glm/ext/quaternion_trigonometric.inl:
+
+../dep/glm/ext/quaternion_trigonometric.hpp:
+
+../dep/glm/ext/quaternion_double.hpp:
+
+../dep/glm/ext/quaternion_float_precision.hpp:
+
+../dep/glm/detail/type_quat.inl:
+
+../dep/glm/ext/quaternion_relational.hpp:
+
+../dep/glm/ext/quaternion_common.inl:
+
+../dep/glm/detail/type_float.hpp:
+
+../dep/glm/ext/vector_relational.inl:
+
+../dep/glm/gtc/matrix_transform.inl:
+
+../dep/glm/ext/matrix_transform.inl:
+
+../dep/glm/ext/matrix_transform.hpp:
+
+../dep/glm/ext/matrix_clip_space.inl:
+
+../dep/glm/ext/matrix_clip_space.hpp:
+
+../dep/glm/gtc/constants.hpp:
+
+../dep/glm/ext/matrix_projection.hpp:
+
+../dep/glm/gtc/matrix_transform.hpp:
+
+../dep/glm/detail/func_integer.inl:
+
+../dep/glm/integer.hpp:
+
+../dep/glm/detail/type_half.hpp:
+
+../dep/glm/detail/func_trigonometric.inl:
+
+../dep/glm/ext/matrix_double2x2_precision.hpp:
+
+../dep/glm/detail/func_common.inl:
+
+../dep/glm/common.hpp:
+
+../dep/glm/detail/func_exponential.inl:
+
+../dep/glm/detail/type_vec1.inl:
+
+../dep/glm/exponential.hpp:
+
+../dep/glm/detail/func_geometric.inl:
+
+../dep/glm/ext/matrix_double4x4.hpp:
+
+../dep/glm/detail/compute_common.hpp:
+
+../dep/glm/mat4x4.hpp:
+
+../dep/glm/ext/matrix_float4x3_precision.hpp:
+
+../dep/glm/ext/matrix_float4x2_precision.hpp:
+
+../dep/glm/ext/matrix_float4x2.hpp:
+
+../dep/glm/ext/matrix_double4x2_precision.hpp:
+
+../dep/glm/detail/type_mat4x2.inl:
+
+../dep/glm/detail/type_mat4x2.hpp:
+
+../dep/glm/ext/matrix_float3x4.hpp:
+
+../dep/glm/detail/type_mat3x4.hpp:
+
+../dep/glm/ext/matrix_double3x4.hpp:
+
+../dep/glm/ext/matrix_float3x3_precision.hpp:
+
+../dep/glm/ext/matrix_float3x3.hpp:
+
+../dep/glm/gtc/type_ptr.hpp:
+
+../dep/glm/ext/matrix_double3x3_precision.hpp:
+
+../dep/glm/mat3x3.hpp:
+
+../dep/glm/detail/type_mat3x2.inl:
+
+../dep/glm/ext/matrix_double3x2.hpp:
+
+../dep/glm/mat3x2.hpp:
+
+../dep/glm/ext/matrix_float2x4_precision.hpp:
+
+../dep/glm/ext/matrix_float2x4.hpp:
+
+../dep/glm/ext/matrix_double2x4.hpp:
+
+../dep/glm/ext/matrix_float2x3_precision.hpp:
+
+../dep/glm/detail/type_mat2x3.inl:
+
+../dep/glm/detail/type_mat2x3.hpp:
+
+../dep/glm/matrix.hpp:
+
+../dep/glm/ext/vector_uint4_sized.hpp:
+
+../dep/glm/ext/matrix_double4x3_precision.hpp:
+
+../dep/glm/ext/vector_uint4.hpp:
+
+../dep/glm/ext/vector_double4_precision.hpp:
+
+../dep/glm/detail/func_packing.inl:
+
+../dep/glm/ext/vector_double4.hpp:
+
+../dep/glm/ext/vector_float4_precision.hpp:
+
+../dep/glm/ext/vector_float4.hpp:
+
+../dep/glm/ext/matrix_double4x2.hpp:
+
+../dep/glm/ext/vector_bool4_precision.hpp:
+
+../dep/glm/detail/type_vec4.hpp:
+
+../dep/glm/ext/vector_uint3_sized.hpp:
+
+../dep/glm/mat4x3.hpp:
+
+../dep/glm/ext/vector_double3_precision.hpp:
+
+../dep/glm/ext/quaternion_relational.inl:
+
+../dep/glm/ext/quaternion_float.hpp:
+
+../dep/glm/ext/matrix_float4x4.hpp:
+
+../dep/glm/ext/vector_float3.hpp:
+
+../dep/glm/ext/vector_bool3.hpp:
+
+../dep/glm/detail/type_half.inl:
+
+../dep/glm/ext/scalar_uint_sized.hpp:
+
+../dep/glm/ext/matrix_double2x2.hpp:
+
+../dep/glm/ext/vector_uint2_sized.hpp:
+
+../dep/glm/ext/vector_uint2.hpp:
+
+../dep/glm/ext/scalar_constants.inl:
+
+../dep/glm/ext/scalar_int_sized.hpp:
+
+../dep/glm/ext/vector_int2_sized.hpp:
+
+../dep/glm/ext/vector_int2.hpp:
+
+../dep/glm/ext/vector_double2.hpp:
+
+../dep/glm/detail/type_mat3x4.inl:
+
+../dep/glm/detail/type_vec2.hpp:
+
+../dep/glm/vec2.hpp:
+
+../dep/glm/detail/qualifier.hpp:
+
+../dep/glm/ext/vector_int4_sized.hpp:
+
+../dep/glm/ext/vector_float2_precision.hpp:
+
+../dep/glm/fwd.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
+
+../dep/glm/simd/platform.h:
+
+../dep/glm/ext/matrix_float3x4_precision.hpp:
+
+/usr/include/c++/11/cassert:
+
+../dep/glm/detail/setup.hpp:
+
+../dep/glm/glm.hpp:
 
 /usr/include/c++/11/pstl/glue_memory_defs.h:
 
@@ -1409,11 +1847,11 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/sys/syscall.h:
 
+../dep/glm/ext/vector_int3.hpp:
+
 /usr/include/syscall.h:
 
 /usr/include/linux/close_range.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
@@ -1429,6 +1867,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
+../dep/glm/ext/vector_int1_sized.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
@@ -1441,9 +1881,13 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
+../dep/glm/detail/type_mat3x2.hpp:
+
 /usr/include/c++/11/ext/concurrence.h:
 
 /usr/include/c++/11/bits/refwrap.h:
+
+../dep/glm/vec4.hpp:
 
 /usr/include/c++/11/bits/allocated_ptr.h:
 
@@ -1451,7 +1895,17 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/tuple:
 
+../dep/glm/ext/matrix_projection.inl:
+
+../dep/glm/ext/matrix_double3x3.hpp:
+
+/usr/include/limits.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
 /usr/include/pthread.h:
+
+../dep/glm/ext/vector_double1.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
 
@@ -1481,11 +1935,19 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/algorithmfwd.h:
 
+../dep/glm/ext/quaternion_geometric.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+../dep/glm/ext/matrix_float2x2_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
+../dep/glm/gtc/quaternion.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+../dep/glm/ext/matrix_float2x2.hpp:
 
 /usr/include/c++/11/ext/aligned_buffer.h:
 
@@ -1501,11 +1963,15 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/cstdlib:
 
+../dep/glm/ext/matrix_float4x3.hpp:
+
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/11/bits/std_mutex.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
+
+../dep/glm/ext/vector_int3_sized.hpp:
 
 /usr/include/c++/11/bit:
 
@@ -1513,11 +1979,23 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
+../dep/glm/ext/quaternion_geometric.inl:
+
+../dep/glm/detail/type_vec3.hpp:
+
 /usr/include/c++/11/fstream:
+
+../dep/glm/ext/matrix_double3x4_precision.hpp:
+
+../dep/glm/ext/matrix_double2x3_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
+../dep/glm/ext/vector_relational.hpp:
+
 /usr/include/c++/11/tr1/modified_bessel_func.tcc:
+
+../dep/glm/ext/matrix_float2x3.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
@@ -1529,7 +2007,15 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/localefwd.h:
 
+../dep/glm/trigonometric.hpp:
+
+../dep/glm/ext/vector_double3.hpp:
+
+../dep/glm/ext/vector_bool2_precision.hpp:
+
 /usr/include/c++/11/tr1/hypergeometric.tcc:
+
+../dep/glm/detail/compute_vector_relational.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
@@ -1547,6 +2033,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 ../include/VBO.hpp:
 
+../dep/glm/ext/vector_double2_precision.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
@@ -1557,6 +2045,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+../dep/glm/ext/matrix_double2x3.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/c++/11/string:
@@ -1565,17 +2055,31 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
+../dep/glm/detail/type_mat4x3.inl:
+
 ../dep/glad/include/KHR/khrplatform.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
 
+../dep/glm/ext/vector_bool2.hpp:
+
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/11/cctype:
 
+../dep/glm/detail/_vectorize.hpp:
+
+../dep/glm/detail/func_matrix.inl:
+
+../dep/glm/detail/type_mat2x4.inl:
+
+/usr/include/c++/11/cfloat:
+
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+../dep/glm/ext/quaternion_transform.inl:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -1593,9 +2097,13 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/allocator.h:
 
+../dep/glm/ext/matrix_float3x2_precision.hpp:
+
 /usr/include/c++/11/bits/shared_ptr.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
+
+../dep/glm/packing.hpp:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
@@ -1607,7 +2115,13 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
+../dep/glm/ext/matrix_float3x2.hpp:
+
+../dep/glm/detail/type_vec2.inl:
+
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+../dep/glm/ext/vector_int4.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -1625,27 +2139,39 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
+../dep/glm/detail/_fixes.hpp:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
 /usr/include/c++/11/cwchar:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
+../dep/glm/mat3x4.hpp:
+
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+../dep/glm/ext/matrix_double3x2_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
+../dep/glm/ext/vector_uint3.hpp:
+
 /usr/include/ctype.h:
 
 ../include/Window.hpp:
 
+../dep/glm/mat2x4.hpp:
+
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
+
+../dep/glm/geometric.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
@@ -1659,13 +2185,23 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/stl_pair.h:
 
+../dep/glm/detail/type_mat2x2.inl:
+
+../dep/glm/detail/type_vec4.inl:
+
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+../dep/glm/gtc/type_ptr.inl:
+
+../dep/glm/ext/matrix_double2x4_precision.hpp:
+
 ../source/Window.cpp:
 
 ../include/EBO.hpp:
+
+../dep/glm/ext/vector_float3_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -1691,7 +2227,11 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/include/strings.h:
+
 ../dep/glad/include/glad/glad.h:
+
+../dep/glm/detail/type_mat4x4.inl:
 
 /usr/include/c++/11/bits/ranges_cmp.h:
 
@@ -1727,11 +2267,19 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/features.h:
 
+../dep/glm/detail/type_mat2x4.hpp:
+
 /usr/include/c++/11/bits/iterator_concepts.h:
+
+../dep/glm/ext/scalar_constants.hpp:
 
 /usr/include/c++/11/clocale:
 
 /usr/include/c++/11/bits/ostream.tcc:
+
+../dep/glm/gtc/epsilon.hpp:
+
+../dep/glm/detail/type_mat4x3.hpp:
 
 /usr/include/endian.h:
 
@@ -1753,6 +2301,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
+../dep/glm/detail/type_mat4x4.hpp:
+
 /usr/include/c++/11/ext/alloc_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
@@ -1760,6 +2310,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
+
+../dep/glm/detail/type_mat3x3.inl:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
@@ -1773,6 +2325,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 ../source/Shader.cpp:
 
+../dep/glm/detail/type_mat3x3.hpp:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
 
 /usr/include/stdc-predef.h:
@@ -1783,17 +2337,27 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/functional_hash.h:
 
+../dep/glm/detail/type_vec3.inl:
+
 /usr/include/c++/11/bits/move.h:
 
 /usr/include/c++/11/bits/hash_bytes.h:
+
+../dep/glm/detail/type_vec1.hpp:
+
+/usr/include/assert.h:
 
 /usr/include/c++/11/numbers:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
+../dep/glm/detail/func_vector_relational.inl:
+
 /usr/include/c++/11/ext/string_conversions.h:
 
 /usr/include/c++/11/bits/exception_ptr.h:
+
+../dep/glm/detail/type_quat.hpp:
 
 /usr/include/c++/11/cstdio:
 
@@ -1807,7 +2371,11 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 ../include/Triangle.hpp:
 
+../dep/glm/vec3.hpp:
+
 /usr/include/errno.h:
+
+../dep/glm/mat4x2.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
@@ -1821,9 +2389,13 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/asm-generic/errno.h:
 
+../dep/glm/ext/matrix_float4x4_precision.hpp:
+
 /usr/include/c++/11/tr1/ell_integral.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+../dep/glm/ext/quaternion_double_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -1834,6 +2406,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 ../source/Square.cpp:
 
 /usr/include/c++/11/istream:
+
+../dep/glm/vector_relational.hpp:
 
 /usr/include/c++/11/exception:
 
@@ -1861,6 +2435,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/system_error:
 
+/usr/include/c++/11/cstddef:
+
 /usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/ios:
@@ -1870,6 +2446,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
 /usr/include/c++/11/stdexcept:
+
+/usr/include/string.h:
 
 /usr/include/c++/11/bits/streambuf.tcc:
 
@@ -1889,7 +2467,11 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
+../dep/glm/ext/quaternion_common.hpp:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
+
+../dep/glm/ext/vector_bool3_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -1904,6 +2486,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/c++/11/bits/istream.tcc:
+
+../dep/glm/mat2x2.hpp:
 
 /usr/include/c++/11/bits/std_abs.h:
 
@@ -1933,6 +2517,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/bits/stl_uninitialized.h:
 
+../dep/glm/mat2x3.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
@@ -1940,6 +2526,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 /usr/include/c++/11/bits/stl_bvector.h:
 
 /usr/include/c++/11/bits/vector.tcc:
+
+/usr/include/c++/11/cstring:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
@@ -1953,9 +2541,13 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
+../dep/glm/ext/vector_float2.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 ../include/Square.hpp:
+
+../dep/glm/ext/matrix_double4x4_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
@@ -1965,11 +2557,15 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
+../dep/glm/ext/matrix_double4x3.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/c++/11/limits:
+
+../dep/glm/gtc/epsilon.inl:
 
 /usr/include/c++/11/array:
 
@@ -1981,22 +2577,30 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp \
 
 /usr/include/c++/11/tr1/legendre_function.tcc:
 
+../dep/glm/ext/vector_bool1.hpp:
+
+../dep/glm/gtc/constants.inl:
+
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
 ../source/EBO.cpp:
 
 ../source/Triangle.cpp:
 
+../dep/glm/ext/vector_bool4.hpp:
+
 ../source/VBO.cpp:
 
 ../dep/glfw/include/GLFW/glfw3.h:
 
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+../include/main.hpp:
+
 /usr/include/c++/11/memory:
+
+../dep/glm/detail/type_mat2x2.hpp:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
-
-/usr/include/limits.h:
-
-/usr/include/c++/11/bits/stl_relops.h:

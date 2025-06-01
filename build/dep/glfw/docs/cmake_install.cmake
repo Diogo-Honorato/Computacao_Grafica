@@ -1,4 +1,4 @@
-# Install script for directory: /home/diogo/Documentos/uni/CG/Casa_V2/dep/glfw/docs
+# Install script for directory: /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/docs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

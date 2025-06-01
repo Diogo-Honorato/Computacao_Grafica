@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Casa_V2
+CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Casa_V2/build
+CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/casa_v2.dir/depend.make
@@ -72,128 +72,128 @@ include CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Circle.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Circle.cpp.o: ../source/Circle.cpp
 CMakeFiles/casa_v2.dir/source/Circle.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/casa_v2.dir/source/Circle.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Circle.cpp.o -MF CMakeFiles/casa_v2.dir/source/Circle.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Circle.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/Circle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/casa_v2.dir/source/Circle.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Circle.cpp.o -MF CMakeFiles/casa_v2.dir/source/Circle.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Circle.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Circle.cpp
 
 CMakeFiles/casa_v2.dir/source/Circle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/Circle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/Circle.cpp > CMakeFiles/casa_v2.dir/source/Circle.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Circle.cpp > CMakeFiles/casa_v2.dir/source/Circle.cpp.i
 
 CMakeFiles/casa_v2.dir/source/Circle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/Circle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/Circle.cpp -o CMakeFiles/casa_v2.dir/source/Circle.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Circle.cpp -o CMakeFiles/casa_v2.dir/source/Circle.cpp.s
 
 CMakeFiles/casa_v2.dir/source/EBO.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/EBO.cpp.o: ../source/EBO.cpp
 CMakeFiles/casa_v2.dir/source/EBO.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/casa_v2.dir/source/EBO.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/EBO.cpp.o -MF CMakeFiles/casa_v2.dir/source/EBO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/EBO.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/EBO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/casa_v2.dir/source/EBO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/EBO.cpp.o -MF CMakeFiles/casa_v2.dir/source/EBO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/EBO.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/EBO.cpp
 
 CMakeFiles/casa_v2.dir/source/EBO.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/EBO.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/EBO.cpp > CMakeFiles/casa_v2.dir/source/EBO.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/EBO.cpp > CMakeFiles/casa_v2.dir/source/EBO.cpp.i
 
 CMakeFiles/casa_v2.dir/source/EBO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/EBO.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/EBO.cpp -o CMakeFiles/casa_v2.dir/source/EBO.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/EBO.cpp -o CMakeFiles/casa_v2.dir/source/EBO.cpp.s
 
 CMakeFiles/casa_v2.dir/source/Shader.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Shader.cpp.o: ../source/Shader.cpp
 CMakeFiles/casa_v2.dir/source/Shader.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/casa_v2.dir/source/Shader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Shader.cpp.o -MF CMakeFiles/casa_v2.dir/source/Shader.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Shader.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/casa_v2.dir/source/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Shader.cpp.o -MF CMakeFiles/casa_v2.dir/source/Shader.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Shader.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shader.cpp
 
 CMakeFiles/casa_v2.dir/source/Shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/Shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/Shader.cpp > CMakeFiles/casa_v2.dir/source/Shader.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shader.cpp > CMakeFiles/casa_v2.dir/source/Shader.cpp.i
 
 CMakeFiles/casa_v2.dir/source/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/Shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/Shader.cpp -o CMakeFiles/casa_v2.dir/source/Shader.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shader.cpp -o CMakeFiles/casa_v2.dir/source/Shader.cpp.s
 
 CMakeFiles/casa_v2.dir/source/Square.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Square.cpp.o: ../source/Square.cpp
 CMakeFiles/casa_v2.dir/source/Square.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/casa_v2.dir/source/Square.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Square.cpp.o -MF CMakeFiles/casa_v2.dir/source/Square.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Square.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/Square.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/casa_v2.dir/source/Square.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Square.cpp.o -MF CMakeFiles/casa_v2.dir/source/Square.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Square.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Square.cpp
 
 CMakeFiles/casa_v2.dir/source/Square.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/Square.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/Square.cpp > CMakeFiles/casa_v2.dir/source/Square.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Square.cpp > CMakeFiles/casa_v2.dir/source/Square.cpp.i
 
 CMakeFiles/casa_v2.dir/source/Square.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/Square.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/Square.cpp -o CMakeFiles/casa_v2.dir/source/Square.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Square.cpp -o CMakeFiles/casa_v2.dir/source/Square.cpp.s
 
 CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: ../source/Triangle.cpp
 CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/casa_v2.dir/source/Triangle.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Triangle.cpp.o -MF CMakeFiles/casa_v2.dir/source/Triangle.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Triangle.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/Triangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/casa_v2.dir/source/Triangle.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Triangle.cpp.o -MF CMakeFiles/casa_v2.dir/source/Triangle.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Triangle.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Triangle.cpp
 
 CMakeFiles/casa_v2.dir/source/Triangle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/Triangle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/Triangle.cpp > CMakeFiles/casa_v2.dir/source/Triangle.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Triangle.cpp > CMakeFiles/casa_v2.dir/source/Triangle.cpp.i
 
 CMakeFiles/casa_v2.dir/source/Triangle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/Triangle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/Triangle.cpp -o CMakeFiles/casa_v2.dir/source/Triangle.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Triangle.cpp -o CMakeFiles/casa_v2.dir/source/Triangle.cpp.s
 
 CMakeFiles/casa_v2.dir/source/VAO.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/VAO.cpp.o: ../source/VAO.cpp
 CMakeFiles/casa_v2.dir/source/VAO.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/casa_v2.dir/source/VAO.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/VAO.cpp.o -MF CMakeFiles/casa_v2.dir/source/VAO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/VAO.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/VAO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/casa_v2.dir/source/VAO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/VAO.cpp.o -MF CMakeFiles/casa_v2.dir/source/VAO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/VAO.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VAO.cpp
 
 CMakeFiles/casa_v2.dir/source/VAO.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/VAO.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/VAO.cpp > CMakeFiles/casa_v2.dir/source/VAO.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VAO.cpp > CMakeFiles/casa_v2.dir/source/VAO.cpp.i
 
 CMakeFiles/casa_v2.dir/source/VAO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/VAO.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/VAO.cpp -o CMakeFiles/casa_v2.dir/source/VAO.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VAO.cpp -o CMakeFiles/casa_v2.dir/source/VAO.cpp.s
 
 CMakeFiles/casa_v2.dir/source/VBO.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/VBO.cpp.o: ../source/VBO.cpp
 CMakeFiles/casa_v2.dir/source/VBO.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/casa_v2.dir/source/VBO.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/VBO.cpp.o -MF CMakeFiles/casa_v2.dir/source/VBO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/VBO.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/VBO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/casa_v2.dir/source/VBO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/VBO.cpp.o -MF CMakeFiles/casa_v2.dir/source/VBO.cpp.o.d -o CMakeFiles/casa_v2.dir/source/VBO.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VBO.cpp
 
 CMakeFiles/casa_v2.dir/source/VBO.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/VBO.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/VBO.cpp > CMakeFiles/casa_v2.dir/source/VBO.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VBO.cpp > CMakeFiles/casa_v2.dir/source/VBO.cpp.i
 
 CMakeFiles/casa_v2.dir/source/VBO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/VBO.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/VBO.cpp -o CMakeFiles/casa_v2.dir/source/VBO.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VBO.cpp -o CMakeFiles/casa_v2.dir/source/VBO.cpp.s
 
 CMakeFiles/casa_v2.dir/source/Window.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/Window.cpp.o: ../source/Window.cpp
 CMakeFiles/casa_v2.dir/source/Window.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/casa_v2.dir/source/Window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Window.cpp.o -MF CMakeFiles/casa_v2.dir/source/Window.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Window.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/casa_v2.dir/source/Window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/Window.cpp.o -MF CMakeFiles/casa_v2.dir/source/Window.cpp.o.d -o CMakeFiles/casa_v2.dir/source/Window.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Window.cpp
 
 CMakeFiles/casa_v2.dir/source/Window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/Window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/Window.cpp > CMakeFiles/casa_v2.dir/source/Window.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Window.cpp > CMakeFiles/casa_v2.dir/source/Window.cpp.i
 
 CMakeFiles/casa_v2.dir/source/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/Window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/Window.cpp -o CMakeFiles/casa_v2.dir/source/Window.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Window.cpp -o CMakeFiles/casa_v2.dir/source/Window.cpp.s
 
 CMakeFiles/casa_v2.dir/source/main.cpp.o: CMakeFiles/casa_v2.dir/flags.make
 CMakeFiles/casa_v2.dir/source/main.cpp.o: ../source/main.cpp
 CMakeFiles/casa_v2.dir/source/main.cpp.o: CMakeFiles/casa_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/casa_v2.dir/source/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/main.cpp.o -MF CMakeFiles/casa_v2.dir/source/main.cpp.o.d -o CMakeFiles/casa_v2.dir/source/main.cpp.o -c /home/diogo/Documentos/uni/CG/Casa_V2/source/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/casa_v2.dir/source/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/casa_v2.dir/source/main.cpp.o -MF CMakeFiles/casa_v2.dir/source/main.cpp.o.d -o CMakeFiles/casa_v2.dir/source/main.cpp.o -c /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/main.cpp
 
 CMakeFiles/casa_v2.dir/source/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/casa_v2.dir/source/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Casa_V2/source/main.cpp > CMakeFiles/casa_v2.dir/source/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/main.cpp > CMakeFiles/casa_v2.dir/source/main.cpp.i
 
 CMakeFiles/casa_v2.dir/source/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/casa_v2.dir/source/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Casa_V2/source/main.cpp -o CMakeFiles/casa_v2.dir/source/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/main.cpp -o CMakeFiles/casa_v2.dir/source/main.cpp.s
 
 # Object files for target casa_v2
 casa_v2_OBJECTS = \
@@ -225,7 +225,7 @@ casa_v2: dep/glfw/src/libglfw3.a
 casa_v2: /usr/lib/x86_64-linux-gnu/librt.a
 casa_v2: /usr/lib/x86_64-linux-gnu/libm.so
 casa_v2: CMakeFiles/casa_v2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable casa_v2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable casa_v2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/casa_v2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -237,6 +237,6 @@ CMakeFiles/casa_v2.dir/clean:
 .PHONY : CMakeFiles/casa_v2.dir/clean
 
 CMakeFiles/casa_v2.dir/depend:
-	cd /home/diogo/Documentos/uni/CG/Casa_V2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/uni/CG/Casa_V2 /home/diogo/Documentos/uni/CG/Casa_V2 /home/diogo/Documentos/uni/CG/Casa_V2/build /home/diogo/Documentos/uni/CG/Casa_V2/build /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles/casa_v2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/uni/CG/Computacao_Grafica /home/diogo/Documentos/uni/CG/Computacao_Grafica /home/diogo/Documentos/uni/CG/Computacao_Grafica/build /home/diogo/Documentos/uni/CG/Computacao_Grafica/build /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles/casa_v2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/casa_v2.dir/depend
 

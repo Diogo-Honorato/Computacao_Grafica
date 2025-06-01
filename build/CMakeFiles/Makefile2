@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Casa_V2
+CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Casa_V2/build
+CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -135,14 +135,14 @@ dep/glfw/src/clean: dep/glfw/src/CMakeFiles/update_mappings.dir/clean
 CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=11,12 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=11,12 "Built target glad"
 .PHONY : CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/glad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/glad.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 .PHONY : CMakeFiles/glad.dir/rule
 
 # Convenience name for target.
@@ -162,14 +162,14 @@ CMakeFiles/casa_v2.dir/all: dep/glfw/src/CMakeFiles/glfw.dir/all
 CMakeFiles/casa_v2.dir/all: CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target casa_v2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target casa_v2"
 .PHONY : CMakeFiles/casa_v2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/casa_v2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/casa_v2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 .PHONY : CMakeFiles/casa_v2.dir/rule
 
 # Convenience name for target.
@@ -188,14 +188,14 @@ CMakeFiles/casa_v2.dir/clean:
 dep/glfw/CMakeFiles/uninstall.dir/all:
 	$(MAKE) $(MAKESILENT) -f dep/glfw/CMakeFiles/uninstall.dir/build.make dep/glfw/CMakeFiles/uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f dep/glfw/CMakeFiles/uninstall.dir/build.make dep/glfw/CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num= "Built target uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num= "Built target uninstall"
 .PHONY : dep/glfw/CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 dep/glfw/CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dep/glfw/CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 .PHONY : dep/glfw/CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -214,14 +214,14 @@ dep/glfw/CMakeFiles/uninstall.dir/clean:
 dep/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f dep/glfw/src/CMakeFiles/glfw.dir/build.make dep/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f dep/glfw/src/CMakeFiles/glfw.dir/build.make dep/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Built target glfw"
 .PHONY : dep/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 dep/glfw/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dep/glfw/src/CMakeFiles/glfw.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 .PHONY : dep/glfw/src/CMakeFiles/glfw.dir/rule
 
 # Convenience name for target.
@@ -240,14 +240,14 @@ dep/glfw/src/CMakeFiles/glfw.dir/clean:
 dep/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f dep/glfw/src/CMakeFiles/update_mappings.dir/build.make dep/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f dep/glfw/src/CMakeFiles/update_mappings.dir/build.make dep/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles --progress-num=37 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=37 "Built target update_mappings"
 .PHONY : dep/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
 dep/glfw/src/CMakeFiles/update_mappings.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dep/glfw/src/CMakeFiles/update_mappings.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Casa_V2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles 0
 .PHONY : dep/glfw/src/CMakeFiles/update_mappings.dir/rule
 
 # Convenience name for target.

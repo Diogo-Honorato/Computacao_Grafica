@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "/home/diogo/Documentos/uni/CG/Casa_V2/build/dep/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/diogo/Documentos/uni/CG/Casa_V2/build/dep/glfw/install_manifest.txt\"")
+if (NOT EXISTS "/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "/home/diogo/Documentos/uni/CG/Casa_V2/build/dep/glfw/install_manifest.txt" files)
+file(READ "/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})
