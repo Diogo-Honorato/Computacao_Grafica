@@ -3,7 +3,7 @@ CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -21,9 +21,6 @@ CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/type_ptr.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/../gtc/quaternion.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/../gtc/../gtc/constants.hpp \
@@ -377,6 +374,9 @@ CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/iostream \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/glm.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/_fixes.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
@@ -397,7 +397,4 @@ CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/type_half.inl \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/integer.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl \
- /usr/include/c++/11/optional /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h \
- /usr/include/c++/11/bits/enable_special_members.h
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl

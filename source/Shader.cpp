@@ -58,6 +58,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
 }
 
 Shader::~Shader(){
+    std::cout << "PUTA\n";
     glDeleteProgram(shaderID);
 }
 
@@ -113,7 +114,14 @@ void Shader::setMat3(const std::string &name, const glm::mat3 &mat) const {
 }
 
 void Shader::setMat4(const std::string &name, const glm::mat4 &mat) const {
-    glUniformMatrix4fv(glGetUniformLocation(shaderID, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
+    
+    GLint loc = glGetUniformLocation(shaderID, name.c_str());
+    if (loc == -1) {
+        std::cout << "[WARN] Uniform '" << name << "' not found or not used in shader." << std::endl;
+    }
+   
+    glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(mat));
+    
 }
 
 unsigned int Shader::getShaderID() {

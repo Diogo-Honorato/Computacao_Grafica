@@ -18,9 +18,11 @@ int main()
         return -1;
     }
 
-    
     std::vector<std::unique_ptr<Shape>> Shapes;
-    Shapes.push_back(std::make_unique<Triangle>());
+    Shapes.push_back(std::make_unique<Triangle>("../shader/shaders_casa/vertex/vertex_casa.vs","../shader/basic_shaders/fragment/basic_triangle.fs"));
+
+    glm::mat4 trans = glm::mat4(1.0f);
+    trans = glm::translate(trans,glm::vec3(0.5f,-0.5f,0.0));
 
 
 
@@ -36,6 +38,8 @@ int main()
         // Desenha Shapes
         for (auto &Shape : Shapes)
         {
+            Shape->getShader().useShaders();
+            Shape->getShader().setMat4("transform",trans);
             Shape->desenhar();
         }
 

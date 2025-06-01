@@ -7,7 +7,7 @@
 #include "EBO.hpp"
 #include "Shader.hpp"
 #include "../dep/glm/glm.hpp"
-#include <optional>
+
 
 class Triangle : public Shape {
 private:
@@ -18,11 +18,11 @@ private:
 
 public:
     Triangle();
-    Triangle(const Shader& customShader);
+    Triangle(const char* vertexPath, const char* fragmentPath);
     ~Triangle();
 
     void desenhar() override;
-    Shader getShader();
+    Shader& getShader() override;
 };
 
 #endif

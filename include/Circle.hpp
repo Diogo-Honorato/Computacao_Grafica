@@ -8,7 +8,6 @@
 #include "EBO.hpp"
 #include <vector>
 #include "../dep/glm/glm.hpp"
-#include <optional>
 
 class Circle : public Shape {
 private:
@@ -27,7 +26,7 @@ public:
     ~Circle();
 
     void desenhar() override;
-    Shader getShader();
+    Shader& getShader();
 };
 
 #endif

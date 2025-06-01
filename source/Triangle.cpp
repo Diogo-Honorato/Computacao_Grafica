@@ -21,7 +21,7 @@ Triangle::Triangle(): shader("../shader/basic_shaders/vertex/basic_triangle.vs",
     vao.Unbind();
 }
 
-Triangle::Triangle(const Shader& customShader): shader(customShader){
+Triangle::Triangle(const char* vertexPath, const char* fragmentPath): shader(vertexPath,fragmentPath){
     vao.Bind();
     vbo = new VBO(vertices, sizeof(vertices));
     ebo = new EBO(indices, sizeof(indices));
@@ -39,13 +39,11 @@ Triangle::~Triangle() {
 
 void Triangle::desenhar() {
     
-    shader.useShaders();
-
     vao.Bind();
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }
 
-Shader Triangle::getShader(){
+Shader& Triangle::getShader(){
     return shader;
 }

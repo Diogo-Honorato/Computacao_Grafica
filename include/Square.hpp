@@ -7,7 +7,6 @@
 #include "VBO.hpp"
 #include "EBO.hpp"
 #include "../dep/glm/glm.hpp"
-#include <optional>
 
 class Square : public Shape {
 private:
@@ -22,7 +21,7 @@ public:
     ~Square();
 
     void desenhar() override;
-    Shader getShader();
+    Shader& getShader();
 };
 
 #endif

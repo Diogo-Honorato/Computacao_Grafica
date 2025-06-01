@@ -48,12 +48,11 @@ void Circle::generateCircle(float radius, int segments) {
 }
 
 void Circle::desenhar() {
-    shader.useShaders();
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }
 
-Shader Circle::getShader(){
+Shader& Circle::getShader(){
     return shader;
 }

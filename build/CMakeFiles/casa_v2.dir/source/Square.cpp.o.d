@@ -397,7 +397,4 @@ CMakeFiles/casa_v2.dir/source/Square.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/type_half.inl \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/integer.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl \
- /usr/include/c++/11/optional /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h \
- /usr/include/c++/11/bits/enable_special_members.h
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl
