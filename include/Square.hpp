@@ -17,7 +17,7 @@ private:
 
 public:
     Square();
-    Square(const Shader& customShader);
+    Square(const char* vertexPath, const char* fragmentPath);
     ~Square();
 
     void desenhar() override;

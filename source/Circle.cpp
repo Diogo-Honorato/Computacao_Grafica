@@ -12,7 +12,7 @@ Circle::Circle() : shader("../shader/basic_shaders/vertex/basic_circle.vs", "../
     vao.Unbind();
 }
 
-Circle::Circle(const Shader& customShader) : shader(customShader) {
+Circle::Circle(const char* vertexPath, const char* fragmentPath): shader(vertexPath,fragmentPath) {
     generateCircle(0.5f, 50);
     vao.Bind();
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));

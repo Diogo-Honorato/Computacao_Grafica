@@ -22,7 +22,7 @@ private:
 
 public:
     Circle();
-    Circle(const Shader& customShader);
+    Circle(const char* vertexPath, const char* fragmentPath);
     ~Circle();
 
     void desenhar() override;

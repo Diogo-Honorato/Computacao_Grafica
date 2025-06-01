@@ -23,7 +23,7 @@ Square::Square() : shader("../shader/basic_shaders/vertex/basic_square.vs", "../
     vao.Unbind();
 }
 
-Square::Square(const Shader& customShader) : shader(customShader) {
+Square::Square(const char* vertexPath, const char* fragmentPath): shader(vertexPath,fragmentPath) {
     vao.Bind();
     vbo = new VBO(squareVertices, sizeof(squareVertices));
     ebo = new EBO(squareIndices, sizeof(squareIndices));

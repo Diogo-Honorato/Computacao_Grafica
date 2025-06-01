@@ -19,7 +19,10 @@ int main()
     }
 
     std::vector<std::unique_ptr<Shape>> Shapes;
-    Shapes.push_back(std::make_unique<Triangle>("../shader/shaders_casa/vertex/vertex_casa.vs","../shader/basic_shaders/fragment/basic_triangle.fs"));
+    Shapes.push_back(std::make_unique<Triangle>(
+        "../shader/shaders_casa/vertex/vertex_casa.vs",
+        "../shader/basic_shaders/fragment/basic_triangle.fs"
+    ));
 
     glm::mat4 trans = glm::mat4(1.0f);
     trans = glm::translate(trans,glm::vec3(0.5f,-0.5f,0.0));
