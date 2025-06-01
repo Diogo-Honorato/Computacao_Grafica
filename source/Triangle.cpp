@@ -37,9 +37,18 @@ Triangle::~Triangle() {
     delete ebo;
 }
 
+void Triangle::setModelMatrix(const glm::mat4& model) {
+    modelMatrix = model;
+}
+
 void Triangle::desenhar() {
     
     shader.useShaders();
+
+    if (modelMatrix.has_value()) {
+        shader.setMat4("model", modelMatrix.value());
+    }
+
     vao.Bind();
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
     vao.Unbind();

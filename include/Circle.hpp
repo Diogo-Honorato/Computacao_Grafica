@@ -7,6 +7,8 @@
 #include "VBO.hpp"
 #include "EBO.hpp"
 #include <vector>
+#include "../dep/glm/glm.hpp"
+#include <optional>
 
 class Circle : public Shape {
 private:
@@ -16,6 +18,7 @@ private:
     Shader shader;
     std::vector<float> vertices;
     std::vector<GLuint> indices;
+    std::optional<glm::mat4> modelMatrix;
 
     void generateCircle(float radius, int segments);
 
@@ -23,6 +26,8 @@ public:
     Circle();
     Circle(const Shader& customShader);
     ~Circle();
+
+    void setModelMatrix(const glm::mat4& model);
     void desenhar() override;
 };
 

@@ -428,8 +428,6 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/glm.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/_fixes.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
@@ -442,4 +440,8 @@ CMakeFiles/casa_v2.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/type_half.inl \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/integer.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl \
+ /usr/include/c++/11/optional \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp

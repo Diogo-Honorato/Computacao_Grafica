@@ -39,8 +39,19 @@ Square::~Square() {
     delete ebo;
 }
 
+void Square::setModelMatrix(const glm::mat4& model){
+    
+    modelMatrix = model;
+}
+
 void Square::desenhar() {
+
     shader.useShaders();
+
+    if (modelMatrix.has_value()) {
+        shader.setMat4("model", modelMatrix.value());
+    }
+
     vao.Bind();
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     vao.Unbind();
