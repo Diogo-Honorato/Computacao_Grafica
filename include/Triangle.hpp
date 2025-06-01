@@ -15,15 +15,14 @@ private:
     VBO* vbo;
     EBO* ebo;
     Shader shader;
-    std::optional<glm::mat4> modelMatrix;
 
 public:
     Triangle();
     Triangle(const Shader& customShader);
     ~Triangle();
 
-    void setModelMatrix(const glm::mat4& model);
     void desenhar() override;
+    Shader getShader();
 };
 
 #endif

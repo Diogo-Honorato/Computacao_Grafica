@@ -20,10 +20,6 @@ int main()
 
     
     std::vector<std::unique_ptr<Shape>> Shapes;
-
-
-
-    Shapes.push_back(std::make_unique<Circle>());
     Shapes.push_back(std::make_unique<Triangle>());
 
 

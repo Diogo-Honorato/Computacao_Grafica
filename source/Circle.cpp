@@ -47,18 +47,13 @@ void Circle::generateCircle(float radius, int segments) {
     }
 }
 
-void Circle::setModelMatrix(const glm::mat4& model) {
-    modelMatrix = model;
-}
-
 void Circle::desenhar() {
     shader.useShaders();
-
-    if (modelMatrix.has_value()) {
-        shader.setMat4("model", modelMatrix.value());
-    }
-
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     vao.Unbind();
+}
+
+Shader Circle::getShader(){
+    return shader;
 }
