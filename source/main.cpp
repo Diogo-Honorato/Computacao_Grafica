@@ -19,14 +19,31 @@ int main()
     }
 
     std::vector<std::unique_ptr<Shape>> Shapes;
+    std::vector<glm::mat4> matrices;
+
+    //triangle
     Shapes.push_back(std::make_unique<Triangle>(
-        "../shader/shaders_casa/vertex/vertex_casa.vs",
+        "../shader/shaders_casa/vertex/vertex_triangle.vs",
         "../shader/basic_shaders/fragment/basic_triangle.fs"
     ));
 
-    glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::translate(trans,glm::vec3(0.5f,-0.5f,0.0));
+    glm::mat4 trans_triangle = glm::mat4(1.0f);
+    trans_triangle = glm::translate(trans_triangle,glm::vec3(-0.5f,0.0f,0.0));
+    
+    matrices.push_back(trans_triangle);
+    //////////////////////////////////////////////////////////////////
 
+    //square
+    Shapes.push_back(std::make_unique<Square>(
+        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/fragment/basic_square.fs"
+    ));
+
+    glm::mat4 trans_square = glm::mat4(1.0f);
+    trans_square = glm::translate(trans_square,glm::vec3(-0.5f,-0.5f,0.0));
+
+    matrices.push_back(trans_square);
+    //////////////////////////////////////////////////////////////////
 
 
     // Loop principal de renderização
@@ -39,11 +56,13 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Desenha Shapes
-        for (auto &Shape : Shapes)
+        for (size_t i = 0; i < Shapes.size(); i++)
         {
-            Shape->getShader().useShaders();
-            Shape->getShader().setMat4("transform",trans);
-            Shape->desenhar();
+            Shapes[i]->getShader().useShaders();
+
+            Shapes[i]->getShader().setMat4("transform",matrices[i]);
+            
+            Shapes[i]->desenhar();
         }
 
         // Troca buffers e trata eventos

@@ -58,7 +58,6 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
 }
 
 Shader::~Shader(){
-    std::cout << "PUTA\n";
     glDeleteProgram(shaderID);
 }
 
