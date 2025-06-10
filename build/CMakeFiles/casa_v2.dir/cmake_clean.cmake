@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/casa_v2.dir/source/Circle.cpp.o.d"
   "CMakeFiles/casa_v2.dir/source/EBO.cpp.o"
   "CMakeFiles/casa_v2.dir/source/EBO.cpp.o.d"
+  "CMakeFiles/casa_v2.dir/source/Home.cpp.o"
+  "CMakeFiles/casa_v2.dir/source/Home.cpp.o.d"
   "CMakeFiles/casa_v2.dir/source/Shader.cpp.o"
   "CMakeFiles/casa_v2.dir/source/Shader.cpp.o.d"
   "CMakeFiles/casa_v2.dir/source/Square.cpp.o"

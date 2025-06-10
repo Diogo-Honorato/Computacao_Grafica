@@ -298,6 +298,30 @@ source/EBO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/source/EBO.cpp.s
 .PHONY : source/EBO.cpp.s
 
+source/Home.o: source/Home.cpp.o
+.PHONY : source/Home.o
+
+# target to build an object file
+source/Home.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/source/Home.cpp.o
+.PHONY : source/Home.cpp.o
+
+source/Home.i: source/Home.cpp.i
+.PHONY : source/Home.i
+
+# target to preprocess a source file
+source/Home.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/source/Home.cpp.i
+.PHONY : source/Home.cpp.i
+
+source/Home.s: source/Home.cpp.s
+.PHONY : source/Home.s
+
+# target to generate assembly for a file
+source/Home.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/casa_v2.dir/build.make CMakeFiles/casa_v2.dir/source/Home.cpp.s
+.PHONY : source/Home.cpp.s
+
 source/Shader.o: source/Shader.cpp.o
 .PHONY : source/Shader.o
 
@@ -492,6 +516,9 @@ help:
 	@echo "... source/EBO.o"
 	@echo "... source/EBO.i"
 	@echo "... source/EBO.s"
+	@echo "... source/Home.o"
+	@echo "... source/Home.i"
+	@echo "... source/Home.s"
 	@echo "... source/Shader.o"
 	@echo "... source/Shader.i"
 	@echo "... source/Shader.s"
