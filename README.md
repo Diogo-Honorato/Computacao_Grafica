@@ -1,10 +1,6 @@
 # Computacao_Grafica
 Repositório destinado para códigos de computação gráfica. 
 
-# casa_v2
-
-Projeto em C++ de computação gráfica que renderiza uma casa usando OpenGL 3.3 Core Profile, organizado com CMake.
-
 ## <h2 id=3>Requisitos</h2>
 
 - Linux
@@ -33,3 +29,7 @@ Para executar as modificações feitas no código será preciso [compila-lo](3) 
 
 ## Dependências
 Dependências já inclusas. Código testado em Linux.
+
+## Projetos prontos
+-casa_v2:
+Projeto que renderiza uma casa no centro da tela.
