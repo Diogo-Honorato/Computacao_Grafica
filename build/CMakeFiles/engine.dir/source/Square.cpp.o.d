@@ -1,7 +1,7 @@
-CMakeFiles/casa_v2.dir/source/Triangle.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Triangle.cpp \
+CMakeFiles/engine.dir/source/Square.cpp.o: \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Square.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \

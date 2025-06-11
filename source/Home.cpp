@@ -17,7 +17,7 @@ void Home::buildWalls(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &ShapeR
 {
 
     // square wall left
-    ShapeL = std::make_unique<Square>("../shader/shaders_casa/vertex/vertex_square.vs",
+    ShapeL = std::make_unique<Square>("../shader/basic_shaders/vertex/basic_square.vs",
                     "../shader/basic_shaders/fragment/basic_square.fs");
     glm::mat4 trans_wall_left = glm::mat4(1.0f);
     trans_wall_left = glm::translate(trans_wall_left, glm::vec3(-0.3f, -0.5f, 0.0f));
@@ -27,7 +27,7 @@ void Home::buildWalls(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &ShapeR
 
     // square wall right
     ShapeR = std::make_unique<Square>(
-        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/vertex/basic_square.vs",
         "../shader/basic_shaders/fragment/basic_square.fs");
 
     glm::mat4 trans_wall_right = glm::mat4(1.0f);
@@ -43,7 +43,7 @@ void Home::buildDoor(glm::mat4 &m,std::unique_ptr<Shape> &Shape){
 
     // square door
     Shape = std::make_unique<Square>(
-        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/vertex/basic_square.vs",
         "../shader/shaders_casa/fragment/fragment_door.fs");
 
     glm::mat4 trans_door = glm::mat4(1.0f);
@@ -57,7 +57,7 @@ void Home::buildWindows(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &Shap
 {
     // square window left
     ShapeL = std::make_unique<Square>(
-        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/vertex/basic_square.vs",
         "../shader/shaders_casa/fragment/fragment_window.fs");
 
     glm::mat4 trans_window_left = glm::mat4(1.0f);
@@ -70,7 +70,7 @@ void Home::buildWindows(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &Shap
 
     // square window right
     ShapeR = std::make_unique<Square>(
-        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/vertex/basic_square.vs",
         "../shader/shaders_casa/fragment/fragment_window.fs");
 
     glm::mat4 trans_window_right = glm::mat4(1.0f);
@@ -87,7 +87,7 @@ void Home::buildRoof(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 
     // square roof
     Shape = std::make_unique<Square>(
-        "../shader/shaders_casa/vertex/vertex_square.vs",
+        "../shader/basic_shaders/vertex/basic_square.vs",
         "../shader/shaders_casa/fragment/fragment_roof.fs");
 
     glm::mat4 trans_roof = glm::mat4(1.0f);
@@ -106,7 +106,7 @@ void Home::buildTriangle(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 
     // triangle
     Shape = std::make_unique<Triangle>(
-        "../shader/shaders_casa/vertex/vertex_triangle.vs",
+        "../shader/basic_shaders/vertex/basic_triangle.vs",
         "../shader/basic_shaders/fragment/basic_triangle.fs");
 
     glm::mat4 trans_triangle = glm::mat4(1.0f);
@@ -121,7 +121,7 @@ void Home::buildCircle(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 
     // circle
     Shape = std::make_unique<Circle>(
-        "../shader/shaders_casa/vertex/vertex_circle.vs",
+        "../shader/basic_shaders/vertex/basic_circle.vs",
         "../shader/basic_shaders/fragment/basic_circle.fs");
 
     glm::mat4 trans_circle = glm::mat4(1.0f);

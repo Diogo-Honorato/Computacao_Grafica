@@ -196,7 +196,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=casa_v2
+CMAKE_PROJECT_NAME:STATIC=engine
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0.0
@@ -547,13 +547,13 @@ X11_xkbfile_INCLUDE_PATH:PATH=X11_xkbfile_INCLUDE_PATH-NOTFOUND
 X11_xkbfile_LIB:FILEPATH=X11_xkbfile_LIB-NOTFOUND
 
 //Value Computed by CMake
-casa_v2_BINARY_DIR:STATIC=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build
+engine_BINARY_DIR:STATIC=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build
 
 //Value Computed by CMake
-casa_v2_IS_TOP_LEVEL:STATIC=ON
+engine_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-casa_v2_SOURCE_DIR:STATIC=/home/diogo/Documentos/uni/CG/Computacao_Grafica
+engine_SOURCE_DIR:STATIC=/home/diogo/Documentos/uni/CG/Computacao_Grafica
 
 
 ########################

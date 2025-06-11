@@ -25,7 +25,7 @@ make
 ## Como executar
 
 ```bash
-./casa_v2
+./engine
 ```
 
 Dependências já inclusas. Código testado em Linux.

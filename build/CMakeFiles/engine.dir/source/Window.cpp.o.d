@@ -1,4 +1,4 @@
-CMakeFiles/casa_v2.dir/source/Window.cpp.o: \
+CMakeFiles/engine.dir/source/Window.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Window.cpp \
  /usr/include/stdc-predef.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Window.hpp \

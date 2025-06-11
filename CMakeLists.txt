@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(casa_v2 VERSION 1.0.0)
+project(engine VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -15,11 +15,11 @@ add_subdirectory(dep/glfw)
 file(GLOB SOURCES "source/*.cpp")
 
 #Executable
-add_executable(casa_v2 ${SOURCES})
+add_executable(engine ${SOURCES})
 
 #INCLUDES
 target_include_directories(
-    casa_v2 PRIVATE  
+    engine PRIVATE  
     include 
     dep/glad/include 
     dep/glfw/include
@@ -27,5 +27,5 @@ target_include_directories(
 )
 
 #LINK
-target_link_libraries(casa_v2 PRIVATE glad glfw)
+target_link_libraries(engine PRIVATE glad glfw)
 

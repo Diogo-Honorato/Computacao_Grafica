@@ -1,7 +1,7 @@
-CMakeFiles/casa_v2.dir/source/VAO.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VAO.cpp \
+CMakeFiles/engine.dir/source/VBO.cpp.o: \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/VBO.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
