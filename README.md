@@ -25,7 +25,7 @@ make
 ```
 
 ## Edição
-Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#requisitos) novamente.
+Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#como-compilar) novamente.
 
 ## Dependências
 Dependências já inclusas. Código testado em Linux.
