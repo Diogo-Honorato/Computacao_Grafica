@@ -1,7 +1,7 @@
 # Computacao_Grafica
 Repositório destinado para códigos de computação gráfica. 
 
-## <h2 id="Requisitos">Requisitos</h2>
+## Requisitos
 
 - Linux
 - C++23 compatível
@@ -25,7 +25,7 @@ make
 ```
 
 ## Edição
-Para executar modificações feitas no código será preciso [compila-lo]("Requisitos") novamente.
+Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#requisitos) novamente.
 
 ## Dependências
 Dependências já inclusas. Código testado em Linux.
@@ -43,7 +43,7 @@ Exemplo.:
 
 int main()
 {
-    ...código anterior criando janela
+    //...código anterior criando janela
 
     {
         Home home;
