@@ -274,6 +274,30 @@ source/Circle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Circle.cpp.s
 .PHONY : source/Circle.cpp.s
 
+source/Cube.o: source/Cube.cpp.o
+.PHONY : source/Cube.o
+
+# target to build an object file
+source/Cube.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Cube.cpp.o
+.PHONY : source/Cube.cpp.o
+
+source/Cube.i: source/Cube.cpp.i
+.PHONY : source/Cube.i
+
+# target to preprocess a source file
+source/Cube.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Cube.cpp.i
+.PHONY : source/Cube.cpp.i
+
+source/Cube.s: source/Cube.cpp.s
+.PHONY : source/Cube.s
+
+# target to generate assembly for a file
+source/Cube.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Cube.cpp.s
+.PHONY : source/Cube.cpp.s
+
 source/EBO.o: source/EBO.cpp.o
 .PHONY : source/EBO.o
 
@@ -345,6 +369,30 @@ source/Shader.s: source/Shader.cpp.s
 source/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Shader.cpp.s
 .PHONY : source/Shader.cpp.s
+
+source/Shape.o: source/Shape.cpp.o
+.PHONY : source/Shape.o
+
+# target to build an object file
+source/Shape.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Shape.cpp.o
+.PHONY : source/Shape.cpp.o
+
+source/Shape.i: source/Shape.cpp.i
+.PHONY : source/Shape.i
+
+# target to preprocess a source file
+source/Shape.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Shape.cpp.i
+.PHONY : source/Shape.cpp.i
+
+source/Shape.s: source/Shape.cpp.s
+.PHONY : source/Shape.s
+
+# target to generate assembly for a file
+source/Shape.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Shape.cpp.s
+.PHONY : source/Shape.cpp.s
 
 source/Square.o: source/Square.cpp.o
 .PHONY : source/Square.o
@@ -513,6 +561,9 @@ help:
 	@echo "... source/Circle.o"
 	@echo "... source/Circle.i"
 	@echo "... source/Circle.s"
+	@echo "... source/Cube.o"
+	@echo "... source/Cube.i"
+	@echo "... source/Cube.s"
 	@echo "... source/EBO.o"
 	@echo "... source/EBO.i"
 	@echo "... source/EBO.s"
@@ -522,6 +573,9 @@ help:
 	@echo "... source/Shader.o"
 	@echo "... source/Shader.i"
 	@echo "... source/Shader.s"
+	@echo "... source/Shape.o"
+	@echo "... source/Shape.i"
+	@echo "... source/Shape.s"
 	@echo "... source/Square.o"
 	@echo "... source/Square.i"
 	@echo "... source/Square.s"

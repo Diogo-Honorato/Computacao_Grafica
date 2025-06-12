@@ -22,7 +22,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     {
-        Square sq("../shader/basic_shaders/vertex/basic_square.vs", "../shader/basic_shaders/fragment/basic_square.fs");
+        Cube cube;
         
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection;
@@ -40,17 +40,16 @@ int main()
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             
             glm::mat4 model = glm::mat4(1.0f);
+            model = glm::rotate(model,(float)glfwGetTime() * glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model,(float)glfwGetTime() * glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-            model = glm::rotate(model,(float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::rotate(model,(float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
+            cube.getShader().useShaders();
 
-            sq.getShader().useShaders();
+            cube.getShader().setMat4("model",model);
+            cube.getShader().setMat4("view",view);
+            cube.getShader().setMat4("projection",projection);
 
-            sq.getShader().setMat4("model",model);
-            sq.getShader().setMat4("view",view);
-            sq.getShader().setMat4("projection",projection);
-
-            sq.desenhar();
+            cube.desenhar();
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);

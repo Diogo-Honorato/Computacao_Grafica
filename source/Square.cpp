@@ -1,65 +1,29 @@
 #include "../include/Square.hpp"
 
-// float squareVertices[] = {
-//     -0.5f, -0.5f, 0.0f,
-//      0.5f, -0.5f, 0.0f,
-//      0.5f,  0.5f, 0.0f,
-//     -0.5f,  0.5f, 0.0f
-// };
-
-float squareVertices[] = {
-    -0.5f, -0.5f, -0.5f,
-     0.5f, -0.5f, -0.5f,
-     0.5f,  0.5f, -0.5f,
-     0.5f,  0.5f, -0.5f,
-
-    -0.5f,  0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
-    -0.5f, -0.5f,  0.5f,
-     0.5f, -0.5f,  0.5f,
-
-     0.5f,  0.5f,  0.5f,
-     0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
-    -0.5f, -0.5f,  0.5f,
-
-    -0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
-
-    -0.5f, -0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
-     0.5f,  0.5f,  0.5f,
-     0.5f,  0.5f, -0.5f,
-
-     0.5f, -0.5f, -0.5f,
-     0.5f, -0.5f, -0.5f,
-     0.5f, -0.5f,  0.5f,
-     0.5f,  0.5f,  0.5f,
-
-    -0.5f, -0.5f, -0.5f,
-     0.5f, -0.5f, -0.5f,
-     0.5f, -0.5f,  0.5f,
-     0.5f, -0.5f,  0.5f,
-
-    -0.5f, -0.5f,  0.5f,
-    -0.5f, -0.5f, -0.5f,
-    -0.5f,  0.5f, -0.5f,
-     0.5f,  0.5f, -0.5f,
-     
-     0.5f,  0.5f,  0.5f,
-     0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f, -0.5f
+static float squareVertices[] = {
+    -0.5f, -0.5f, 0.0f,
+     0.5f, -0.5f, 0.0f,
+     0.5f,  0.5f, 0.0f,
+    -0.5f,  0.5f, 0.0f
 };
 
-GLuint squareIndices[] = {
+static GLuint squareIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
 
-Square::Square() : shader("../shader/basic_shaders/vertex/basic_square.vs", "../shader/basic_shaders/fragment/basic_square.fs") {
+Square::Square()
+    : Shape("../shader/basic_shaders/vertex/basic_square.vs", 
+            "../shader/basic_shaders/fragment/basic_square.fs") {
+    setup();
+}
+
+Square::Square(const char* vertexPath, const char* fragmentPath)
+    : Shape(vertexPath, fragmentPath) {
+    setup();
+}
+
+void Square::setup() {
     vao.Bind();
     vbo = new VBO(squareVertices, sizeof(squareVertices));
     ebo = new EBO(squareIndices, sizeof(squareIndices));
@@ -68,32 +32,10 @@ Square::Square() : shader("../shader/basic_shaders/vertex/basic_square.vs", "../
     glEnableVertexAttribArray(0);
 
     vao.Unbind();
-}
-
-Square::Square(const char* vertexPath, const char* fragmentPath): shader(vertexPath,fragmentPath) {
-    vao.Bind();
-    vbo = new VBO(squareVertices, sizeof(squareVertices));
-    ebo = new EBO(squareIndices, sizeof(squareIndices));
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    vao.Unbind();
-}
-
-Square::~Square() {
-    delete vbo;
-    delete ebo;
 }
 
 void Square::desenhar() {
-
     vao.Bind();
-    //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    glDrawArrays(GL_TRIANGLES,0,36);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     vao.Unbind();
-}
-
-Shader& Square::getShader(){
-    return shader;
 }

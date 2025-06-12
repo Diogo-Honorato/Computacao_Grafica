@@ -1,7 +1,7 @@
 # Computacao_Grafica
 Repositório destinado para códigos de computação gráfica. 
 
-## <h2 id=3>Requisitos</h2>
+## <h2 id="Requisitos">Requisitos</h2>
 
 - Linux
 - C++23 compatível
@@ -25,11 +25,46 @@ make
 ```
 
 ## Edição
-Para executar as modificações feitas no código será preciso [compila-lo](3) novamente.
+Para executar modificações feitas no código será preciso [compila-lo]("Requisitos") novamente.
 
 ## Dependências
 Dependências já inclusas. Código testado em Linux.
 
-## Projetos prontos
--casa_v2:
-Projeto que renderiza uma casa no centro da tela.
+## Projetos Prontos
+
+### casa_v2
+
+Projeto que renderiza uma casa no centro da tela. Basta adicionar a biblioteca **"../include/Home.hpp"** instânciar um objeto **Home** na main(), no  Loop principal de renderização chamar a função **drawHome()** do objeto Home.
+
+Exemplo.:
+
+```bash
+#include "../include/Home.hpp"
+
+int main()
+{
+    ...código anterior criando janela
+
+    {
+        Home home;
+
+        // Loop principal de renderização
+        while (!glfwWindowShouldClose(window))
+        {
+            processInput(window);
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
+            
+            home.drawHome();
+
+            glfwSwapBuffers(window);
+            glfwPollEvents();
+        }
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
+
+    return 0;
+}
+```

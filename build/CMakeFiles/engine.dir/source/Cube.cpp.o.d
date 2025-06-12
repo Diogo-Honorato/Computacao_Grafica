@@ -1,7 +1,7 @@
-CMakeFiles/engine.dir/source/Circle.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Circle.cpp \
+CMakeFiles/engine.dir/source/Cube.cpp.o: \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Cube.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
@@ -376,8 +376,4 @@ CMakeFiles/engine.dir/source/Circle.cpp.o: \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/iostream \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp
