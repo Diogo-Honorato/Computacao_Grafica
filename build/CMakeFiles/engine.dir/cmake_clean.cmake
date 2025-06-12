@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/source/Shader.cpp.o.d"
   "CMakeFiles/engine.dir/source/Shape.cpp.o"
   "CMakeFiles/engine.dir/source/Shape.cpp.o.d"
+  "CMakeFiles/engine.dir/source/Sphere.cpp.o"
+  "CMakeFiles/engine.dir/source/Sphere.cpp.o.d"
   "CMakeFiles/engine.dir/source/Square.cpp.o"
   "CMakeFiles/engine.dir/source/Square.cpp.o.d"
   "CMakeFiles/engine.dir/source/Triangle.cpp.o"

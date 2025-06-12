@@ -6,13 +6,13 @@ Circle::Circle() :
         "../shader/basic_shaders/fragment/basic_circle.fs") {
     
     generateCircle(0.5f, 50);
-   setup();
+    setup();
 }
 
-Circle::Circle(const char* vertexPath, const char* fragmentPath)
+Circle::Circle(float radius, int segments,const char* vertexPath, const char* fragmentPath)
     : Shape(vertexPath,fragmentPath) {
     
-    generateCircle(0.5f, 50);
+    generateCircle(radius, segments);
     setup();
 }
 

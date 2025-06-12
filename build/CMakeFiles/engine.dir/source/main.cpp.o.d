@@ -408,4 +408,5 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /usr/include/c++/11/bits/vector.tcc \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp

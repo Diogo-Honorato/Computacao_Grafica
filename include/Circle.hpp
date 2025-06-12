@@ -14,7 +14,7 @@ private:
 
 public:
     Circle();
-    Circle(const char* vertexPath, const char* fragmentPath);
+    Circle(float radius, int segments,const char* vertexPath, const char* fragmentPathconst);
 
     void desenhar() override;
     void setup() override;

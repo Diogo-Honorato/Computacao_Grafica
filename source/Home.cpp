@@ -17,8 +17,7 @@ void Home::buildWalls(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &ShapeR
 {
 
     // square wall left
-    ShapeL = std::make_unique<Square>("../shader/basic_shaders/vertex/basic_square.vs",
-                    "../shader/basic_shaders/fragment/basic_square.fs");
+    ShapeL = std::make_unique<Square>();
     glm::mat4 model_wall_left = glm::mat4(1.0f);
     model_wall_left = glm::translate(model_wall_left, glm::vec3(-0.3f, -0.5f, 0.0f));
     model_wall_left = glm::scale(model_wall_left, glm::vec3(0.65f, 0.65f, 0.0));
@@ -26,9 +25,7 @@ void Home::buildWalls(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &ShapeR
     ml = model_wall_left;
 
     // square wall right
-    ShapeR = std::make_unique<Square>(
-        "../shader/basic_shaders/vertex/basic_square.vs",
-        "../shader/basic_shaders/fragment/basic_square.fs");
+    ShapeR = std::make_unique<Square>();
 
     glm::mat4 model_wall_right = glm::mat4(1.0f);
     model_wall_right = glm::translate(model_wall_right, glm::vec3(0.337f, -0.4f, 0.0f));
@@ -105,9 +102,7 @@ void Home::buildTriangle(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 {
 
     // triangle
-    Shape = std::make_unique<Triangle>(
-        "../shader/basic_shaders/vertex/basic_triangle.vs",
-        "../shader/basic_shaders/fragment/basic_triangle.fs");
+    Shape = std::make_unique<Triangle>();
 
     glm::mat4 model_triangle = glm::mat4(1.0f);
     model_triangle = glm::translate(model_triangle, glm::vec3(-0.3f, 0.167f, 0.0f));
@@ -120,9 +115,7 @@ void Home::buildCircle(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 {
 
     // circle
-    Shape = std::make_unique<Circle>(
-        "../shader/basic_shaders/vertex/basic_circle.vs",
-        "../shader/basic_shaders/fragment/basic_circle.fs");
+    Shape = std::make_unique<Circle>();
 
     glm::mat4 model_circle = glm::mat4(1.0f);
     model_circle = glm::translate(model_circle, glm::vec3(-0.3f, 0.045f, 0.0));

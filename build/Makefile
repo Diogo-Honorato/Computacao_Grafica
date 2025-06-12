@@ -394,6 +394,30 @@ source/Shape.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Shape.cpp.s
 .PHONY : source/Shape.cpp.s
 
+source/Sphere.o: source/Sphere.cpp.o
+.PHONY : source/Sphere.o
+
+# target to build an object file
+source/Sphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Sphere.cpp.o
+.PHONY : source/Sphere.cpp.o
+
+source/Sphere.i: source/Sphere.cpp.i
+.PHONY : source/Sphere.i
+
+# target to preprocess a source file
+source/Sphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Sphere.cpp.i
+.PHONY : source/Sphere.cpp.i
+
+source/Sphere.s: source/Sphere.cpp.s
+.PHONY : source/Sphere.s
+
+# target to generate assembly for a file
+source/Sphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Sphere.cpp.s
+.PHONY : source/Sphere.cpp.s
+
 source/Square.o: source/Square.cpp.o
 .PHONY : source/Square.o
 
@@ -576,6 +600,9 @@ help:
 	@echo "... source/Shape.o"
 	@echo "... source/Shape.i"
 	@echo "... source/Shape.s"
+	@echo "... source/Sphere.o"
+	@echo "... source/Sphere.i"
+	@echo "... source/Sphere.s"
 	@echo "... source/Square.o"
 	@echo "... source/Square.i"
 	@echo "... source/Square.s"

@@ -67,4 +67,9 @@ int main()
 
     return 0;
 }
+
 ```
+## Créditos
+
+- Parte do código de geração de esfera foi baseada no trabalho de **Song Ho Ahn**:
+  - [OpenGL Sphere Tessellation](https://www.songho.ca/opengl/gl_sphere.html)

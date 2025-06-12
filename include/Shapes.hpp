@@ -5,5 +5,6 @@
 #include "Square.hpp"
 #include "Triangle.hpp"
 #include "Cube.hpp"
+#include "Sphere.hpp"
 
 #endif

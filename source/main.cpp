@@ -22,7 +22,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     {
-        Cube cube;
+        Sphere sphere;
         
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection;
@@ -43,13 +43,13 @@ int main()
             model = glm::rotate(model,(float)glfwGetTime() * glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
             model = glm::rotate(model,(float)glfwGetTime() * glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-            cube.getShader().useShaders();
+            sphere.getShader().useShaders();
 
-            cube.getShader().setMat4("model",model);
-            cube.getShader().setMat4("view",view);
-            cube.getShader().setMat4("projection",projection);
+            sphere.getShader().setMat4("model",model);
+            sphere.getShader().setMat4("view",view);
+            sphere.getShader().setMat4("projection",projection);
 
-            cube.desenhar();
+            sphere.desenhar();
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);
