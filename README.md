@@ -25,7 +25,7 @@ make
 ```
 
 ## Edição
-Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#como-compilar) novamente para assim poder apenas usar os comandos ```bash make && ./engine```.
+Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#como-compilar) novamente para assim poder apenas usar os comandos ```make && ./engine```.
 
 ## Dependências
 Dependências já inclusas. Código testado em Linux.
