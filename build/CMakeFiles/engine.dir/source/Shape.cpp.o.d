@@ -2,6 +2,7 @@ CMakeFiles/engine.dir/source/Shape.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shape.cpp \
  /usr/include/stdc-predef.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paths.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \

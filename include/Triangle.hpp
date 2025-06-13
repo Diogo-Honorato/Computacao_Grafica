@@ -5,8 +5,12 @@
 
 class Triangle : public Shape {
 public:
-    Triangle();
-    Triangle(const char* vertexPath, const char* fragmentPath);
+
+    Triangle(        
+        const char *vertexPath = DEFAULT_TRIANGLE_VERTEX,
+        const char *fragmentPath = DEFAULT_TRIANGLE_FRAGMENT
+    );
+
     void setup() override;
     void desenhar() override;
 };

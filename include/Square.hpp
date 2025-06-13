@@ -5,8 +5,12 @@
 
 class Square : public Shape {
 public:
-    Square();
-    Square(const char* vertexPath, const char* fragmentPath);
+
+    Square(        
+        const char *vertexPath = DEFAULT_SQUARE_VERTEX,
+        const char *fragmentPath = DEFAULT_SQUARE_FRAGMENT
+    );
+
     void setup() override;
     void desenhar() override;
 };

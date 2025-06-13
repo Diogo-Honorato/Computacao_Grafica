@@ -33,12 +33,6 @@ static GLuint cubeIndices[] = {
     4,5,1,1,0,4
 };
 
-Cube::Cube() 
-    : Shape("../shader/basic_shaders/vertex/basic_cube.vs", 
-            "../shader/basic_shaders/fragment/basic_cube.fs"){
-
-    setup();
-}
 
 Cube::Cube(const char* vertexPath, const char* fragmentPath) 
     : Shape(vertexPath, fragmentPath){

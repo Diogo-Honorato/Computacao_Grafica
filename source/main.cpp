@@ -1,12 +1,11 @@
 #include "../include/main.hpp"
 
 /*
-
-*Press key:
-    'esc' activates: Close window.
-    'w'   activates: glPolygonMode FILL.
-    'e'   activates: glPolygonMode LINE.
-    'r'   activates: glPolygonMode POINT.
+    Press key:
+        'esc' activates: Close window.
+        'w'   activates: glPolygonMode FILL.
+        'e'   activates: glPolygonMode LINE.
+        'r'   activates: glPolygonMode POINT.
 
 */
 
@@ -14,12 +13,10 @@ int main()
 {
     // Cria janela
     GLFWwindow *window = startWindow(WIN_WIDTH, WIN_HEIGHT, "Engine");
-    if (initializeOpenGL(window) == -1)
+    if (initializeOpenGL(window, true) == -1)
     {
         return -1;
     }
-
-    glEnable(GL_DEPTH_TEST);
 
     {
         Sphere sphere;
@@ -50,7 +47,7 @@ int main()
             sphere.getShader().setMat4("projection",projection);
 
             sphere.desenhar();
-
+            
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);
             glfwPollEvents();

@@ -1,6 +1,7 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
 
+#include "Paths.hpp"
 #include "Shader.hpp"
 #include "VAO.hpp"
 #include "VBO.hpp"

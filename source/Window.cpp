@@ -30,7 +30,7 @@ GLFWwindow *startWindow(int width, int height, const char *title)
         std::cerr << "Erro: Falha ao inicializar GLFW!" << std::endl;
         return nullptr;
     }
-
+    
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -52,7 +52,7 @@ GLFWwindow *startWindow(int width, int height, const char *title)
 }
 
 // Inicializa o carregamento das funções OpenGL com GLAD
-int initializeOpenGL(GLFWwindow *window)
+int initializeOpenGL(GLFWwindow *window, bool gl_depth_test)
 {
     if (window == nullptr) {
         std::cerr << "Erro: Ponteiro da janela é nulo." << std::endl;
@@ -63,6 +63,12 @@ int initializeOpenGL(GLFWwindow *window)
         std::cerr << "Erro: Falha ao inicializar GLAD." << std::endl;
         return -1;
     }
+
+    if(gl_depth_test){
+
+        glEnable(GL_DEPTH_TEST);
+    }
+    
 
     return 0;
 }

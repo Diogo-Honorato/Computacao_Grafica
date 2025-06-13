@@ -111,6 +111,7 @@ CMakeFiles/engine.dir/source/Sphere.cpp.o: \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paths.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \

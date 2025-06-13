@@ -12,12 +12,6 @@ static GLuint squareIndices[] = {
     2, 3, 0
 };
 
-Square::Square()
-    : Shape("../shader/basic_shaders/vertex/basic_square.vs", 
-            "../shader/basic_shaders/fragment/basic_square.fs") {
-    setup();
-}
-
 Square::Square(const char* vertexPath, const char* fragmentPath)
     : Shape(vertexPath, fragmentPath) {
     setup();

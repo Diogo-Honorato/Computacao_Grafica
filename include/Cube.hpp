@@ -6,8 +6,10 @@
 class Cube : public Shape{
 
 public:
-    Cube();
-    Cube(const char* vertexPath, const char* fragmentPath);
+    Cube(        
+        const char *vertexPath = DEFAULT_CUBE_VERTEX,
+        const char *fragmentPath = DEFAULT_CUBE_FRAGMENT
+    );
     void setup() override;
     void desenhar() override;
 };

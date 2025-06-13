@@ -341,6 +341,7 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shapes.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paths.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/type_ptr.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/../gtc/quaternion.hpp \

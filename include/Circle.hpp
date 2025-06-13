@@ -13,8 +13,11 @@ private:
     void generateCircle(float radius, int segments);
 
 public:
-    Circle();
-    Circle(float radius, int segments,const char* vertexPath, const char* fragmentPathconst);
+    Circle(
+        float radius = 0.5f, int segments= 50,
+        const char *vertexPath = DEFAULT_CIRCLE_VERTEX,
+        const char *fragmentPath = DEFAULT_CIRCLE_FRAGMENT
+    );
 
     void desenhar() override;
     void setup() override;

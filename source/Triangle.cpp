@@ -10,9 +10,6 @@ GLuint triangleIndices[] = {
     0, 1, 2
 };
 
-Triangle::Triangle() : Shape("../shader/basic_shaders/vertex/basic_triangle.vs", "../shader/basic_shaders/fragment/basic_triangle.fs") {
-    setup();
-}
 
 Triangle::Triangle(const char* vertexPath, const char* fragmentPath) : Shape(vertexPath, fragmentPath) {
     setup();

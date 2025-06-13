@@ -11,6 +11,6 @@
 void processInput(GLFWwindow *window);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 GLFWwindow *startWindow(int width, int height, const char *title);
-int initializeOpenGL(GLFWwindow *window);
+int initializeOpenGL(GLFWwindow *window,bool gl_depth_test);
 
 #endif

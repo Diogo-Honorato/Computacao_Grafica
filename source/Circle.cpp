@@ -1,13 +1,6 @@
 #include "../include/Circle.hpp"
 #include <cmath>
 
-Circle::Circle() : 
-    Shape("../shader/basic_shaders/vertex/basic_circle.vs", 
-        "../shader/basic_shaders/fragment/basic_circle.fs") {
-    
-    generateCircle(0.5f, 50);
-    setup();
-}
 
 Circle::Circle(float radius, int segments,const char* vertexPath, const char* fragmentPath)
     : Shape(vertexPath,fragmentPath) {

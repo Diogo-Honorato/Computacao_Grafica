@@ -14,13 +14,16 @@ class Sphere : public Shape{
 
 private:
     std::vector<float> verticeAttribs;
-    std::vector<unsigned int> indices;
+    std::vector<GLuint> indices;
 
     void generateSphere(float radius, int slices, int stacks);
 
 public:
-    Sphere();
-    Sphere(float radius, int slices, int stacks,const char* vertexPath, const char* fragmentPath);
+    Sphere(
+        float radius = 1.0f, int slices = 36, int stacks = 18,
+        const char *vertexPath = DEFAULT_SPHERE_VERTEX,
+        const char *fragmentPath = DEFAULT_SPHERE_FRAGMENT
+    );
     void desenhar() override;
     void setup() override;
 };

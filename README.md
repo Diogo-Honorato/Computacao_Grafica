@@ -34,16 +34,22 @@ Dependências já inclusas. Código testado em Linux.
 
 ### casa_v2
 
-Projeto que renderiza uma casa no centro da tela. Basta adicionar a biblioteca **"../include/Home.hpp"** instânciar um objeto **Home** na main(), no  Loop principal de renderização chamar a função **drawHome()** do objeto Home.
+Projeto que renderiza uma casa no centro da tela. 
 
-Exemplo.:
+Definir ```false``` no segundo argumento da função ```initializeOpenGL()```, adicionar a biblioteca **"../include/Home.hpp"** instânciar um objeto **Home** na main(), no  Loop principal de renderização chamar a função **drawHome()** do objeto Home.
+
+deve se parecer com isso:
 
 ```bash
 #include "../include/Home.hpp"
 
 int main()
 {
-    //...código anterior criando janela
+    GLFWwindow *window = startWindow(WIN_WIDTH, WIN_HEIGHT, "Engine");
+    if (initializeOpenGL(window, false) == -1)
+    {
+        return -1;
+    }
 
     {
         Home home;
@@ -53,7 +59,7 @@ int main()
         {
             processInput(window);
             glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             
             home.drawHome();
 

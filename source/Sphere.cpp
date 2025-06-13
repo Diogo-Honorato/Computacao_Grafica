@@ -5,14 +5,8 @@
 
 #include "../include/Sphere.hpp"
 
-Sphere::Sphere():Shape("../shader/basic_shaders/vertex/basic_sphere.vs","../shader/basic_shaders/fragment/basic_sphere.fs"){
+Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath,const char *fragmentPath):Shape(vertexPath,fragmentPath){
     
-    generateSphere(1.0f,36,18);
-    setup();
-}
-
-Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath, const char *fragmentPath): Shape(vertexPath, fragmentPath)
-{
     generateSphere(radius,slices,stacks);
     setup();
 }
