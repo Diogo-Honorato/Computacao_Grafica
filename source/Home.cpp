@@ -40,8 +40,7 @@ void Home::buildDoor(glm::mat4 &m,std::unique_ptr<Shape> &Shape){
 
     // square door
     Shape = std::make_unique<Square>(
-        "../shader/basic_shaders/vertex/basic_square.vs",
-        "../shader/shaders_casa/fragment/fragment_door.fs");
+        DEFAULT_SQUARE_VERTEX,"../shader/shaders_casa/fragment/fragment_door.fs");
 
     glm::mat4 model_door = glm::mat4(1.0f);
     model_door = glm::translate(model_door, glm::vec3(-0.3f, -0.6f, 0.0f));
@@ -54,8 +53,7 @@ void Home::buildWindows(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &Shap
 {
     // square window left
     ShapeL = std::make_unique<Square>(
-        "../shader/basic_shaders/vertex/basic_square.vs",
-        "../shader/shaders_casa/fragment/fragment_window.fs");
+        DEFAULT_SQUARE_VERTEX,"../shader/shaders_casa/fragment/fragment_window.fs");
 
     glm::mat4 model_window_left = glm::mat4(1.0f);
     model_window_left = glm::translate(model_window_left, glm::vec3(0.2f, -0.4f, 0.0f));
@@ -67,8 +65,7 @@ void Home::buildWindows(glm::mat4 &mr,glm::mat4 &ml,std::unique_ptr<Shape> &Shap
 
     // square window right
     ShapeR = std::make_unique<Square>(
-        "../shader/basic_shaders/vertex/basic_square.vs",
-        "../shader/shaders_casa/fragment/fragment_window.fs");
+        DEFAULT_SQUARE_VERTEX,"../shader/shaders_casa/fragment/fragment_window.fs");
 
     glm::mat4 model_window_right = glm::mat4(1.0f);
     model_window_right = glm::translate(model_window_right, glm::vec3(0.5f, -0.3f, 0.0f));
@@ -84,8 +81,7 @@ void Home::buildRoof(glm::mat4 &m,std::unique_ptr<Shape> &Shape)
 
     // square roof
     Shape = std::make_unique<Square>(
-        "../shader/basic_shaders/vertex/basic_square.vs",
-        "../shader/shaders_casa/fragment/fragment_roof.fs");
+        DEFAULT_SQUARE_VERTEX,"../shader/shaders_casa/fragment/fragment_roof.fs");
 
     glm::mat4 model_roof = glm::mat4(1.0f);
     model_roof = glm::translate(model_roof, glm::vec3(0.172f, 0.269f, 0.0f));
