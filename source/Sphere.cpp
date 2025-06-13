@@ -5,15 +5,14 @@
 
 #include "../include/Sphere.hpp"
 
-Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath,const char *fragmentPath):Shape(vertexPath,fragmentPath){
+Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath,const char *fragmentPath)
+:Shape(vertexPath,fragmentPath), radius(radius),slices(slices), stacks(stacks){
     
-    generateSphere(radius,slices,stacks);
     setup();
 }
 
-void Sphere::generateSphere(float radius, int slices, int stacks)
+void Sphere::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices)
 {
-
     const float PI = acos(-1.0f);
 
     float x, y, z, xy;                           // vertex position
@@ -30,8 +29,8 @@ void Sphere::generateSphere(float radius, int slices, int stacks)
         xy = radius * cosf(stackAngle);      // r * cos(u)
         z = radius * sinf(stackAngle);       // r * sin(u)
 
-        // add (slices+1) verticeAttribs per stack
-        // the first and last verticeAttribs have same position and normal, but different tex coords
+        // add (slices+1) vertices per stack
+        // the first and last vertices have same position and normal, but different tex coords
         for (int j = 0; j <= slices; ++j)
         {
             sliceAngle = j * sliceStep; // starting from 0 to 2pi
@@ -39,15 +38,15 @@ void Sphere::generateSphere(float radius, int slices, int stacks)
             // vertex position
             x = xy * cosf(sliceAngle); // r * cos(u) * cos(v)
             y = xy * sinf(sliceAngle); // r * cos(u) * sin(v)
-            verticeAttribs.push_back(x);
-            verticeAttribs.push_back(y);
-            verticeAttribs.push_back(z);
+            vertices.push_back(x);
+            vertices.push_back(y);
+            vertices.push_back(z);
 
             // vertex tex coord between [0, 1]
             // s = (float)j / slices;
             // t = (float)i / stacks;
-            // verticeAttribs.push_back(s);
-            // verticeAttribs.push_back(t);
+            // vertices.push_back(s);
+            // vertices.push_back(t);
         }
     }
 
@@ -84,9 +83,16 @@ void Sphere::generateSphere(float radius, int slices, int stacks)
 
 void Sphere::setup(){
 
+    std::vector<float> vertices;
+    std::vector<GLuint> indices;
+
+    generateMesh(vertices,indices);
+
+    indexCount = static_cast<GLsizei>(indices.size());
+
     vao.Bind();
 
-    vbo = new VBO(verticeAttribs.data(), verticeAttribs.size() * sizeof(float));
+    vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
     ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
@@ -97,6 +103,6 @@ void Sphere::setup(){
 
 void Sphere::desenhar() {
     vao.Bind();
-    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }

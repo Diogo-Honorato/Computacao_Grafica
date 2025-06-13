@@ -442,6 +442,30 @@ source/Square.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Square.cpp.s
 .PHONY : source/Square.cpp.s
 
+source/Texture.o: source/Texture.cpp.o
+.PHONY : source/Texture.o
+
+# target to build an object file
+source/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Texture.cpp.o
+.PHONY : source/Texture.cpp.o
+
+source/Texture.i: source/Texture.cpp.i
+.PHONY : source/Texture.i
+
+# target to preprocess a source file
+source/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Texture.cpp.i
+.PHONY : source/Texture.cpp.i
+
+source/Texture.s: source/Texture.cpp.s
+.PHONY : source/Texture.s
+
+# target to generate assembly for a file
+source/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Texture.cpp.s
+.PHONY : source/Texture.cpp.s
+
 source/Triangle.o: source/Triangle.cpp.o
 .PHONY : source/Triangle.o
 
@@ -606,6 +630,9 @@ help:
 	@echo "... source/Square.o"
 	@echo "... source/Square.i"
 	@echo "... source/Square.s"
+	@echo "... source/Texture.o"
+	@echo "... source/Texture.i"
+	@echo "... source/Texture.s"
 	@echo "... source/Triangle.o"
 	@echo "... source/Triangle.i"
 	@echo "... source/Triangle.s"

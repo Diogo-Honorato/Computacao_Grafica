@@ -11,6 +11,7 @@ public:
         const char *fragmentPath = DEFAULT_SQUARE_FRAGMENT
     );
 
+    void generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices) override;
     void setup() override;
     void desenhar() override;
 };

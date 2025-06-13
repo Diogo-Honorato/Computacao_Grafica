@@ -1,24 +1,35 @@
 #include "../include/Triangle.hpp"
 
-float triangleVertices[] = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.0f,  0.5f, 0.0f
-};
-
-GLuint triangleIndices[] = {
-    0, 1, 2
-};
-
-
 Triangle::Triangle(const char* vertexPath, const char* fragmentPath) : Shape(vertexPath, fragmentPath) {
     setup();
 }
 
+void Triangle::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices){
+
+    vertices = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f
+    };
+
+    indices = {
+        0, 1, 2
+    };
+}
+
 void Triangle::setup() {
+
+    std::vector<float>vertices;
+    std::vector<GLuint>indices;
+
+    generateMesh(vertices,indices);
+
+    indexCount = static_cast<GLsizei>(indices.size());
+
     vao.Bind();
-    vbo = new VBO(triangleVertices, sizeof(triangleVertices));
-    ebo = new EBO(triangleIndices, sizeof(triangleIndices));
+
+    vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
+    ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -27,6 +38,6 @@ void Triangle::setup() {
 
 void Triangle::desenhar() {
     vao.Bind();
-    glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }

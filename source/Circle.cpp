@@ -2,15 +2,15 @@
 #include <cmath>
 
 
-Circle::Circle(float radius, int segments,const char* vertexPath, const char* fragmentPath)
-    : Shape(vertexPath,fragmentPath) {
+Circle::Circle(float radius, int segments, const char* vertexPath, const char* fragmentPath)
+    : Shape(vertexPath, fragmentPath), radius(radius), segments(segments){
     
-    generateCircle(radius, segments);
     setup();
 }
 
 
-void Circle::generateCircle(float radius, int segments) {
+void Circle::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices){
+    
     vertices.push_back(0.0f); // x
     vertices.push_back(0.0f); // y
     vertices.push_back(0.0f); // z
@@ -31,6 +31,13 @@ void Circle::generateCircle(float radius, int segments) {
 
 void Circle::setup(){
 
+    std::vector<float> vertices;
+    std::vector<GLuint> indices;
+
+    generateMesh(vertices,indices);
+
+    indexCount = static_cast<GLsizei>(indices.size());
+
     vao.Bind();
 
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
@@ -44,6 +51,6 @@ void Circle::setup(){
 
 void Circle::desenhar() {
     vao.Bind();
-    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }

@@ -382,4 +382,5 @@ CMakeFiles/engine.dir/source/Sphere.cpp.o: \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/iostream \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VAO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/VBO.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Texture.hpp

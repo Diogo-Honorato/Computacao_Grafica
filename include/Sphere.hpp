@@ -19,10 +19,9 @@ Calculo:
 class Sphere : public Shape{
 
 private:
-    std::vector<float> verticeAttribs;
-    std::vector<GLuint> indices;
-
-    void generateSphere(float radius, int slices, int stacks);
+    float radius; 
+    int slices; 
+    int stacks;
 
 public:
     Sphere(
@@ -30,7 +29,9 @@ public:
         const char *vertexPath = DEFAULT_SPHERE_VERTEX,
         const char *fragmentPath = DEFAULT_SPHERE_FRAGMENT
     );
-    void desenhar() override;
+    
+    void generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices) override;
     void setup() override;
+    void desenhar() override;
 };
 #endif

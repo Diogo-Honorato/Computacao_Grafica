@@ -7,20 +7,19 @@
 class Circle : public Shape {
 
 private:
-    std::vector<float> vertices;
-    std::vector<GLuint> indices;
-
-    void generateCircle(float radius, int segments);
+    float radius;
+    int segments;
 
 public:
     Circle(
-        float radius = 0.5f, int segments= 50,
+        float radius = 0.5f, int segments = 50,
         const char *vertexPath = DEFAULT_CIRCLE_VERTEX,
         const char *fragmentPath = DEFAULT_CIRCLE_FRAGMENT
     );
 
-    void desenhar() override;
+    void generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices) override;
     void setup() override;
+    void desenhar() override;
 };
 
 #endif
