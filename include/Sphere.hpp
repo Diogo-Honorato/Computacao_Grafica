@@ -10,6 +10,12 @@
 #include <cmath>
 #include "Shape.hpp"
 
+/*
+Calculo:
+    total de indices:   slices * (stacks - 1) * 6
+    total de vertices:  (slices + 1) * (stacks + 1)
+    total de triangulos:(total de indices / 3)
+*/
 class Sphere : public Shape{
 
 private:
