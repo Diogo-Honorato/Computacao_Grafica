@@ -42,11 +42,10 @@ void Sphere::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& ind
             vertices.push_back(y);
             vertices.push_back(z);
 
-            // vertex tex coord between [0, 1]
-            // s = (float)j / slices;
-            // t = (float)i / stacks;
-            // vertices.push_back(s);
-            // vertices.push_back(t);
+            s = 1.0f - (float)j / slices;
+            t = (float)i / stacks;
+            vertices.push_back(s);
+            vertices.push_back(t);
         }
     }
 
@@ -95,14 +94,21 @@ void Sphere::setup(){
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
     ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    texture = new Texture("../texture/world.jpg", GL_TEXTURE_2D, GL_RGBA, true);
 
     vao.Unbind();
 }
 
 void Sphere::desenhar() {
+    texture->Bind(GL_TEXTURE0);
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
+    texture->Unbind();
 }

@@ -42,6 +42,21 @@ GLFWwindow *startWindow(int width, int height, const char *title)
         return nullptr;
     }
 
+    // Obtém o tamanho da tela primária
+    GLFWmonitor* primary = glfwGetPrimaryMonitor();
+    const GLFWvidmode* mode = glfwGetVideoMode(primary);
+
+    if (mode) {
+        int screenWidth = mode->width;
+        int screenHeight = mode->height;
+
+        int posX = (screenWidth - WIN_WIDTH) / 2;
+        int posY = (screenHeight - WIN_HEIGHT) / 2;
+
+        glfwSetWindowPos(window, posX, posY);
+    }
+
+    
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
