@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/engine.dir/source/AxialExtruder.cpp.o"
+  "CMakeFiles/engine.dir/source/AxialExtruder.cpp.o.d"
   "CMakeFiles/engine.dir/source/Circle.cpp.o"
   "CMakeFiles/engine.dir/source/Circle.cpp.o.d"
   "CMakeFiles/engine.dir/source/Cube.cpp.o"

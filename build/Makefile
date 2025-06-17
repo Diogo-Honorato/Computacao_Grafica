@@ -250,6 +250,30 @@ dep/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/dep/glad/src/glad.c.s
 .PHONY : dep/glad/src/glad.c.s
 
+source/AxialExtruder.o: source/AxialExtruder.cpp.o
+.PHONY : source/AxialExtruder.o
+
+# target to build an object file
+source/AxialExtruder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/AxialExtruder.cpp.o
+.PHONY : source/AxialExtruder.cpp.o
+
+source/AxialExtruder.i: source/AxialExtruder.cpp.i
+.PHONY : source/AxialExtruder.i
+
+# target to preprocess a source file
+source/AxialExtruder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/AxialExtruder.cpp.i
+.PHONY : source/AxialExtruder.cpp.i
+
+source/AxialExtruder.s: source/AxialExtruder.cpp.s
+.PHONY : source/AxialExtruder.s
+
+# target to generate assembly for a file
+source/AxialExtruder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/AxialExtruder.cpp.s
+.PHONY : source/AxialExtruder.cpp.s
+
 source/Circle.o: source/Circle.cpp.o
 .PHONY : source/Circle.o
 
@@ -606,6 +630,9 @@ help:
 	@echo "... dep/glad/src/glad.o"
 	@echo "... dep/glad/src/glad.i"
 	@echo "... dep/glad/src/glad.s"
+	@echo "... source/AxialExtruder.o"
+	@echo "... source/AxialExtruder.i"
+	@echo "... source/AxialExtruder.s"
 	@echo "... source/Circle.o"
 	@echo "... source/Circle.i"
 	@echo "... source/Circle.s"

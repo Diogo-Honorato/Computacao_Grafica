@@ -411,4 +411,5 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/AxialExtruder.hpp

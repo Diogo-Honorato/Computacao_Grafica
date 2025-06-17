@@ -1,8 +1,3 @@
-// Geração de esfera baseada no método de stacks/slices de Song Ho Ahn
-// Fonte original: https://www.songho.ca/opengl/gl_sphere.html
-// Código foi adaptado para meu projeto com modificações na estrutura de dados e lógica
-
-
 #include "../include/Sphere.hpp"
 
 Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath,const char *fragmentPath)

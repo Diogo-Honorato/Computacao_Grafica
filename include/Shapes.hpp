@@ -6,5 +6,6 @@
 #include "Triangle.hpp"
 #include "Cube.hpp"
 #include "Sphere.hpp"
+#include "AxialExtruder.hpp"
 
 #endif
