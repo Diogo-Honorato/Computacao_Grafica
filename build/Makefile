@@ -370,6 +370,30 @@ source/Home.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Home.cpp.s
 .PHONY : source/Home.cpp.s
 
+source/Pipe.o: source/Pipe.cpp.o
+.PHONY : source/Pipe.o
+
+# target to build an object file
+source/Pipe.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Pipe.cpp.o
+.PHONY : source/Pipe.cpp.o
+
+source/Pipe.i: source/Pipe.cpp.i
+.PHONY : source/Pipe.i
+
+# target to preprocess a source file
+source/Pipe.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Pipe.cpp.i
+.PHONY : source/Pipe.cpp.i
+
+source/Pipe.s: source/Pipe.cpp.s
+.PHONY : source/Pipe.s
+
+# target to generate assembly for a file
+source/Pipe.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Pipe.cpp.s
+.PHONY : source/Pipe.cpp.s
+
 source/Shader.o: source/Shader.cpp.o
 .PHONY : source/Shader.o
 
@@ -645,6 +669,9 @@ help:
 	@echo "... source/Home.o"
 	@echo "... source/Home.i"
 	@echo "... source/Home.s"
+	@echo "... source/Pipe.o"
+	@echo "... source/Pipe.i"
+	@echo "... source/Pipe.s"
 	@echo "... source/Shader.o"
 	@echo "... source/Shader.i"
 	@echo "... source/Shader.s"

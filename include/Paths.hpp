@@ -20,5 +20,8 @@
 #define DEFAULT_EXTRUDER_VERTEX     "../shader/basic_shaders/vertex/basic_axial_extruder.vs"
 #define DEFAULT_EXTRUDER_FRAGMENT   "../shader/basic_shaders/fragment/basic_axial_extruder.fs"
 
+#define DEFAULT_PIPE_VERTEX         "../shader/basic_shaders/vertex/basic_pipe.vs"
+#define DEFAULT_PIPE_FRAGMENT       "../shader/basic_shaders/fragment/basic_pipe.fs"
+
 
 #endif // PATHS_H

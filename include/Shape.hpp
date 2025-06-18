@@ -8,6 +8,7 @@
 #include "VBO.hpp"
 #include "EBO.hpp"
 #include "Texture.hpp"
+#include "../dep/glm/glm.hpp"
 
 class Shape {
 protected:

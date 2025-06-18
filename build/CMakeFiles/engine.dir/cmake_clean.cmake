@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/source/EBO.cpp.o.d"
   "CMakeFiles/engine.dir/source/Home.cpp.o"
   "CMakeFiles/engine.dir/source/Home.cpp.o.d"
+  "CMakeFiles/engine.dir/source/Pipe.cpp.o"
+  "CMakeFiles/engine.dir/source/Pipe.cpp.o.d"
   "CMakeFiles/engine.dir/source/Shader.cpp.o"
   "CMakeFiles/engine.dir/source/Shader.cpp.o.d"
   "CMakeFiles/engine.dir/source/Shape.cpp.o"

@@ -7,5 +7,6 @@
 #include "Cube.hpp"
 #include "Sphere.hpp"
 #include "AxialExtruder.hpp"
+#include "Pipe.hpp"
 
 #endif
