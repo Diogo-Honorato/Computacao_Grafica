@@ -75,7 +75,34 @@ int main()
 }
 
 ```
+
+## Câmera Interativa
+Foi adicionada uma câmera com movimentação em primeira pessoa, controlada por teclado, mouse e rolagem do scroll.
+
+Teclas de movimento:
+
+W, A, S, D: Movem a câmera para frente, esquerda, trás e direita, respectivamente.
+
+Mouse:
+
+Move a orientação da câmera (yaw e pitch).
+
+Scroll:
+
+Aproxima ou afasta o campo de visão (zoom).
+
+Outros comandos:
+
+Q: Ativa o modo de renderização preenchido (GL_FILL).
+
+E: Ativa o modo de renderização em linhas (GL_LINE).
+
+R: Ativa o modo de renderização em pontos (GL_POINT).
+
+ESC: Fecha a janela.
+
 ## Créditos
 
-- Parte do código de geração de esfera foi baseada no trabalho de **Song Ho Ahn**:
-  - [OpenGL Sphere Tessellation](https://www.songho.ca/opengl/gl_sphere.html)
+- Parte do código de geração de esfera e cilindro foi baseada no trabalho de **Song Ho Ahn**:
+- [OpenGL Sphere Tessellation](https://www.songho.ca/opengl/gl_sphere.html)
+- [OpenGL Cylinder, Prism & Pipe](https://www.songho.ca/opengl/gl_cylinder.html#cylinder)

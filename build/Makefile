@@ -274,6 +274,30 @@ source/AxialExtruder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/AxialExtruder.cpp.s
 .PHONY : source/AxialExtruder.cpp.s
 
+source/Camera.o: source/Camera.cpp.o
+.PHONY : source/Camera.o
+
+# target to build an object file
+source/Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Camera.cpp.o
+.PHONY : source/Camera.cpp.o
+
+source/Camera.i: source/Camera.cpp.i
+.PHONY : source/Camera.i
+
+# target to preprocess a source file
+source/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Camera.cpp.i
+.PHONY : source/Camera.cpp.i
+
+source/Camera.s: source/Camera.cpp.s
+.PHONY : source/Camera.s
+
+# target to generate assembly for a file
+source/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Camera.cpp.s
+.PHONY : source/Camera.cpp.s
+
 source/Circle.o: source/Circle.cpp.o
 .PHONY : source/Circle.o
 
@@ -657,6 +681,9 @@ help:
 	@echo "... source/AxialExtruder.o"
 	@echo "... source/AxialExtruder.i"
 	@echo "... source/AxialExtruder.s"
+	@echo "... source/Camera.o"
+	@echo "... source/Camera.i"
+	@echo "... source/Camera.s"
 	@echo "... source/Circle.o"
 	@echo "... source/Circle.i"
 	@echo "... source/Circle.s"

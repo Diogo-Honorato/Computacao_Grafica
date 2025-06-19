@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/AxialExtruder.cpp" "CMakeFiles/engine.dir/source/AxialExtruder.cpp.o" "gcc" "CMakeFiles/engine.dir/source/AxialExtruder.cpp.o.d"
+  "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Camera.cpp" "CMakeFiles/engine.dir/source/Camera.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Camera.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Circle.cpp" "CMakeFiles/engine.dir/source/Circle.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Circle.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Cube.cpp" "CMakeFiles/engine.dir/source/Cube.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Cube.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/EBO.cpp" "CMakeFiles/engine.dir/source/EBO.cpp.o" "gcc" "CMakeFiles/engine.dir/source/EBO.cpp.o.d"
