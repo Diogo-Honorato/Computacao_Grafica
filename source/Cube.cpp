@@ -78,7 +78,7 @@ void Cube::setup(){
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/mc50.png", GL_TEXTURE_2D, GL_RGBA, true);
+    texture = new Texture("../texture/bob_back.png", GL_TEXTURE_2D, GL_RGBA, true);
 
     vao.Unbind();
 }

@@ -6,7 +6,8 @@
 class Cube : public Shape{
 
 public:
-    Cube(        
+    Cube(
+        //const char *texturePath,       
         const char *vertexPath = DEFAULT_CUBE_VERTEX,
         const char *fragmentPath = DEFAULT_CUBE_FRAGMENT
     );
