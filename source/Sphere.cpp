@@ -95,7 +95,7 @@ void Sphere::setup(){
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/world.jpg", GL_TEXTURE_2D, GL_RGBA, true);
+    texture = new Texture("../texture/cinza.jpg", GL_TEXTURE_2D, GL_RGBA, true);
 
     vao.Unbind();
 }

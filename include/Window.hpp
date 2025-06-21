@@ -5,8 +5,8 @@
 #include "../dep/glfw/include/GLFW/glfw3.h"
 #include "../include/Camera.hpp"
 
-#define WIN_WIDTH 800.0
-#define WIN_HEIGHT 600.0
+#define WIN_WIDTH 1920.0
+#define WIN_HEIGHT 1080.0
 #define RATIO (float)(WIN_WIDTH/WIN_HEIGHT)
 
 namespace Globals {

@@ -25,7 +25,7 @@ int main()
         std::vector<std::unique_ptr<Shape>> Shapes;
         std::vector<glm::mat4> matrices;
 
-        //cube
+        //cuboid
         Shapes.push_back(std::make_unique<Cube>());
         
         glm::mat4 model_body = glm::mat4(1.0);
@@ -35,15 +35,145 @@ int main()
         matrices.push_back(model_body);
 
 
-        //cone
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f));
-        
-        glm::mat4 model_right_arm = glm::mat4(1.0);
-        model_right_arm = glm::translate(model_right_arm,glm::vec3(4.0,0.0,-4.0));
-        model_right_arm = glm::scale(model_right_arm,glm::vec3(3.0,4.0,1.0));
-        
-        matrices.push_back(model_right_arm);
+        //cone for the sholders
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f));
 
+        glm::mat4 model_R_sholder = glm::mat4(1.0);
+        model_R_sholder = glm::translate(model_R_sholder,glm::vec3(1.75,0.0,-4.0));
+        model_R_sholder = glm::rotate(model_R_sholder,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+        
+        glm::mat4 model_L_sholder = glm::mat4(1.0);
+        model_L_sholder = glm::translate(model_L_sholder,glm::vec3(-1.75,0.0,-4.0));
+        model_L_sholder = glm::rotate(model_L_sholder,glm::radians(90.0f),glm::vec3(0.0,1.0,0.0));
+
+        matrices.push_back(model_R_sholder);
+        matrices.push_back(model_L_sholder);
+
+
+        //sphere,cylinder and cuboid for the right arm
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<Sphere>(0.109f,16,8));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
+
+        glm::mat4 model_R_arm = glm::mat4(1.0);
+        model_R_arm = glm::translate(model_R_arm,glm::vec3(2.25,0.0,-4.0));
+        model_R_arm = glm::rotate(model_R_arm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_R_elbow = glm::mat4(1.0);
+        model_R_elbow = glm::translate(model_R_elbow,glm::vec3(2.58,0.0,-4.0));
+
+        glm::mat4 model_R_forearm = glm::mat4(1.0);
+        model_R_forearm = glm::translate(model_R_forearm,glm::vec3(2.91,0.0,-4.0));
+        model_R_forearm = glm::rotate(model_R_forearm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_R_hand = glm::mat4(1.0);
+        model_R_hand = glm::translate(model_R_hand,glm::vec3(3.37,0.0,-4.0));
+        model_R_hand = glm::rotate(model_R_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+
+        matrices.push_back(model_R_arm);
+        matrices.push_back(model_R_elbow);
+        matrices.push_back(model_R_forearm);
+        matrices.push_back(model_R_hand);
+
+
+        //sphere,cylinder and cuboid for the left arm 
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<Sphere>(0.109f,16,8));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
+
+        glm::mat4 model_L_arm = glm::mat4(1.0);
+        model_L_arm = glm::translate(model_L_arm,glm::vec3(-2.25,0.0,-4.0));
+        model_L_arm = glm::rotate(model_L_arm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_L_elbow = glm::mat4(1.0);
+        model_L_elbow = glm::translate(model_L_elbow,glm::vec3(-2.58,0.0,-4.0));
+
+        glm::mat4 model_L_forearm = glm::mat4(1.0);
+        model_L_forearm = glm::translate(model_L_forearm,glm::vec3(-2.91,0.0,-4.0));
+        model_L_forearm = glm::rotate(model_L_forearm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_L_hand = glm::mat4(1.0);
+        model_L_hand = glm::translate(model_L_hand,glm::vec3(-3.37,0.0,-4.0));
+        model_L_hand = glm::rotate(model_L_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+        matrices.push_back(model_L_arm);
+        matrices.push_back(model_L_elbow);
+        matrices.push_back(model_L_forearm);
+        matrices.push_back(model_L_hand);
+
+
+        //sphere,cylinder and cuboid for the right leg
+        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8));        
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1));
+
+        glm::mat4 model_R_leg_ligament = glm::mat4(1.0);
+        model_R_leg_ligament = glm::translate(model_R_leg_ligament,glm::vec3(0.75,-2.3,-4.0));
+        
+        glm::mat4 model_R_thigh = glm::mat4(1.0);
+        model_R_thigh = glm::translate(model_R_thigh,glm::vec3(0.75,-2.79,-4.0));
+        model_R_thigh = glm::rotate(model_R_thigh,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        
+        glm::mat4 model_R_knee = glm::mat4(1.0);
+        model_R_knee = glm::translate(model_R_knee,glm::vec3(0.75,-3.24,-4.0));
+
+        glm::mat4 model_R_calf = glm::mat4(1.0);
+        model_R_calf = glm::translate(model_R_calf,glm::vec3(0.75,-3.65,-4.0));
+        model_R_calf = glm::rotate(model_R_calf,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+
+        glm::mat4 model_R_foot = glm::mat4(1.0);
+        model_R_foot = glm::translate(model_R_foot,glm::vec3(0.75,-3.96,-3.8));
+        model_R_foot = glm::scale(model_R_foot,glm::vec3(-2.0f,-2.0f,3.5f));
+        model_R_foot = glm::rotate(model_R_foot,glm::radians(90.0f),glm::vec3(1.0f,0.0f,0.0f));
+        model_R_foot = glm::rotate(model_R_foot,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+
+        matrices.push_back(model_R_leg_ligament);
+        matrices.push_back(model_R_thigh);
+        matrices.push_back(model_R_knee);
+        matrices.push_back(model_R_calf);
+        matrices.push_back(model_R_foot);
+
+
+        //sphere,cylinder and cuboid for the left leg
+        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
+        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8));        
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1));
+
+        glm::mat4 model_L_leg_ligament = glm::mat4(1.0);
+        model_L_leg_ligament = glm::translate(model_L_leg_ligament,glm::vec3(-0.75,-2.3,-4.0));
+        
+        glm::mat4 model_L_thigh = glm::mat4(1.0);
+        model_L_thigh = glm::translate(model_L_thigh,glm::vec3(-0.75,-2.79,-4.0));
+        model_L_thigh = glm::rotate(model_L_thigh,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        
+        glm::mat4 model_L_knee = glm::mat4(1.0);
+        model_L_knee = glm::translate(model_L_knee,glm::vec3(-0.75,-3.24,-4.0));
+
+        glm::mat4 model_L_calf = glm::mat4(1.0);
+        model_L_calf = glm::translate(model_L_calf,glm::vec3(-0.75,-3.65,-4.0));
+        model_L_calf = glm::rotate(model_L_calf,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+
+        glm::mat4 model_L_foot = glm::mat4(1.0);
+        model_L_foot = glm::translate(model_L_foot,glm::vec3(-0.75,-3.96,-3.8));
+        model_L_foot = glm::scale(model_L_foot,glm::vec3(-2.0f,-2.0f,3.5f));
+        model_L_foot = glm::rotate(model_L_foot,glm::radians(90.0f),glm::vec3(1.0f,0.0f,0.0f));
+        model_L_foot = glm::rotate(model_L_foot,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+
+        matrices.push_back(model_L_leg_ligament);
+        matrices.push_back(model_L_thigh);
+        matrices.push_back(model_L_knee);
+        matrices.push_back(model_L_calf);
+        matrices.push_back(model_L_foot);
 
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
