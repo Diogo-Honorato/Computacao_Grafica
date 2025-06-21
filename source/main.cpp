@@ -11,6 +11,60 @@
         - R: Define modo de renderização como pontos (GL_POINT).
 */
 
+void processArmInput(GLFWwindow *window, std::vector<glm::mat4> &matrices, size_t index_R_forearm, size_t index_R_hand, size_t index_L_forearm, size_t index_L_hand) {
+    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
+
+        glm::mat4 model_R_forearm = glm::mat4(1.0);
+        model_R_forearm = glm::translate(model_R_forearm,glm::vec3(2.91,0.0,-4.0));
+        model_R_forearm = glm::rotate(model_R_forearm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_R_hand = glm::mat4(1.0);
+        model_R_hand = glm::translate(model_R_hand,glm::vec3(3.37,0.0,-4.0));
+        model_R_hand = glm::rotate(model_R_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+        glm::mat4 model_L_forearm = glm::mat4(1.0);
+        model_L_forearm = glm::translate(model_L_forearm,glm::vec3(-2.91,0.0,-4.0));
+        model_L_forearm = glm::rotate(model_L_forearm,glm::radians(-90.0f),glm::vec3(0.0,1.0,0.0));
+
+        glm::mat4 model_L_hand = glm::mat4(1.0);
+        model_L_hand = glm::translate(model_L_hand,glm::vec3(-3.37,0.0,-4.0));
+        model_L_hand = glm::rotate(model_L_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+        matrices[index_R_forearm] = model_R_forearm;
+        matrices[index_R_hand] = model_R_hand;
+        matrices[index_L_forearm] = model_L_forearm;
+        matrices[index_L_hand] = model_L_hand;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
+
+        //animation R_forearm
+        glm::mat4 model_R_forearm = glm::mat4(1.0);
+        model_R_forearm = glm::translate(model_R_forearm,glm::vec3(2.58,0.4,-4.0));
+        model_R_forearm = glm::rotate(model_R_forearm,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        
+        //animation R_hand
+        glm::mat4 model_R_hand = glm::mat4(1.0);
+        model_R_hand = glm::translate(model_R_hand,glm::vec3(2.58,0.87,-4.0));
+        model_R_hand = glm::rotate(model_R_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+
+        //animation L_forearm
+        glm::mat4 model_L_forearm = glm::mat4(1.0);
+        model_L_forearm = glm::translate(model_L_forearm,glm::vec3(-2.58,0.4,-4.0));
+        model_L_forearm = glm::rotate(model_L_forearm,glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        
+        //animation L_hand
+        glm::mat4 model_L_hand = glm::mat4(1.0);
+        model_L_hand = glm::translate(model_L_hand,glm::vec3(-2.58,0.87,-4.0));
+        model_L_hand = glm::rotate(model_L_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
+        
+        matrices[index_R_forearm] = model_R_forearm;
+        matrices[index_R_hand] = model_R_hand;
+        matrices[index_L_forearm] = model_L_forearm;
+        matrices[index_L_hand] = model_L_hand;
+    }
+}
+
 int main()
 {
     // Cria janela
@@ -53,7 +107,7 @@ int main()
 
         //sphere,cylinder and cuboid for the right arm
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.109f,16,8));
+        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
 
@@ -72,16 +126,17 @@ int main()
         model_R_hand = glm::translate(model_R_hand,glm::vec3(3.37,0.0,-4.0));
         model_R_hand = glm::rotate(model_R_hand,glm::radians(45.0f),glm::vec3(0.0f,0.0f,1.0f));
 
-
         matrices.push_back(model_R_arm);
         matrices.push_back(model_R_elbow);
+        size_t index_R_forearm = matrices.size();
         matrices.push_back(model_R_forearm);
+        size_t index_R_hand = matrices.size();
         matrices.push_back(model_R_hand);
 
 
         //sphere,cylinder and cuboid for the left arm 
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.109f,16,8));
+        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
 
@@ -102,7 +157,9 @@ int main()
 
         matrices.push_back(model_L_arm);
         matrices.push_back(model_L_elbow);
+        size_t index_L_forearm = matrices.size();
         matrices.push_back(model_L_forearm);
+        size_t index_L_hand = matrices.size();
         matrices.push_back(model_L_hand);
 
 
@@ -187,6 +244,8 @@ int main()
             glm::mat4 projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);
             glm::mat4 view = Globals::camera.GetViewMatrix();
 
+            processArmInput(window,matrices,index_R_forearm,index_R_hand,index_L_forearm,index_L_hand);
+            
             for (size_t i = 0; i < Shapes.size(); i++)
             {
                 Shapes[i]->getShader().useShaders();
