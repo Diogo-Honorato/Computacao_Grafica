@@ -8,5 +8,7 @@
 #include "Sphere.hpp"
 #include "AxialExtruder.hpp"
 #include "Pipe.hpp"
+#include "Paraboloid.hpp"
+#include "Line.hpp"
 
 #endif

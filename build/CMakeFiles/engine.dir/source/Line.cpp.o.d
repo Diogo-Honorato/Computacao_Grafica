@@ -1,9 +1,7 @@
-CMakeFiles/engine.dir/source/Home.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Home.cpp \
+CMakeFiles/engine.dir/source/Line.cpp.o: \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Line.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Home.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shapes.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -407,48 +405,4 @@ CMakeFiles/engine.dir/source/Home.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/setup.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/type_half.inl \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/integer.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/AxialExtruder.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Pipe.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paraboloid.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp \
- /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/uses_allocator.h \
- /usr/include/c++/11/bits/unique_ptr.h /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/tuple \
- /usr/include/c++/11/array /usr/include/c++/11/bits/invoke.h \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/bits/refwrap.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/bits/atomic_base.h \
- /usr/include/c++/11/bits/atomic_lockfree_defines.h \
- /usr/include/c++/11/bits/atomic_wait.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/syscall.h \
- /usr/include/x86_64-linux-gnu/sys/syscall.h \
- /usr/include/x86_64-linux-gnu/asm/unistd.h \
- /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
- /usr/include/x86_64-linux-gnu/bits/syscall.h \
- /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/bits/ranges_uninitialized.h \
- /usr/include/c++/11/bits/ranges_algobase.h /usr/include/c++/11/iterator \
- /usr/include/c++/11/bits/stream_iterator.h \
- /usr/include/c++/11/bits/uses_allocator_args.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/detail/func_integer.inl

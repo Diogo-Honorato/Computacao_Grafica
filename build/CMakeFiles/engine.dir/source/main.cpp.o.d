@@ -450,4 +450,6 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/AxialExtruder.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Pipe.hpp
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Pipe.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paraboloid.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp

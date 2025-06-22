@@ -133,7 +133,6 @@ int main()
         size_t index_R_hand = matrices.size();
         matrices.push_back(model_R_hand);
 
-
         //sphere,cylinder and cuboid for the left arm 
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
         Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8));
@@ -231,6 +230,53 @@ int main()
         matrices.push_back(model_L_knee);
         matrices.push_back(model_L_calf);
         matrices.push_back(model_L_foot);
+
+
+        //sphere,paraboloid for the face
+        Shapes.push_back(std::make_unique<Sphere>(0.7f));
+        Shapes.push_back(std::make_unique<Sphere>(0.7f));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75));
+        Shapes.push_back(std::make_unique<Sphere>(0.25));
+
+        std::vector<float> p = Line::generateParabolaPoints(1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 50);
+
+        std::vector<glm::vec3> parabolaPoints;
+        parabolaPoints.reserve(p.size() / 3);
+
+        for (size_t i = 0; i < p.size(); i += 3) {
+            parabolaPoints.emplace_back(p[i], p[i+1], p[i+2]);
+        }
+        Shapes.push_back(std::make_unique<Pipe>(parabolaPoints,0.2f,0.2f,2));
+
+        glm::mat4 model_R_eye = glm::mat4(1.0f);
+        model_R_eye = glm::translate(model_R_eye,glm::vec3(0.75,0.7,-3.8));
+        model_R_eye = glm::scale(model_R_eye,glm::vec3(1.0,1.1,1.0));
+
+        glm::mat4 model_L_eye = glm::mat4(1.0f);
+        model_L_eye = glm::translate(model_L_eye,glm::vec3(-0.75,0.7,-3.8));
+        model_L_eye = glm::scale(model_L_eye,glm::vec3(1.0,1.1,1.0));
+
+        glm::mat4 model_R_eyelid = glm::mat4(1.0f);
+        model_R_eyelid = glm::translate(model_R_eyelid,glm::vec3(0.75,1.55,-3.75));
+
+        glm::mat4 model_L_eyelid = glm::mat4(1.0f);
+        model_L_eyelid = glm::translate(model_L_eyelid,glm::vec3(-0.75,1.55,-3.75));
+
+        glm::mat4 model_noise = glm::mat4(1.0f);
+        model_noise = glm::translate(model_noise,glm::vec3(0.0,0.2,-3.5));
+        model_noise = glm::rotate(model_noise,glm::radians(-5.0f),glm::vec3(1.0,0.0,0.0));
+        model_noise = glm::scale(model_noise,glm::vec3(1.0,1.0,4.0));
+
+        glm::mat4 model_mouth = glm::mat4(1.0f);
+        model_mouth = glm::translate(model_mouth,glm::vec3(0.0,-1.0,-3.49));
+
+        matrices.push_back(model_R_eye);
+        matrices.push_back(model_L_eye);
+        matrices.push_back(model_R_eyelid);
+        matrices.push_back(model_L_eyelid);
+        matrices.push_back(model_noise);
+        matrices.push_back(model_mouth);       
 
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))

@@ -23,5 +23,13 @@
 #define DEFAULT_PIPE_VERTEX         "../shader/basic_shaders/vertex/basic_pipe.vs"
 #define DEFAULT_PIPE_FRAGMENT       "../shader/basic_shaders/fragment/basic_pipe.fs"
 
+#define DEFAULT_PARAB_VERTEX         "../shader/basic_shaders/vertex/basic_parab.vs"
+#define DEFAULT_PARAB_FRAGMENT       "../shader/basic_shaders/fragment/basic_parab.fs"
+
+#define DEFAULT_LINE_VERTEX         "../shader/basic_shaders/vertex/basic_line.vs"
+#define DEFAULT_LINE_FRAGMENT       "../shader/basic_shaders/fragment/basic_line.fs"
+
+
+
 
 #endif // PATHS_H

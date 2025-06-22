@@ -394,6 +394,54 @@ source/Home.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Home.cpp.s
 .PHONY : source/Home.cpp.s
 
+source/Line.o: source/Line.cpp.o
+.PHONY : source/Line.o
+
+# target to build an object file
+source/Line.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Line.cpp.o
+.PHONY : source/Line.cpp.o
+
+source/Line.i: source/Line.cpp.i
+.PHONY : source/Line.i
+
+# target to preprocess a source file
+source/Line.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Line.cpp.i
+.PHONY : source/Line.cpp.i
+
+source/Line.s: source/Line.cpp.s
+.PHONY : source/Line.s
+
+# target to generate assembly for a file
+source/Line.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Line.cpp.s
+.PHONY : source/Line.cpp.s
+
+source/Paraboloid.o: source/Paraboloid.cpp.o
+.PHONY : source/Paraboloid.o
+
+# target to build an object file
+source/Paraboloid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Paraboloid.cpp.o
+.PHONY : source/Paraboloid.cpp.o
+
+source/Paraboloid.i: source/Paraboloid.cpp.i
+.PHONY : source/Paraboloid.i
+
+# target to preprocess a source file
+source/Paraboloid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Paraboloid.cpp.i
+.PHONY : source/Paraboloid.cpp.i
+
+source/Paraboloid.s: source/Paraboloid.cpp.s
+.PHONY : source/Paraboloid.s
+
+# target to generate assembly for a file
+source/Paraboloid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Paraboloid.cpp.s
+.PHONY : source/Paraboloid.cpp.s
+
 source/Pipe.o: source/Pipe.cpp.o
 .PHONY : source/Pipe.o
 
@@ -696,6 +744,12 @@ help:
 	@echo "... source/Home.o"
 	@echo "... source/Home.i"
 	@echo "... source/Home.s"
+	@echo "... source/Line.o"
+	@echo "... source/Line.i"
+	@echo "... source/Line.s"
+	@echo "... source/Paraboloid.o"
+	@echo "... source/Paraboloid.i"
+	@echo "... source/Paraboloid.s"
 	@echo "... source/Pipe.o"
 	@echo "... source/Pipe.i"
 	@echo "... source/Pipe.s"

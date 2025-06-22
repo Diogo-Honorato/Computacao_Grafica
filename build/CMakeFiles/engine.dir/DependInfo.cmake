@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Cube.cpp" "CMakeFiles/engine.dir/source/Cube.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Cube.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/EBO.cpp" "CMakeFiles/engine.dir/source/EBO.cpp.o" "gcc" "CMakeFiles/engine.dir/source/EBO.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Home.cpp" "CMakeFiles/engine.dir/source/Home.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Home.cpp.o.d"
+  "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Line.cpp" "CMakeFiles/engine.dir/source/Line.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Line.cpp.o.d"
+  "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Paraboloid.cpp" "CMakeFiles/engine.dir/source/Paraboloid.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Paraboloid.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Pipe.cpp" "CMakeFiles/engine.dir/source/Pipe.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Pipe.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shader.cpp" "CMakeFiles/engine.dir/source/Shader.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Shader.cpp.o.d"
   "/home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Shape.cpp" "CMakeFiles/engine.dir/source/Shape.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Shape.cpp.o.d"
