@@ -2,8 +2,8 @@
 
 constexpr float PI = glm::pi<float>();
 
-Pipe::Pipe(std::vector<glm::vec3> &pathPoints, float topRadius, float baseRadius, int slices, const char *vertexPath, const char *fragmentPath)
-    : Shape(vertexPath, fragmentPath), pathPoints(pathPoints), topRadius(topRadius), baseRadius(baseRadius), slices(slices)
+Pipe::Pipe(std::vector<glm::vec3> &pathPoints, float topRadius, float baseRadius, int slices,const std::string texturePath, const char *vertexPath, const char *fragmentPath)
+    : Shape(texturePath,vertexPath, fragmentPath), pathPoints(pathPoints), topRadius(topRadius), baseRadius(baseRadius), slices(slices)
 {
 
     setup();
@@ -262,16 +262,12 @@ void Pipe::setup()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/mc50.png", GL_TEXTURE_2D, GL_RGBA, true);
-
     vao.Unbind();
 }
 
 void Pipe::desenhar()
 {
-    texture->Bind(GL_TEXTURE0);
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
-    texture->Unbind();
 }

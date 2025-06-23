@@ -1,7 +1,7 @@
 #include "../include/Sphere.hpp"
 
-Sphere::Sphere(float radius, int slices, int stacks, const char *vertexPath,const char *fragmentPath)
-:Shape(vertexPath,fragmentPath), radius(radius),slices(slices), stacks(stacks){
+Sphere::Sphere(float radius, int slices, int stacks, const std::string texturePath ,const char *vertexPath,const char *fragmentPath)
+:Shape(texturePath,vertexPath,fragmentPath), radius(radius),slices(slices), stacks(stacks){
     
     setup();
 }
@@ -95,15 +95,11 @@ void Sphere::setup(){
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/cinza.jpg", GL_TEXTURE_2D, GL_RGBA, true);
-
     vao.Unbind();
 }
 
 void Sphere::desenhar() {
-    texture->Bind(GL_TEXTURE0);
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
-    texture->Unbind();
 }

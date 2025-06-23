@@ -1,6 +1,6 @@
 #include "../include/Triangle.hpp"
 
-Triangle::Triangle(const char* vertexPath, const char* fragmentPath) : Shape(vertexPath, fragmentPath) {
+Triangle::Triangle(const std::string texturePath,const char* vertexPath, const char* fragmentPath) : Shape(texturePath,vertexPath, fragmentPath) {
     setup();
 }
 

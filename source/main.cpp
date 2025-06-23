@@ -80,7 +80,7 @@ int main()
         std::vector<glm::mat4> matrices;
 
         //cuboid
-        Shapes.push_back(std::make_unique<Cube>());
+        Shapes.push_back(std::make_unique<Cube>("../texture/bob_back.png"));
         
         glm::mat4 model_body = glm::mat4(1.0);
         model_body = glm::translate(model_body,glm::vec3(0.0,0.0,-4.0));
@@ -90,8 +90,8 @@ int main()
 
 
         //cone for the sholders
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f,36,8,"../texture/white.jpg"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.0f,0.25f,0.5f,36,8,"../texture/white.jpg"));
 
         glm::mat4 model_R_sholder = glm::mat4(1.0);
         model_R_sholder = glm::translate(model_R_sholder,glm::vec3(1.75,0.0,-4.0));
@@ -106,10 +106,10 @@ int main()
 
 
         //sphere,cylinder and cuboid for the right arm
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8,"../texture/cinza.jpg"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1,"../texture/amarelo.png"));
 
         glm::mat4 model_R_arm = glm::mat4(1.0);
         model_R_arm = glm::translate(model_R_arm,glm::vec3(2.25,0.0,-4.0));
@@ -134,10 +134,10 @@ int main()
         matrices.push_back(model_R_hand);
 
         //sphere,cylinder and cuboid for the left arm 
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.15f,16,8,"../texture/cinza.jpg"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.3f,0.3f,0.1f,4,1,"../texture/amarelo.png"));
 
         glm::mat4 model_L_arm = glm::mat4(1.0);
         model_L_arm = glm::translate(model_L_arm,glm::vec3(-2.25,0.0,-4.0));
@@ -163,11 +163,11 @@ int main()
 
 
         //sphere,cylinder and cuboid for the right leg
-        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8));        
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1));
+        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8,"../texture/cinza.jpg"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8,"../texture/cinza.jpg"));        
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/sponge_bob/bob_leg.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1,"../texture/preto.png"));
 
         glm::mat4 model_R_leg_ligament = glm::mat4(1.0);
         model_R_leg_ligament = glm::translate(model_R_leg_ligament,glm::vec3(0.75,-2.3,-4.0));
@@ -198,11 +198,11 @@ int main()
 
 
         //sphere,cylinder and cuboid for the left leg
-        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f));
-        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8));        
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f));
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1));
+        Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8,"../texture/cinza.jpg"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8,"../texture/cinza.jpg"));        
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/sponge_bob/bob_leg.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1,"../texture/preto.png"));
 
         glm::mat4 model_L_leg_ligament = glm::mat4(1.0);
         model_L_leg_ligament = glm::translate(model_L_leg_ligament,glm::vec3(-0.75,-2.3,-4.0));
@@ -233,13 +233,13 @@ int main()
 
 
         //sphere,paraboloid for the face
-        Shapes.push_back(std::make_unique<Sphere>(0.7f));
-        Shapes.push_back(std::make_unique<Sphere>(0.7f));
-        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75));
-        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75));
-        Shapes.push_back(std::make_unique<Sphere>(0.25));
+        Shapes.push_back(std::make_unique<Sphere>(0.7f,36,18,"../texture/white.jpg"));
+        Shapes.push_back(std::make_unique<Sphere>(0.7f,36,18,"../texture/white.jpg"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75,36,18,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75,36,18,"../texture/amarelo.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.25,36,18,"../texture/amarelo.png"));
 
-        std::vector<float> p = Line::generateParabolaPoints(1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 50);
+        std::vector<float> p = Line::generateParabolaPoints(0.5f, 0.0f, -0.9f, -1.3f, 1.3f, 30);
 
         std::vector<glm::vec3> parabolaPoints;
         parabolaPoints.reserve(p.size() / 3);
@@ -247,8 +247,8 @@ int main()
         for (size_t i = 0; i < p.size(); i += 3) {
             parabolaPoints.emplace_back(p[i], p[i+1], p[i+2]);
         }
-        Shapes.push_back(std::make_unique<Pipe>(parabolaPoints,0.2f,0.2f,2));
-
+        Shapes.push_back(std::make_unique<Pipe>(parabolaPoints,0.2f,0.2f,2,"../texture/preto.png"));
+      
         glm::mat4 model_R_eye = glm::mat4(1.0f);
         model_R_eye = glm::translate(model_R_eye,glm::vec3(0.75,0.7,-3.8));
         model_R_eye = glm::scale(model_R_eye,glm::vec3(1.0,1.1,1.0));
@@ -269,7 +269,7 @@ int main()
         model_noise = glm::scale(model_noise,glm::vec3(1.0,1.0,4.0));
 
         glm::mat4 model_mouth = glm::mat4(1.0f);
-        model_mouth = glm::translate(model_mouth,glm::vec3(0.0,-1.0,-3.49));
+        model_mouth = glm::translate(model_mouth,glm::vec3(0.0,0.0,-3.49));
 
         matrices.push_back(model_R_eye);
         matrices.push_back(model_L_eye);
@@ -295,12 +295,15 @@ int main()
             for (size_t i = 0; i < Shapes.size(); i++)
             {
                 Shapes[i]->getShader().useShaders();
-
                 Shapes[i]->getShader().setMat4("model", matrices[i]);
                 Shapes[i]->getShader().setMat4("projection",projection);
                 Shapes[i]->getShader().setMat4("view", view);
 
+                Shapes[i]->getTexture().Bind();
+
                 Shapes[i]->desenhar();
+
+                Shapes[i]->getTexture().Unbind();
             }
 
             // Troca buffers e trata eventos

@@ -20,7 +20,7 @@ private:
     std::vector<float>buildUnitCircleVertices();
 
 public:
-    Pipe(std::vector<glm::vec3>& pathPoints,float topRadius=0.5f,float baseRadius=0.5f,int slices = 16, const char* vertexPath=DEFAULT_PIPE_VERTEX, const char* fragmentPath=DEFAULT_PIPE_FRAGMENT);
+    Pipe(std::vector<glm::vec3>& pathPoints,float topRadius=0.5f,float baseRadius=0.5f,int slices = 16, const std::string texturePath = nullptr,const char* vertexPath=DEFAULT_PIPE_VERTEX, const char* fragmentPath=DEFAULT_PIPE_FRAGMENT);
     
     static std::vector<glm::vec3> generateTorus(int segments, float radius);
     void generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices) override;

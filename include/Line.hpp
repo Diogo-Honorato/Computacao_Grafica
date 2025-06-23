@@ -16,7 +16,8 @@ public:
         std::vector<GLuint>& indicesRef,
         float lineWidth = 1.0f,
         const char* vertexPath = DEFAULT_LINE_VERTEX,
-        const char* fragmentPath = DEFAULT_LINE_FRAGMENT
+        const char* fragmentPath = DEFAULT_LINE_FRAGMENT,
+        const std::string texturePath = nullptr
     );
 
     static std::vector<float> generateParabolaPoints(float a, float b, float c, float xStart, float xEnd, int segments

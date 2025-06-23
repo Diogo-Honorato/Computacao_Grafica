@@ -1,7 +1,7 @@
 #include "../include/Paraboloid.hpp"
 
-Paraboloid::Paraboloid(bool hasBottomCap,bool hasTopCap,float height, float radius, int slices, int stacks,const char* vertexPath, const char* fragmentPath)
-    : Shape(vertexPath, fragmentPath),hasBottomCap(hasBottomCap),hasTopCap(hasTopCap),height(height),radius(radius),slices(slices),stacks(stacks)
+Paraboloid::Paraboloid(bool hasBottomCap,bool hasTopCap,float height, float radius, int slices, int stacks,const std::string texturePath ,const char* vertexPath, const char* fragmentPath)
+    : Shape(texturePath,vertexPath, fragmentPath),hasBottomCap(hasBottomCap),hasTopCap(hasTopCap),height(height),radius(radius),slices(slices),stacks(stacks)
 {
 
     setup();
@@ -142,15 +142,12 @@ void Paraboloid::setup() {
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/container.jpg", GL_TEXTURE_2D, GL_RGBA, true);
-
     vao.Unbind();
 }
 
 void Paraboloid::desenhar() {
-    texture->Bind(GL_TEXTURE0);
+
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
-    texture->Unbind();
     vao.Unbind();
 }

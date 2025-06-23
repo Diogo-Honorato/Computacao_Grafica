@@ -2,8 +2,8 @@
 #include <cmath>
 
 
-Circle::Circle(float radius, int segments, const char* vertexPath, const char* fragmentPath)
-    : Shape(vertexPath, fragmentPath), radius(radius), segments(segments){
+Circle::Circle(float radius, int segments, const std::string texturePath,const char* vertexPath, const char* fragmentPath)
+    : Shape(texturePath,vertexPath, fragmentPath), radius(radius), segments(segments){
     
     setup();
 }

@@ -1,7 +1,7 @@
 #include "../include/Square.hpp"
 
-Square::Square(const char* vertexPath, const char* fragmentPath)
-    : Shape(vertexPath, fragmentPath) {
+Square::Square(const std::string texturePath,const char* vertexPath, const char* fragmentPath)
+    : Shape(texturePath,vertexPath, fragmentPath) {
     setup();
 }
 

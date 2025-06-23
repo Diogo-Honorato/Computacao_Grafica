@@ -1,7 +1,7 @@
 #include "../include/Cube.hpp"
 
-Cube::Cube(const char* vertexPath, const char* fragmentPath) 
-    : Shape(vertexPath, fragmentPath){
+Cube::Cube(const std::string texturePath,const char* vertexPath, const char* fragmentPath) 
+    : Shape(texturePath,vertexPath, fragmentPath){
 
     setup();
 }
@@ -78,17 +78,13 @@ void Cube::setup(){
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/bob_back.png", GL_TEXTURE_2D, GL_RGBA, true);
-
     vao.Unbind();
 }
 
 
 void Cube::desenhar() {
 
-    texture->Bind(GL_TEXTURE0);
     vao.Bind();
     glDrawElements(GL_TRIANGLES,indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
-    texture->Unbind();
 }

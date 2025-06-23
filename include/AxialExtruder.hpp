@@ -19,8 +19,10 @@ private:
 
 public:
     AxialExtruder(float topRadius = 1.0f, float baseRadius = 1.0f, float height = 2.0f, int slices = 36, int stacks = 8,
+                  const std::string texturePath = nullptr,
                   const char *vertexPath = DEFAULT_EXTRUDER_VERTEX,
-                  const char *fragmentPath = DEFAULT_EXTRUDER_FRAGMENT);
+                  const char *fragmentPath = DEFAULT_EXTRUDER_FRAGMENT
+    );
 
     std::vector<float>buildUnitCircleVertices();
     void generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indices) override;

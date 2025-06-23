@@ -1,7 +1,7 @@
 #include "../include/AxialExtruder.hpp"
 
-AxialExtruder::AxialExtruder(float topRadius, float baseRadius, float height, int slices, int stacks, const char *vertexPath, const char *fragmentPath)
-    : Shape(vertexPath, fragmentPath), baseRadius(baseRadius), topRadius(topRadius), height(height), slices(slices),
+AxialExtruder::AxialExtruder(float topRadius, float baseRadius, float height, int slices, int stacks, const std::string texturePath,const char *vertexPath, const char *fragmentPath)
+    : Shape(texturePath,vertexPath, fragmentPath), baseRadius(baseRadius), topRadius(topRadius), height(height), slices(slices),
       stacks(stacks)
 {
     setup();
@@ -192,16 +192,12 @@ void AxialExtruder::setup(){
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    texture = new Texture("../texture/white.jpg", GL_TEXTURE_2D, GL_RGBA, true);
-
     vao.Unbind();
 }
 
 void AxialExtruder::desenhar(){
 
-    texture->Bind(GL_TEXTURE0);
     vao.Bind();
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
-    texture->Unbind();
 }

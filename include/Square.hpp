@@ -6,7 +6,8 @@
 class Square : public Shape {
 public:
 
-    Square(        
+    Square(
+        const std::string texturePath = nullptr,    
         const char *vertexPath = DEFAULT_SQUARE_VERTEX,
         const char *fragmentPath = DEFAULT_SQUARE_FRAGMENT
     );
