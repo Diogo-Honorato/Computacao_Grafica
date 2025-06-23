@@ -40,7 +40,7 @@ void AxialExtruder::generateMesh(std::vector<float> &vertices, std::vector<GLuin
     {
         z = -(height * 0.5f) + (float)i / stacks * height;                  // vertex position z
         radius = baseRadius + (float)i / stacks * (topRadius - baseRadius); // lerp
-        float t = 1.0f - (float)i / stacks;                                 // top-to-bottom
+        float t =  (float)i / stacks;                                 // top-to-bottom
 
         for (int j = 0, k = 0; j <= slices; ++j, k += 3)
         {
