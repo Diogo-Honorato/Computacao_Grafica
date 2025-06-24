@@ -538,6 +538,30 @@ source/Sphere.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Sphere.cpp.s
 .PHONY : source/Sphere.cpp.s
 
+source/SpongeBob.o: source/SpongeBob.cpp.o
+.PHONY : source/SpongeBob.o
+
+# target to build an object file
+source/SpongeBob.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/SpongeBob.cpp.o
+.PHONY : source/SpongeBob.cpp.o
+
+source/SpongeBob.i: source/SpongeBob.cpp.i
+.PHONY : source/SpongeBob.i
+
+# target to preprocess a source file
+source/SpongeBob.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/SpongeBob.cpp.i
+.PHONY : source/SpongeBob.cpp.i
+
+source/SpongeBob.s: source/SpongeBob.cpp.s
+.PHONY : source/SpongeBob.s
+
+# target to generate assembly for a file
+source/SpongeBob.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/SpongeBob.cpp.s
+.PHONY : source/SpongeBob.cpp.s
+
 source/Square.o: source/Square.cpp.o
 .PHONY : source/Square.o
 
@@ -762,6 +786,9 @@ help:
 	@echo "... source/Sphere.o"
 	@echo "... source/Sphere.i"
 	@echo "... source/Sphere.s"
+	@echo "... source/SpongeBob.o"
+	@echo "... source/SpongeBob.i"
+	@echo "... source/SpongeBob.s"
 	@echo "... source/Square.o"
 	@echo "... source/Square.i"
 	@echo "... source/Square.s"

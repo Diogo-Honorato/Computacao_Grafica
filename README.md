@@ -36,12 +36,12 @@ Dependências já inclusas. Código testado em Linux.
 
 Projeto que renderiza uma casa no centro da tela. 
 
-Definir ```false``` no segundo argumento da função ```initializeOpenGL()```, adicionar a biblioteca **"../include/Home.hpp"** instânciar um objeto **Home** na main(), no  Loop principal de renderização chamar a função **drawHome()** do objeto Home.
+Definir ```false``` no segundo argumento da função ```initializeOpenGL()```, instânciar um objeto **Home** na main(), no  Loop principal de renderização chamar a função **drawHome()** do objeto Home.
 
 deve se parecer com isso:
 
 ```bash
-#include "../include/Home.hpp"
+#include "../include/main.hpp"
 
 int main()
 {
@@ -75,6 +75,57 @@ int main()
 }
 
 ```
+### Bob esponja
+Projeto que renderiza um modelo 3D do Bob Esponja no centro da tela.
+instânciar um objeto **SpongeBob** na main(), no  Loop principal de renderização chamar a função **processArmInput(window);** para fazer a animação do modelo e **drawSpongeBob(projection,view);** para desenhar o modelo.
+
+deve se parecer com isso:
+```bash
+int main()
+{
+    // Cria janela
+    GLFWwindow *window = startWindowCamera(WIN_WIDTH, WIN_HEIGHT, "Engine");
+    if (initializeOpenGL(window, true) == -1)
+    {
+        return -1;
+    }
+
+    {
+
+        SpongeBob SB;
+
+        // Loop principal de renderização
+        while (!glfwWindowShouldClose(window))
+        {   
+            float currentFrame = static_cast<float>(glfwGetTime());
+            processInputCamera(window,currentFrame - Globals::lastFrame);
+            Globals::lastFrame = currentFrame;
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            float aspectRatio = static_cast<float>(Globals::windowWidth) / static_cast<float>(Globals::windowHeight);
+            glm::mat4 projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);
+            glm::mat4 view = Globals::camera.GetViewMatrix();
+
+
+            SB.processArmInput(window);
+            SB.drawSpongeBob(projection,view);
+
+            // Troca buffers e trata eventos
+            glfwSwapBuffers(window);
+            glfwPollEvents();
+        }
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
+
+    return 0;
+}
+```
+
+-Para fazer a animação pressione a tecla '2'.
+
+-Para voltar a posição original pressione a tecla '1'.
 
 ## Câmera Interativa
 Foi adicionada uma câmera com movimentação em primeira pessoa, controlada por teclado, mouse e rolagem do scroll.

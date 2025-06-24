@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/source/Shape.cpp.o.d"
   "CMakeFiles/engine.dir/source/Sphere.cpp.o"
   "CMakeFiles/engine.dir/source/Sphere.cpp.o.d"
+  "CMakeFiles/engine.dir/source/SpongeBob.cpp.o"
+  "CMakeFiles/engine.dir/source/SpongeBob.cpp.o.d"
   "CMakeFiles/engine.dir/source/Square.cpp.o"
   "CMakeFiles/engine.dir/source/Square.cpp.o.d"
   "CMakeFiles/engine.dir/source/Texture.cpp.o"

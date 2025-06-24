@@ -1,7 +1,7 @@
-CMakeFiles/engine.dir/source/Home.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Home.cpp \
+CMakeFiles/engine.dir/source/SpongeBob.cpp.o: \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/SpongeBob.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Home.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/SpongeBob.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shapes.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
@@ -417,8 +417,6 @@ CMakeFiles/engine.dir/source/Home.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paraboloid.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Home.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/SpongeBob.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glfw/include/GLFW/glfw3.h \
  /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
@@ -454,4 +452,6 @@ CMakeFiles/engine.dir/source/Home.cpp.o: \
  /usr/include/c++/11/bits/stream_iterator.h \
  /usr/include/c++/11/bits/uses_allocator_args.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h
+ /usr/include/c++/11/pstl/execution_defs.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/SpongeBob.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glfw/include/GLFW/glfw3.h

@@ -10,5 +10,7 @@
 #include "Pipe.hpp"
 #include "Paraboloid.hpp"
 #include "Line.hpp"
+#include "Home.hpp"
+#include "SpongeBob.hpp"
 
 #endif
