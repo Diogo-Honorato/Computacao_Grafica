@@ -166,7 +166,7 @@ int main()
         Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8,"../texture/cinza.jpg"));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/yellow.png"));
         Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8,"../texture/cinza.jpg"));        
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/sponge_bob/bob_leg.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/bob_leg.png"));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1,"../texture/preto.png"));
 
         glm::mat4 model_R_leg_ligament = glm::mat4(1.0);
@@ -201,7 +201,7 @@ int main()
         Shapes.push_back(std::make_unique<Sphere>(0.25f,16,8,"../texture/cinza.jpg"));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.5f,36,8,"../texture/yellow.png"));
         Shapes.push_back(std::make_unique<Sphere>(0.2f,16,8,"../texture/cinza.jpg"));        
-        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/sponge_bob/bob_leg.png"));
+        Shapes.push_back(std::make_unique<AxialExtruder>(0.1f,0.1f,0.42f,36,8,"../texture/bob_leg.png"));
         Shapes.push_back(std::make_unique<AxialExtruder>(0.2f,0.2f,0.1f,4,1,"../texture/preto.png"));
 
         glm::mat4 model_L_leg_ligament = glm::mat4(1.0);
@@ -237,7 +237,7 @@ int main()
         Shapes.push_back(std::make_unique<Sphere>(0.7f,36,18,"../texture/white.jpg"));
         Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75,36,18,"../texture/palpe.png"));
         Shapes.push_back(std::make_unique<Paraboloid>(false,false,-0.6f,0.75,36,18,"../texture/palpe.png"));
-        Shapes.push_back(std::make_unique<Sphere>(0.25,36,18,"../texture/yellow.png"));
+        Shapes.push_back(std::make_unique<Sphere>(0.25,36,18,"../texture/noise.png"));
 
         std::vector<float> p = Line::generateParabolaPoints(0.5f, 0.0f, -0.9f, -1.3f, 1.3f, 30);
 
@@ -250,7 +250,18 @@ int main()
         Shapes.push_back(std::make_unique<Pipe>(parabolaPoints,0.1f,0.1f,2,"../texture/preto.png"));
         Shapes.push_back(std::make_unique<Cube>("../texture/white.jpg"));
         Shapes.push_back(std::make_unique<Cube>("../texture/white.jpg"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,0.05,0.75,36,18,"../texture/iris.png"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,0.05,0.75,36,18,"../texture/iris.png"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,0.05,0.75,36,18,"../texture/preto.png"));
+        Shapes.push_back(std::make_unique<Paraboloid>(false,false,0.05,0.75,36,18,"../texture/preto.png"));
+        
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
 
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
+        Shapes.push_back(std::make_unique<Cube>("../texture/preto.png"));
 
         glm::mat4 model_R_eye = glm::mat4(1.0f);
         model_R_eye = glm::translate(model_R_eye,glm::vec3(0.75,0.7,-3.8));
@@ -282,6 +293,55 @@ int main()
         model_L_teeth = glm::translate(model_L_teeth,glm::vec3(-0.3,-1.05,-3.48));
         model_L_teeth = glm::scale(model_L_teeth,glm::vec3(0.5,0.5,0.1));
 
+        glm::mat4 model_R_iris = glm::mat4(1.0f);
+        model_R_iris = glm::translate(model_R_iris,glm::vec3(0.75,0.7,-3.08));
+        model_R_iris = glm::rotate(model_R_iris, glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        model_R_iris = glm::scale(model_R_iris,glm::vec3(0.3,1.0,0.3));
+
+        glm::mat4 model_L_iris = glm::mat4(1.0f);
+        model_L_iris = glm::translate(model_L_iris,glm::vec3(-0.75,0.7,-3.08));
+        model_L_iris = glm::rotate(model_L_iris, glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        model_L_iris = glm::scale(model_L_iris,glm::vec3(0.3,1.0,0.3));
+
+        glm::mat4 model_R_pupil = glm::mat4(1.0f);
+        model_R_pupil = glm::translate(model_R_pupil,glm::vec3(0.75,0.7,-3.05));
+        model_R_pupil = glm::rotate(model_R_pupil, glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        model_R_pupil = glm::scale(model_R_pupil,glm::vec3(0.2,1.0,0.2));
+
+        glm::mat4 model_L_pupil = glm::mat4(1.0f);
+        model_L_pupil = glm::translate(model_L_pupil,glm::vec3(-0.75,0.7,-3.05));
+        model_L_pupil = glm::rotate(model_L_pupil, glm::radians(-90.0f),glm::vec3(1.0,0.0,0.0));
+        model_L_pupil = glm::scale(model_L_pupil,glm::vec3(0.2,1.0,0.2));
+
+        glm::mat4 model_RR_eyelash = glm::mat4(1.0f);
+        model_RR_eyelash = glm::translate(model_RR_eyelash,glm::vec3(1.2,1.47,-3.48));
+        model_RR_eyelash = glm::rotate(model_RR_eyelash, glm::radians(-35.0f),glm::vec3(0.0,0.0,1.0));
+        model_RR_eyelash = glm::scale(model_RR_eyelash,glm::vec3(0.2,0.3,0.1));
+
+        glm::mat4 model_MR_eyelash = glm::mat4(1.0f);
+        model_MR_eyelash = glm::translate(model_MR_eyelash,glm::vec3(0.75,1.59,-3.48));
+        model_MR_eyelash = glm::scale(model_MR_eyelash,glm::vec3(0.2,0.3,0.1));
+
+        glm::mat4 model_LR_eyelash = glm::mat4(1.0f);
+        model_LR_eyelash = glm::translate(model_LR_eyelash,glm::vec3(0.3,1.47,-3.48));
+        model_LR_eyelash = glm::rotate(model_LR_eyelash, glm::radians(35.0f),glm::vec3(0.0,0.0,1.0));
+        model_LR_eyelash = glm::scale(model_LR_eyelash,glm::vec3(0.2,0.3,0.1));
+
+
+        glm::mat4 model_RL_eyelash = glm::mat4(1.0f);
+        model_RL_eyelash = glm::translate(model_RL_eyelash,glm::vec3(-1.2,1.47,-3.48));
+        model_RL_eyelash = glm::rotate(model_RL_eyelash, glm::radians(35.0f),glm::vec3(0.0,0.0,1.0));
+        model_RL_eyelash = glm::scale(model_RL_eyelash,glm::vec3(0.2,0.3,0.1));
+
+        glm::mat4 model_ML_eyelash = glm::mat4(1.0f);
+        model_ML_eyelash = glm::translate(model_ML_eyelash,glm::vec3(-0.75,1.59,-3.48));
+        model_ML_eyelash = glm::scale(model_ML_eyelash,glm::vec3(0.2,0.3,0.1));
+
+        glm::mat4 model_LL_eyelash = glm::mat4(1.0f);
+        model_LL_eyelash = glm::translate(model_LL_eyelash,glm::vec3(-0.3,1.47,-3.48));
+        model_LL_eyelash = glm::rotate(model_LL_eyelash, glm::radians(-35.0f),glm::vec3(0.0,0.0,1.0));
+        model_LL_eyelash = glm::scale(model_LL_eyelash,glm::vec3(0.2,0.3,0.1));
+
         matrices.push_back(model_R_eye);
         matrices.push_back(model_L_eye);
         matrices.push_back(model_R_eyelid);
@@ -289,7 +349,18 @@ int main()
         matrices.push_back(model_noise);
         matrices.push_back(model_mouth);
         matrices.push_back(model_R_teeth);
-        matrices.push_back(model_L_teeth);  
+        matrices.push_back(model_L_teeth);
+        matrices.push_back(model_R_iris); 
+        matrices.push_back(model_L_iris);
+        matrices.push_back(model_R_pupil); 
+        matrices.push_back(model_L_pupil);
+        matrices.push_back(model_RR_eyelash);
+        matrices.push_back(model_MR_eyelash);
+        matrices.push_back(model_LR_eyelash);
+        matrices.push_back(model_RL_eyelash);
+        matrices.push_back(model_ML_eyelash);
+        matrices.push_back(model_LL_eyelash);
+
 
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
