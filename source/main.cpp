@@ -32,11 +32,12 @@ int main()
             float currentFrame = static_cast<float>(glfwGetTime());
             processInputCamera(window,currentFrame - Globals::lastFrame);
             Globals::lastFrame = currentFrame;
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             float aspectRatio = static_cast<float>(Globals::windowWidth) / static_cast<float>(Globals::windowHeight);
             glm::mat4 projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);
             glm::mat4 view = Globals::camera.GetViewMatrix();
+
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
             SB.processArmInput(window);
