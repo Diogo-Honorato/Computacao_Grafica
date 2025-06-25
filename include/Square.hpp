@@ -7,7 +7,7 @@ class Square : public Shape {
 public:
 
     Square(
-        const std::string texturePath = nullptr,    
+        const std::string texturePath = "",    
         const char *vertexPath = DEFAULT_SQUARE_VERTEX,
         const char *fragmentPath = DEFAULT_SQUARE_FRAGMENT
     );
