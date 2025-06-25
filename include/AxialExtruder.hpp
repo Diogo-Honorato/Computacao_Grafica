@@ -19,7 +19,7 @@ private:
 
 public:
     AxialExtruder(float topRadius = 1.0f, float baseRadius = 1.0f, float height = 2.0f, int slices = 36, int stacks = 8,
-                  const std::string texturePath = nullptr,
+                  const std::string texturePath ="",
                   const char *vertexPath = DEFAULT_EXTRUDER_VERTEX,
                   const char *fragmentPath = DEFAULT_EXTRUDER_FRAGMENT
     );
