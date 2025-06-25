@@ -1,8 +1,8 @@
 #include "../include/Line.hpp"
 #include <cmath>
 
-Line::Line(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef,float lineWidth,const char* vertexPath, const char* fragmentPath,const std::string texturePath)
-    : Shape(texturePath,vertexPath, fragmentPath),points(pointsRef),indices(indicesRef),lineWidth(lineWidth) {
+Line::Line(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef,float lineWidth,const char* vertexPath, const char* fragmentPath)
+    : Shape("",vertexPath, fragmentPath),points(pointsRef),indices(indicesRef),lineWidth(lineWidth) {
     
     setup();
 }
