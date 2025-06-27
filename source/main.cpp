@@ -21,10 +21,24 @@ int main()
         return -1;
     }
 
-
     {
+        std::vector<std::unique_ptr<Shape>> shapes;
+        std::vector<std::unique_ptr<glm::mat4>> matrices;
+        glm::vec3 cubePos(2.0f, 0.0f,0.0);
+        glm::vec3 lightPos(1.0f, 1.0f, -2.0f);
 
-        SpongeBob SB;
+        shapes.push_back(std::make_unique<Cube>("",DEFAULT_CUBE_VERTEX,"../shader/light/cube.fs"));
+        shapes.push_back(std::make_unique<Cube>("",DEFAULT_CUBE_VERTEX,"../shader/light/lamp.fs"));
+        
+        glm::mat4 model_cube = glm::mat4(1.0f);
+        model_cube = glm::translate(model_cube, cubePos);
+        
+        glm::mat4 model_lamp = glm::mat4(1.0f);
+        model_lamp = glm::translate(model_lamp, lightPos);
+        model_lamp = glm::scale(model_lamp, glm::vec3(0.5f));
+        
+        matrices.push_back(std::make_unique<glm::mat4>(model_cube));
+        matrices.push_back(std::make_unique<glm::mat4>(model_lamp));
 
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
@@ -39,9 +53,19 @@ int main()
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+            for(size_t i = 0; i < shapes.size();i++){
 
-            SB.processArmInput(window);
-            SB.drawSpongeBob(projection,view);
+                shapes[i]->getShader().useShaders();
+                shapes[i]->getShader().setMat4("model", *matrices[i]);
+                shapes[i]->getShader().setMat4("projection", projection);
+                shapes[i]->getShader().setMat4("view", view);
+
+                shapes[0]->getShader().setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+                shapes[0]->getShader().setVec3("lightColor",  1.0f, 1.0f, 1.0f);
+
+                shapes[i]->desenhar();
+            }
+
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);
