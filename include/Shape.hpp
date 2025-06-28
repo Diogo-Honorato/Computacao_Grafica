@@ -15,7 +15,7 @@ protected:
     VAO vao;
     VBO* vbo = nullptr;
     EBO* ebo = nullptr;
-    Texture texture;
+    Texture* texture = nullptr;
     Shader shader;
     GLsizei indexCount = 0;
 
@@ -25,10 +25,10 @@ public:
     virtual void desenhar() = 0;
     
     Shader& getShader();
-    Texture& getTexture();
-    void setTexture(Texture tex);
+    Texture* getTexture();
+    void setTexture(Texture *tex);
 
-    Shape(const std::string texturePath,const char* vertexPath, const char* fragmentPath);
+    Shape(const std::string &texturePath,const char* vertexPath, const char* fragmentPath);
     virtual ~Shape();
 };
 

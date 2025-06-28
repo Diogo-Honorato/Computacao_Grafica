@@ -381,8 +381,8 @@ void SpongeBob::drawSpongeBob(const glm::mat4& projection, const glm::mat4& view
         Shapes[i]->getShader().setMat4("projection", projection);
         Shapes[i]->getShader().setMat4("view", view);
 
-        Shapes[i]->getTexture().Bind();
+        Shapes[i]->getTexture()->Bind();
         Shapes[i]->desenhar();
-        Shapes[i]->getTexture().Unbind();
+        Shapes[i]->getTexture()->Unbind();
     }
 }

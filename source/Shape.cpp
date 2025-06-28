@@ -1,21 +1,30 @@
 #include "../include/Shape.hpp"
 
-Shape::Shape(const std::string texturePath,const char* vertexPath, const char* fragmentPath)
-    : shader(vertexPath, fragmentPath), texture(texturePath, GL_TEXTURE_2D, GL_RGBA, true) {}
+Shape::Shape(const std::string &texturePath,const char* vertexPath, const char* fragmentPath)
+    : shader(vertexPath, fragmentPath) 
+{
+
+    if(!texturePath.empty()){
+
+        texture = new Texture(texturePath, GL_TEXTURE_2D, GL_RGBA, true);
+    }
+}
 
 Shader& Shape::getShader() {
     return shader;
 }
 
-void Shape::setTexture(Texture tex) {
+void Shape::setTexture(Texture *tex) {
+    if (texture) delete texture;
     texture = tex;
 }
 
-Texture& Shape::getTexture() {
+Texture* Shape::getTexture() {
     return texture;
 }
 
 Shape::~Shape() {
-    if (vbo) delete vbo;
-    if (ebo) delete ebo;
+    if  (vbo) delete vbo;
+    if  (ebo) delete ebo;
+    if  (texture) delete texture;
 }
