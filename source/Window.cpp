@@ -11,6 +11,21 @@ namespace Globals {
     int windowHeight = static_cast<int>(WIN_HEIGHT);
 }
 
+void processInput(GLFWwindow *window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+}
+
 void processInputCamera(GLFWwindow *window, float deltaTime)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -27,9 +42,6 @@ void processInputCamera(GLFWwindow *window, float deltaTime)
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         Globals::camera.ProcessKeyboard(RIGHT, deltaTime);
-
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -113,9 +125,6 @@ GLFWwindow *startWindow(int width, int height, const char *title)
     
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-    // tell GLFW to capture our mouse
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // Ativa sincronização com o monitor (VSync)
     glfwSwapInterval(1);

@@ -428,12 +428,17 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp \
  /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glm/gtc/type_ptr.inl \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shapes.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Clipping.hpp \
+ /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
+ /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
+ /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shape.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paths.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shader.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
@@ -446,12 +451,13 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/EBO.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Texture.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Square.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Shapes.hpp \
+ /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Circle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Triangle.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Cube.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Sphere.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/AxialExtruder.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Pipe.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Paraboloid.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Line.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Home.hpp \
  /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/SpongeBob.hpp

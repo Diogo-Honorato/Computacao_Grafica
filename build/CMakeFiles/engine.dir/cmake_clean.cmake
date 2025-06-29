@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/source/Camera.cpp.o.d"
   "CMakeFiles/engine.dir/source/Circle.cpp.o"
   "CMakeFiles/engine.dir/source/Circle.cpp.o.d"
+  "CMakeFiles/engine.dir/source/Clipping.cpp.o"
+  "CMakeFiles/engine.dir/source/Clipping.cpp.o.d"
   "CMakeFiles/engine.dir/source/Cube.cpp.o"
   "CMakeFiles/engine.dir/source/Cube.cpp.o.d"
   "CMakeFiles/engine.dir/source/EBO.cpp.o"

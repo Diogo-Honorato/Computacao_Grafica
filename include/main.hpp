@@ -6,6 +6,7 @@
 #include "Window.hpp"
 #include "../dep/glm/glm.hpp"
 #include "../dep/glm/gtc/type_ptr.hpp"
+#include "Clipping.hpp"
 #include "Shapes.hpp"
 
 #endif

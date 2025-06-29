@@ -5,8 +5,8 @@
 #include "../dep/glfw/include/GLFW/glfw3.h"
 #include "../include/Camera.hpp"
 
-#define WIN_WIDTH 1920.0
-#define WIN_HEIGHT 1080.0
+#define WIN_WIDTH 800.0
+#define WIN_HEIGHT 600.0
 #define RATIO (float)(WIN_WIDTH/WIN_HEIGHT)
 
 namespace Globals {
@@ -27,5 +27,18 @@ int initializeOpenGL(GLFWwindow *window,bool gl_depth_test);
 void processInputCamera(GLFWwindow *window, float deltaTime);
 void mouse_callback(GLFWwindow* window,double xposIn, double yposIn);
 void scroll_callback(GLFWwindow* window,double xoffset, double yoffset);
+
+
+inline void updateFrameCamera(GLFWwindow* window, glm::mat4& projection, glm::mat4& view) {
+    float currentFrame = static_cast<float>(glfwGetTime());
+    float deltaTime = currentFrame - Globals::lastFrame;
+    Globals::lastFrame = currentFrame;
+
+    processInputCamera(window, deltaTime);
+
+    float aspectRatio = static_cast<float>(Globals::windowWidth) / static_cast<float>(Globals::windowHeight);
+    projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);
+    view = Globals::camera.GetViewMatrix();
+}
 
 #endif

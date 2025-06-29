@@ -322,6 +322,30 @@ source/Circle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Circle.cpp.s
 .PHONY : source/Circle.cpp.s
 
+source/Clipping.o: source/Clipping.cpp.o
+.PHONY : source/Clipping.o
+
+# target to build an object file
+source/Clipping.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.o
+.PHONY : source/Clipping.cpp.o
+
+source/Clipping.i: source/Clipping.cpp.i
+.PHONY : source/Clipping.i
+
+# target to preprocess a source file
+source/Clipping.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.i
+.PHONY : source/Clipping.cpp.i
+
+source/Clipping.s: source/Clipping.cpp.s
+.PHONY : source/Clipping.s
+
+# target to generate assembly for a file
+source/Clipping.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.s
+.PHONY : source/Clipping.cpp.s
+
 source/Cube.o: source/Cube.cpp.o
 .PHONY : source/Cube.o
 
@@ -759,6 +783,9 @@ help:
 	@echo "... source/Circle.o"
 	@echo "... source/Circle.i"
 	@echo "... source/Circle.s"
+	@echo "... source/Clipping.o"
+	@echo "... source/Clipping.i"
+	@echo "... source/Clipping.s"
 	@echo "... source/Cube.o"
 	@echo "... source/Cube.i"
 	@echo "... source/Cube.s"

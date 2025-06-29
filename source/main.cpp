@@ -43,16 +43,13 @@ int main()
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
         {   
-            float currentFrame = static_cast<float>(glfwGetTime());
-            processInputCamera(window,currentFrame - Globals::lastFrame);
-            Globals::lastFrame = currentFrame;
-            float aspectRatio = static_cast<float>(Globals::windowWidth) / static_cast<float>(Globals::windowHeight);
-            glm::mat4 projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);
-            glm::mat4 view = Globals::camera.GetViewMatrix();
+            glm::mat4 projection, view;
+            updateFrameCamera(window,projection,view);
 
             glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+            
             for(size_t i = 0; i < shapes.size();i++){
 
                 shapes[i]->getShader().useShaders();

@@ -1,8 +1,8 @@
 #include "../include/Line.hpp"
 #include <cmath>
 
-Line::Line(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef,float lineWidth,const char* vertexPath, const char* fragmentPath)
-    : Shape("",vertexPath, fragmentPath),points(pointsRef),indices(indicesRef),lineWidth(lineWidth) {
+Line::Line(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef,const char* vertexPath, const char* fragmentPath)
+    : Shape("",vertexPath, fragmentPath),points(pointsRef),indices(indicesRef) {
     
     setup();
 }
@@ -41,22 +41,25 @@ void Line::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indic
 }
 
 void Line::setup() {
+
+    indexCount = indices.size();
     vao.Bind();
     
     vbo = new VBO(points.data(), points.size() * sizeof(float));
     
     ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
     
-
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
     vao.Unbind();
+    vbo->Unbind();
+    ebo->Unbind();
 }
 
 void Line::desenhar() {
-    glLineWidth(lineWidth);
+    
     vao.Bind();
-    glDrawElements(GL_LINES, indices.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_LINES, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }
