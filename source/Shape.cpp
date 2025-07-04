@@ -1,7 +1,7 @@
 #include "../include/Shape.hpp"
 
-Shape::Shape(const std::string &texturePath,const char* vertexPath, const char* fragmentPath)
-    : shader(vertexPath, fragmentPath) 
+Shape::Shape(const std::string &texturePath,bool lightingEnabled,const char* vertexPath, const char* fragmentPath)
+    : shader(vertexPath, fragmentPath), lightingEnabled(lightingEnabled) 
 {
 
     if(!texturePath.empty()){

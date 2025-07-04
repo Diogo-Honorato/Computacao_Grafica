@@ -7,7 +7,8 @@ class Cube : public Shape{
 
 public:
     Cube(
-        const std::string texturePath = "",       
+        const std::string texturePath = "",
+        bool lightingEnabled = false,
         const char *vertexPath = DEFAULT_CUBE_VERTEX,
         const char *fragmentPath = DEFAULT_CUBE_FRAGMENT
     );

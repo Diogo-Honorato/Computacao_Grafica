@@ -17,6 +17,7 @@ private:
 public:
     Paraboloid(bool hasBottomCap = false,bool hasTopCap = false,float height = 1.0f, float radius = 1.0f, int slices = 36, int stacks = 18,
         const std::string texturePath = "",
+        bool lightingEnabled = false,
         const char* vertexPath = DEFAULT_PARAB_VERTEX,
         const char* fragmentPath = DEFAULT_PARAB_FRAGMENT
     );

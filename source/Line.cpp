@@ -2,7 +2,7 @@
 #include <cmath>
 
 Line::Line(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef,const char* vertexPath, const char* fragmentPath)
-    : Shape("",vertexPath, fragmentPath),points(pointsRef),indices(indicesRef) {
+    : Shape("",false,vertexPath, fragmentPath),points(pointsRef),indices(indicesRef) {
     
     setup();
 }

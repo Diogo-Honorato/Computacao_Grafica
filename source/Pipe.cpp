@@ -2,8 +2,8 @@
 
 constexpr float PI = glm::pi<float>();
 
-Pipe::Pipe(std::vector<glm::vec3> &pathPoints, float topRadius, float baseRadius, int slices,const std::string texturePath, const char *vertexPath, const char *fragmentPath)
-    : Shape(texturePath,vertexPath, fragmentPath), pathPoints(pathPoints), topRadius(topRadius), baseRadius(baseRadius), slices(slices)
+Pipe::Pipe(std::vector<glm::vec3> &pathPoints, float topRadius, float baseRadius, int slices,const std::string texturePath, bool lightingEnabled,const char *vertexPath, const char *fragmentPath)
+    : Shape(texturePath,lightingEnabled,vertexPath, fragmentPath), pathPoints(pathPoints), topRadius(topRadius), baseRadius(baseRadius), slices(slices)
 {
 
     setup();

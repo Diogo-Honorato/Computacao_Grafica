@@ -27,6 +27,7 @@ public:
     Sphere(
         float radius = 1.0f, int slices = 36, int stacks = 18,
         const std::string texturePath = "",
+        bool lightingEnabled = false,
         const char *vertexPath = DEFAULT_SPHERE_VERTEX,
         const char *fragmentPath = DEFAULT_SPHERE_FRAGMENT
     );

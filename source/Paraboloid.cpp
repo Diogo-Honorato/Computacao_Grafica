@@ -1,7 +1,7 @@
 #include "../include/Paraboloid.hpp"
 
-Paraboloid::Paraboloid(bool hasBottomCap,bool hasTopCap,float height, float radius, int slices, int stacks,const std::string texturePath ,const char* vertexPath, const char* fragmentPath)
-    : Shape(texturePath,vertexPath, fragmentPath),hasBottomCap(hasBottomCap),hasTopCap(hasTopCap),height(height),radius(radius),slices(slices),stacks(stacks)
+Paraboloid::Paraboloid(bool hasBottomCap,bool hasTopCap,float height, float radius, int slices, int stacks,const std::string texturePath ,bool lightingEnabled,const char* vertexPath, const char* fragmentPath)
+    : Shape(texturePath,lightingEnabled,vertexPath, fragmentPath),hasBottomCap(hasBottomCap),hasTopCap(hasTopCap),height(height),radius(radius),slices(slices),stacks(stacks)
 {
 
     setup();

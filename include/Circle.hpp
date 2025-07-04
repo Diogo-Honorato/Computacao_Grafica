@@ -14,6 +14,7 @@ public:
     Circle(
         float radius = 0.5f, int segments = 50,
         const std::string texturePath = "",
+        bool lightingEnabled = false,
         const char *vertexPath = DEFAULT_CIRCLE_VERTEX,
         const char *fragmentPath = DEFAULT_CIRCLE_FRAGMENT
     );

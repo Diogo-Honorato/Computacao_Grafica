@@ -1,7 +1,7 @@
 #include "../include/AxialExtruder.hpp"
 
-AxialExtruder::AxialExtruder(float topRadius, float baseRadius, float height, int slices, int stacks, const std::string texturePath,const char *vertexPath, const char *fragmentPath)
-    : Shape(texturePath,vertexPath, fragmentPath), baseRadius(baseRadius), topRadius(topRadius), height(height), slices(slices),
+AxialExtruder::AxialExtruder(float topRadius, float baseRadius, float height, int slices, int stacks, const std::string texturePath,bool lightingEnabled,const char *vertexPath, const char *fragmentPath)
+    : Shape(texturePath,lightingEnabled,vertexPath, fragmentPath), baseRadius(baseRadius), topRadius(topRadius), height(height), slices(slices),
       stacks(stacks)
 {
     setup();

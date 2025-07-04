@@ -18,6 +18,7 @@ protected:
     Texture* texture = nullptr;
     Shader shader;
     GLsizei indexCount = 0;
+    bool lightingEnabled;
 
 public:
     virtual void generateMesh(std::vector<float>& vertices, std::vector<GLuint>& indices) = 0;
@@ -28,7 +29,7 @@ public:
     Texture* getTexture();
     void setTexture(Texture *tex);
 
-    Shape(const std::string &texturePath,const char* vertexPath, const char* fragmentPath);
+    Shape(const std::string &texturePath,bool lightingEnabled,const char* vertexPath, const char* fragmentPath);
     virtual ~Shape();
 };
 

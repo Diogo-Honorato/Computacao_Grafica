@@ -25,10 +25,10 @@ int main()
         std::vector<std::unique_ptr<Shape>> shapes;
         std::vector<std::unique_ptr<glm::mat4>> matrices;
         glm::vec3 cubePos(2.0f, 0.0f,0.0);
-        glm::vec3 lightPos(1.0f, 1.0f, -2.0f);
+        glm::vec3 lightPos(6.0f, 0.0f, 0.0f);
 
-        shapes.push_back(std::make_unique<Cube>("",DEFAULT_CUBE_VERTEX,"../shader/light/cube.fs"));
-        shapes.push_back(std::make_unique<Cube>("",DEFAULT_CUBE_VERTEX,"../shader/light/lamp.fs"));
+        shapes.push_back(std::make_unique<Cube>("",true,"../shader/light/cube.vs","../shader/light/cube.fs"));
+        shapes.push_back(std::make_unique<Cube>("",false,"../shader/light/lamp.vs","../shader/light/lamp.fs"));
         
         glm::mat4 model_cube = glm::mat4(1.0f);
         model_cube = glm::translate(model_cube, cubePos);
@@ -38,7 +38,7 @@ int main()
         model_lamp = glm::scale(model_lamp, glm::vec3(0.5f));
         
         matrices.push_back(std::make_unique<glm::mat4>(model_cube));
-        matrices.push_back(std::make_unique<glm::mat4>(model_lamp));
+        matrices.push_back(std::make_unique<glm::mat4>(model_lamp)); 
 
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
@@ -59,6 +59,7 @@ int main()
 
                 shapes[0]->getShader().setVec3("objectColor", 1.0f, 0.5f, 0.31f);
                 shapes[0]->getShader().setVec3("lightColor",  1.0f, 1.0f, 1.0f);
+                shapes[0]->getShader().setVec3("lightPos", lightPos);
 
                 shapes[i]->desenhar();
             }

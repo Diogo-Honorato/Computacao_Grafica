@@ -7,7 +7,8 @@ class Triangle : public Shape {
 public:
 
     Triangle(
-        const std::string texturePath = "",        
+        const std::string texturePath = "",
+        bool lightingEnabled = false,        
         const char *vertexPath = DEFAULT_TRIANGLE_VERTEX,
         const char *fragmentPath = DEFAULT_TRIANGLE_FRAGMENT
     );

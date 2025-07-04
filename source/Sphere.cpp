@@ -1,7 +1,7 @@
 #include "../include/Sphere.hpp"
 
-Sphere::Sphere(float radius, int slices, int stacks, const std::string texturePath ,const char *vertexPath,const char *fragmentPath)
-:Shape(texturePath,vertexPath,fragmentPath), radius(radius),slices(slices), stacks(stacks){
+Sphere::Sphere(float radius, int slices, int stacks, const std::string texturePath ,bool lightingEnabled,const char *vertexPath,const char *fragmentPath)
+:Shape(texturePath,lightingEnabled,vertexPath,fragmentPath), radius(radius),slices(slices), stacks(stacks){
     
     setup();
 }
