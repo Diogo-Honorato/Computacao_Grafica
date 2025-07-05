@@ -27,7 +27,7 @@ int main()
         glm::vec3 cubePos(2.0f, 0.0f,0.0);
         glm::vec3 lightPos(6.0f, 0.0f, 0.0f);
 
-        shapes.push_back(std::make_unique<Cube>("",true,"../shader/light/cube.vs","../shader/light/cube.fs"));
+        shapes.push_back(std::make_unique<Sphere>("",true,"../shader/light/light.vs","../shader/light/light.fs"));
         shapes.push_back(std::make_unique<Cube>("",false,"../shader/light/lamp.vs","../shader/light/lamp.fs"));
         
         glm::mat4 model_cube = glm::mat4(1.0f);
@@ -60,6 +60,7 @@ int main()
                 shapes[0]->getShader().setVec3("objectColor", 1.0f, 0.5f, 0.31f);
                 shapes[0]->getShader().setVec3("lightColor",  1.0f, 1.0f, 1.0f);
                 shapes[0]->getShader().setVec3("lightPos", lightPos);
+                shapes[0]->getShader().setVec3("viewPos", Globals::camera.Position);
 
                 shapes[i]->desenhar();
             }
