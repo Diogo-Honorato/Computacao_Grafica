@@ -19,7 +19,7 @@ void Triangle::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& i
         {0.5f, 1.0f}
     };
 
-    glm::vec3 normal(0.0f, 0.0f, 1.0f);
+    glm::vec3 normal(1.0f, 1.0f, 0.0f);
 
     vertices.clear();
     for (int i = 0; i < 3; ++i) {

@@ -46,9 +46,9 @@ void Circle::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& ind
 
         // Normal
         if (lightingEnabled) {
-            vertices.push_back(0.0f);
-            vertices.push_back(0.0f);
             vertices.push_back(1.0f);
+            vertices.push_back(1.0f);
+            vertices.push_back(0.0f);
         }
 
         // indices
