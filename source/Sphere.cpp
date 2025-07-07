@@ -10,9 +10,8 @@ void Sphere::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& ind
 {
     const float PI = acos(-1.0f);
 
-    float x, y, z, xy;                           // vertex position
-    float nx, ny, nz, lengthInv = 1.0f / radius; // normal
-    float s, t;                                  // texCoord
+    float x, y, z, xy;
+    float s, t;
 
     float sliceStep = 2 * PI / slices;
     float stackStep = PI / stacks;
@@ -20,31 +19,43 @@ void Sphere::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& ind
 
     for (int i = 0; i <= stacks; ++i)
     {
-        stackAngle = PI / 2 - i * stackStep; // starting from pi/2 to -pi/2
-        xy = radius * cosf(stackAngle);      // r * cos(u)
-        z = radius * sinf(stackAngle);       // r * sin(u)
+        stackAngle = PI / 2 - i * stackStep;
+        xy = radius * cosf(stackAngle);
+        z = radius * sinf(stackAngle);
 
-        // add (slices+1) vertices per stack
-        // the first and last vertices have same position and normal, but different tex coords
         for (int j = 0; j <= slices; ++j)
         {
-            sliceAngle = j * sliceStep; // starting from 0 to 2pi
+            sliceAngle = j * sliceStep;
 
-            // vertex position
-            x = xy * cosf(sliceAngle); // r * cos(u) * cos(v)
-            y = xy * sinf(sliceAngle); // r * cos(u) * sin(v)
+            x = xy * cosf(sliceAngle);
+            y = xy * sinf(sliceAngle);
+
+            // posição
             vertices.push_back(x);
             vertices.push_back(y);
             vertices.push_back(z);
 
-            s = 1.0f - (float)j / slices;
-            t = (float)i / stacks;
-            vertices.push_back(s);
-            vertices.push_back(t);
+            // textura
+            if (texture != nullptr)
+            {
+                s = 1.0f - (float)j / slices;
+                t = (float)i / stacks;
+                vertices.push_back(s);
+                vertices.push_back(t);
+            }
+
+            // normal
+            if (lightingEnabled)
+            {
+                glm::vec3 normal = glm::normalize(glm::vec3(x, y, z));
+                vertices.push_back(normal.x);
+                vertices.push_back(normal.y);
+                vertices.push_back(normal.z);
+            }
         }
     }
 
-    // indices
+    // Indices
     //  k1--k1+1
     //  |  / |
     //  | /  |
@@ -52,51 +63,66 @@ void Sphere::generateMesh(std::vector<float>& vertices, std::vector<GLuint>& ind
     unsigned int k1, k2;
     for (int i = 0; i < stacks; ++i)
     {
-        k1 = i * (slices + 1); // beginning of current stack
-        k2 = k1 + slices + 1;  // beginning of next stack
+        k1 = i * (slices + 1);
+        k2 = k1 + slices + 1;
 
         for (int j = 0; j < slices; ++j, ++k1, ++k2)
         {
-            // 2 triangles per sector excluding 1st and last stacks
             if (i != 0)
             {
                 indices.push_back(k1);
                 indices.push_back(k2);
-                indices.push_back(k1+1);
+                indices.push_back(k1 + 1);
             }
 
             if (i != (stacks - 1))
             {
-                indices.push_back(k1+1);
+                indices.push_back(k1 + 1);
                 indices.push_back(k2);
-                indices.push_back(k2+1);
+                indices.push_back(k2 + 1);
             }
         }
     }
 }
 
-void Sphere::setup(){
 
+void Sphere::setup()
+{
     std::vector<float> vertices;
     std::vector<GLuint> indices;
 
-    generateMesh(vertices,indices);
+    generateMesh(vertices, indices);
 
     indexCount = static_cast<GLsizei>(indices.size());
 
     vao.Bind();
 
+    unsigned int stride = 3;
+    if (texture != nullptr) stride += 2;
+    if (lightingEnabled) stride += 3;
+
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
     ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    if (texture != nullptr)
+    {
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+    }
+
+    if (lightingEnabled)
+    {
+        int offset = (texture != nullptr) ? 5 : 3;
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)(offset * sizeof(float)));
+        glEnableVertexAttribArray(2);
+    }
 
     vao.Unbind();
 }
+
 
 void Sphere::desenhar() {
     vao.Bind();

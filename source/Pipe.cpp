@@ -32,49 +32,54 @@ void Pipe::generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indic
     vertices.clear();
     indices.clear();
 
-    // Generate unit circle vertices once
     std::vector<float> unitCircle = buildUnitCircleVertices();
     int stacks = static_cast<int>(pathPoints.size());
 
-    // Calculate tangents for each path point
     std::vector<glm::vec3> tangents;
     calculatePathTangents(pathPoints, tangents);
 
-    // Generate side vertices
     for (int i = 0; i < stacks; ++i)
     {
         const glm::vec3 &point = pathPoints[i];
         const glm::vec3 &tangent = tangents[i];
 
-        // Calculate local coordinate system
         glm::vec3 normal, binormal;
         calculateFrenetFrame(tangent, normal, binormal);
 
-        // Calculate current radius (lerp between base and top)
         float radius = baseRadius + (float)i / (stacks - 1) * (topRadius - baseRadius);
 
         for (int j = 0; j <= slices; ++j)
         {
-            // Get unit circle point
             float x = unitCircle[j * 3];
             float y = unitCircle[j * 3 + 1];
 
-            // Calculate vertex position in local coordinates
             glm::vec3 localPos = normal * (radius * x) + binormal * (radius * y);
             glm::vec3 worldPos = point + localPos;
 
-            // Add position (3 floats)
+            // Posição
             vertices.push_back(worldPos.x);
             vertices.push_back(worldPos.y);
             vertices.push_back(worldPos.z);
 
-            // Add texture coordinates (2 floats)
-            vertices.push_back(static_cast<float>(j) / slices);       // U
-            vertices.push_back(static_cast<float>(i) / (stacks - 1)); // V
+            // Textura
+            if (texture != nullptr)
+            {
+                vertices.push_back(static_cast<float>(j) / slices);       // s
+                vertices.push_back(static_cast<float>(i) / (stacks - 1)); // t
+            }
+
+            // Normal
+            if (lightingEnabled)
+            {
+                glm::vec3 normalVec = glm::normalize(localPos);
+                vertices.push_back(normalVec.x);
+                vertices.push_back(normalVec.y);
+                vertices.push_back(normalVec.z);
+            }
         }
     }
 
-    // Generate side indices
+    // Índices das laterais
     for (int i = 0; i < stacks - 1; ++i)
     {
         for (int j = 0; j < slices; ++j)
@@ -82,7 +87,6 @@ void Pipe::generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indic
             int k1 = i * (slices + 1) + j;
             int k2 = k1 + slices + 1;
 
-            // Two triangles per sector
             indices.push_back(k1);
             indices.push_back(k1 + 1);
             indices.push_back(k2);
@@ -93,22 +97,33 @@ void Pipe::generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indic
         }
     }
 
-
-    // Generate base cap (first point in path)
+    // Base cap
     {
         const glm::vec3 &center = pathPoints.front();
+        unsigned int stride = 3;
+        if (texture != nullptr) stride += 2;
+        if (lightingEnabled) stride += 3;
 
-        // Center point
+        unsigned int centerIndex = vertices.size() / stride;
+
+        // Vértice central
         vertices.push_back(center.x);
         vertices.push_back(center.y);
         vertices.push_back(center.z);
-        vertices.push_back(0.5f); // s
-        vertices.push_back(0.5f); // t
+        if (texture != nullptr)
+        {
+            vertices.push_back(0.5f);
+            vertices.push_back(0.5f);
+        }
+        if (lightingEnabled)
+        {
+            glm::vec3 n = -tangents.front();
+            vertices.push_back(n.x);
+            vertices.push_back(n.y);
+            vertices.push_back(n.z);
+        }
 
-        unsigned int baseVertexIndex = vertices.size() / 5 - 1;
-
-        // Base ring
-        glm::vec3 normal = -tangents.front(); // Base normal points opposite to path tangent
+        glm::vec3 normal = -tangents.front();
         glm::vec3 binormal, dummy;
         calculateFrenetFrame(normal, binormal, dummy);
 
@@ -123,43 +138,56 @@ void Pipe::generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indic
             vertices.push_back(worldPos.x);
             vertices.push_back(worldPos.y);
             vertices.push_back(worldPos.z);
-            vertices.push_back(x * 0.5f + 0.5f); // s
-            vertices.push_back(y * 0.5f + 0.5f); // t
+
+            if (texture != nullptr)
+            {
+                vertices.push_back(x * 0.5f + 0.5f);
+                vertices.push_back(y * 0.5f + 0.5f);
+            }
+
+            if (lightingEnabled)
+            {
+                glm::vec3 n = -tangents.front();
+                vertices.push_back(n.x);
+                vertices.push_back(n.y);
+                vertices.push_back(n.z);
+            }
         }
 
-        // Generate base cap indices
-        for (int i = 0, k = baseVertexIndex + 1; i < slices; ++i, ++k)
+        for (int i = 0, k = centerIndex + 1; i < slices; ++i, ++k)
         {
-            if (i < slices - 1)
-            {
-                indices.push_back(baseVertexIndex);
-                indices.push_back(k + 1);
-                indices.push_back(k);
-            }
-            else // last triangle
-            {
-                indices.push_back(baseVertexIndex);
-                indices.push_back(baseVertexIndex + 1);
-                indices.push_back(k);
-            }
+            indices.push_back(centerIndex);
+            indices.push_back((i < slices - 1) ? k + 1 : centerIndex + 1);
+            indices.push_back(k);
         }
     }
 
-    
-    // Generate top cap (last point in path)
+    // Top cap
     {
         const glm::vec3 &center = pathPoints.back();
+        unsigned int stride = 3;
+        if (texture != nullptr) stride += 2;
+        if (lightingEnabled) stride += 3;
 
-        // Center point
+        unsigned int centerIndex = vertices.size() / stride;
+
         vertices.push_back(center.x);
         vertices.push_back(center.y);
         vertices.push_back(center.z);
-        vertices.push_back(0.5f); // s
-        vertices.push_back(0.5f); // t
+        if (texture != nullptr)
+        {
+            vertices.push_back(0.5f);
+            vertices.push_back(0.5f);
+        }
+        if (lightingEnabled)
+        {
+            glm::vec3 n = tangents.back();
+            vertices.push_back(n.x);
+            vertices.push_back(n.y);
+            vertices.push_back(n.z);
+        }
 
-        unsigned int topVertexIndex = static_cast<unsigned int>(vertices.size() / 5 - 1);
-
-        glm::vec3 normal = tangents.back(); // Top normal points along path tangent
+        glm::vec3 normal = tangents.back();
         glm::vec3 binormal, dummy;
         calculateFrenetFrame(normal, binormal, dummy);
 
@@ -174,28 +202,31 @@ void Pipe::generateMesh(std::vector<float> &vertices, std::vector<GLuint> &indic
             vertices.push_back(worldPos.x);
             vertices.push_back(worldPos.y);
             vertices.push_back(worldPos.z);
-            vertices.push_back(x * 0.5f + 0.5f); // s
-            vertices.push_back(y * 0.5f + 0.5f); // t
+
+            if (texture != nullptr)
+            {
+                vertices.push_back(x * 0.5f + 0.5f);
+                vertices.push_back(y * 0.5f + 0.5f);
+            }
+
+            if (lightingEnabled)
+            {
+                glm::vec3 n = tangents.back();
+                vertices.push_back(n.x);
+                vertices.push_back(n.y);
+                vertices.push_back(n.z);
+            }
         }
 
-        // Generate top cap indices
-        for (int i = 0, k = topVertexIndex + 1; i < slices; ++i, ++k)
+        for (int i = 0, k = centerIndex + 1; i < slices; ++i, ++k)
         {
-            if (i < slices - 1)
-            {
-                indices.push_back(topVertexIndex);
-                indices.push_back(k);
-                indices.push_back(k + 1);
-            }
-            else // last triangle
-            {
-                indices.push_back(topVertexIndex);
-                indices.push_back(k);
-                indices.push_back(topVertexIndex + 1);
-            }
+            indices.push_back(centerIndex);
+            indices.push_back(k);
+            indices.push_back((i < slices - 1) ? k + 1 : centerIndex + 1);
         }
     }
 }
+
 
 void Pipe::calculatePathTangents(const std::vector<glm::vec3> &path, std::vector<glm::vec3> &tangents)
 {
@@ -252,18 +283,33 @@ void Pipe::setup()
     generateMesh(vertices, indices);
     indexCount = static_cast<GLsizei>(indices.size());
 
+    unsigned int stride = 3;
+    if (texture != nullptr) stride += 2;
+    if (lightingEnabled) stride += 3;
+
     vao.Bind();
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
     ebo = new EBO(indices.data(), indices.size() * sizeof(GLuint));
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    if (texture != nullptr)
+    {
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void *)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+    }
+
+    if (lightingEnabled)
+    {
+        int offset = (texture != nullptr) ? 5 : 3;
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void *)(offset * sizeof(float)));
+        glEnableVertexAttribArray(2);
+    }
 
     vao.Unbind();
 }
+
 
 void Pipe::desenhar()
 {

@@ -48,20 +48,8 @@ void Cube::generateMesh(std::vector<float> &vertexData, std::vector<GLuint> &ind
 
     int start = 3;
 
-    if (texture != nullptr && lightingEnabled)
-    {
-        start = 8;
-    }
-    else if (texture != nullptr)
-    {
-
-        start = 5;
-    }
-    else if (lightingEnabled)
-    {
-
-        start = 6;
-    }
+    if (texture != nullptr) start += 2;
+    if (lightingEnabled)start += 3;
 
     for (int i = 0; i < 6; ++i)
     {
@@ -111,20 +99,8 @@ void Cube::setup()
 
     int stride = 3;
 
-    if (texture != nullptr && lightingEnabled)
-    {
-        stride = 8;
-    }
-    else if (texture != nullptr)
-    {
-
-        stride = 5;
-    }
-    else if (lightingEnabled)
-    {
-
-        stride = 6;
-    }
+    if (texture != nullptr) stride += 2;
+    if (lightingEnabled)     stride += 3;
 
     vao.Bind();
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(vertices[0]));
@@ -141,7 +117,8 @@ void Cube::setup()
 
     if (lightingEnabled)
     {
-        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void *)(5 * sizeof(float)));
+        int offset = (texture != nullptr) ? 5 : 3;
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void *)(offset * sizeof(float)));
         glEnableVertexAttribArray(2);
     }
 

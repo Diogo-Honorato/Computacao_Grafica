@@ -25,9 +25,9 @@ int main()
         std::vector<std::unique_ptr<Shape>> shapes;
         std::vector<std::unique_ptr<glm::mat4>> matrices;
         glm::vec3 cubePos(2.0f, 0.0f,0.0);
-        glm::vec3 lightPos(6.0f, 0.0f, 0.0f);
+        glm::vec3 lightPos(6.0f, 2.0f, 0.0f);
 
-        shapes.push_back(std::make_unique<Sphere>("",true,"../shader/light/light.vs","../shader/light/light.fs"));
+        shapes.push_back(std::make_unique<Cube>("",true,"../shader/light/light.vs","../shader/light/light.fs"));
         shapes.push_back(std::make_unique<Cube>("",false,"../shader/light/lamp.vs","../shader/light/lamp.fs"));
         
         glm::mat4 model_cube = glm::mat4(1.0f);
@@ -40,6 +40,7 @@ int main()
         matrices.push_back(std::make_unique<glm::mat4>(model_cube));
         matrices.push_back(std::make_unique<glm::mat4>(model_lamp)); 
 
+        SpongeBob sb;
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
         {   
@@ -64,7 +65,6 @@ int main()
 
                 shapes[i]->desenhar();
             }
-
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);

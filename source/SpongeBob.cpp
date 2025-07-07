@@ -214,7 +214,7 @@ void SpongeBob::buildFace()
 
     glm::mat4 model_L_eyelid = glm::mat4(1.0f);
     model_L_eyelid = glm::translate(model_L_eyelid, glm::vec3(-0.75, 1.55, -3.75));
-
+    
     glm::mat4 model_noise = glm::mat4(1.0f);
     model_noise = glm::translate(model_noise, glm::vec3(0.0, 0.2, -3.5));
     model_noise = glm::rotate(model_noise, glm::radians(-5.0f), glm::vec3(1.0, 0.0, 0.0));
