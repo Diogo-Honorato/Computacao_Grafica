@@ -39,8 +39,7 @@ int main()
         
         matrices.push_back(std::make_unique<glm::mat4>(model_cube));
         matrices.push_back(std::make_unique<glm::mat4>(model_lamp)); 
-
-        SpongeBob sb;
+        
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
         {   
