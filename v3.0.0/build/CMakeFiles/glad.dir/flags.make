@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include
+C_INCLUDES = -I/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/dep/glad/include
 
 C_FLAGS = 
 

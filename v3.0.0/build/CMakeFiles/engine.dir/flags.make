@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/include -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/include -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glm
+CXX_INCLUDES = -I/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/include -I/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/dep/glad/include -I/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/dep/glfw/include -I/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/dep/glm
 
 CXX_FLAGS = -std=gnu++23
 

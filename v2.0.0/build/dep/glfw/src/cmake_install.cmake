@@ -1,4 +1,4 @@
-# Install script for directory: /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/src
+# Install script for directory: /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,6 +43,6 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/src/libglfw3.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/src/libglfw3.a")
 endif()
 

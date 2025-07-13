@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica
+CMAKE_SOURCE_DIR = /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica/build
+CMAKE_BINARY_DIR = /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include dep/glfw/CMakeFiles/uninstall.dir/compiler_depend.make
 include dep/glfw/CMakeFiles/uninstall.dir/progress.make
 
 dep/glfw/CMakeFiles/uninstall:
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw && /usr/bin/cmake -P /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/cmake_uninstall.cmake
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw && /usr/bin/cmake -P /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/cmake_uninstall.cmake
 
 uninstall: dep/glfw/CMakeFiles/uninstall
 uninstall: dep/glfw/CMakeFiles/uninstall.dir/build.make
@@ -78,10 +78,10 @@ dep/glfw/CMakeFiles/uninstall.dir/build: uninstall
 .PHONY : dep/glfw/CMakeFiles/uninstall.dir/build
 
 dep/glfw/CMakeFiles/uninstall.dir/clean:
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
 .PHONY : dep/glfw/CMakeFiles/uninstall.dir/clean
 
 dep/glfw/CMakeFiles/uninstall.dir/depend:
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/uni/CG/Computacao_Grafica /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw /home/diogo/Documentos/uni/CG/Computacao_Grafica/build /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0 /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : dep/glfw/CMakeFiles/uninstall.dir/depend
 

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -D_DEFAULT_SOURCE -D_GLFW_X11
 
-C_INCLUDES = -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/include -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/src -I/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/src
+C_INCLUDES = -I/home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/include -I/home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/src -I/home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/src
 
 C_FLAGS = -fPIC -Wall -std=c99
 

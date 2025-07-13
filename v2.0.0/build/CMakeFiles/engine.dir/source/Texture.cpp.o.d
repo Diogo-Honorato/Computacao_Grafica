@@ -1,9 +1,9 @@
 CMakeFiles/engine.dir/source/Texture.cpp.o: \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/Texture.cpp \
+ /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/source/Texture.cpp \
  /usr/include/stdc-predef.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/Texture.hpp \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../include/../dep/glad/include/glad/glad.h \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glad/include/KHR/khrplatform.h \
+ /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/source/../include/Texture.hpp \
+ /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/source/../include/../dep/glad/include/glad/glad.h \
+ /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -140,7 +140,7 @@ CMakeFiles/engine.dir/source/Texture.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/diogo/Documentos/uni/CG/Computacao_Grafica/source/../dep/stb_image/stb_image.h \
+ /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/source/../dep/stb_image/stb_image.h \
  /usr/include/c++/11/stdlib.h /usr/include/string.h \
  /usr/include/strings.h /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \

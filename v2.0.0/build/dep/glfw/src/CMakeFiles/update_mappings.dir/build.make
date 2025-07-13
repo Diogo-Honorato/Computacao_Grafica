@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica
+CMAKE_SOURCE_DIR = /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/diogo/Documentos/uni/CG/Computacao_Grafica/build
+CMAKE_BINARY_DIR = /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build
 
 # Utility rule file for update_mappings.
 
@@ -67,8 +67,8 @@ include dep/glfw/src/CMakeFiles/update_mappings.dir/compiler_depend.make
 include dep/glfw/src/CMakeFiles/update_mappings.dir/progress.make
 
 dep/glfw/src/CMakeFiles/update_mappings:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/src && /usr/bin/cmake -P /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/src && /usr/bin/cmake -P /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 update_mappings: dep/glfw/src/CMakeFiles/update_mappings
 update_mappings: dep/glfw/src/CMakeFiles/update_mappings.dir/build.make
@@ -79,10 +79,10 @@ dep/glfw/src/CMakeFiles/update_mappings.dir/build: update_mappings
 .PHONY : dep/glfw/src/CMakeFiles/update_mappings.dir/build
 
 dep/glfw/src/CMakeFiles/update_mappings.dir/clean:
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/update_mappings.dir/cmake_clean.cmake
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/update_mappings.dir/cmake_clean.cmake
 .PHONY : dep/glfw/src/CMakeFiles/update_mappings.dir/clean
 
 dep/glfw/src/CMakeFiles/update_mappings.dir/depend:
-	cd /home/diogo/Documentos/uni/CG/Computacao_Grafica/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/uni/CG/Computacao_Grafica /home/diogo/Documentos/uni/CG/Computacao_Grafica/dep/glfw/src /home/diogo/Documentos/uni/CG/Computacao_Grafica/build /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/src /home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0 /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/dep/glfw/src /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/src /home/diogo/Documentos/projetos/Computacao_Grafica/v2.0.0/build/dep/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : dep/glfw/src/CMakeFiles/update_mappings.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/diogo/Documentos/uni/CG/Computacao_Grafica
+# Install script for directory: /home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/dep/glfw/cmake_install.cmake")
+  include("/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/build/dep/glfw/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/diogo/Documentos/uni/CG/Computacao_Grafica/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/diogo/Documentos/projetos/Computacao_Grafica/v3.0.0/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
