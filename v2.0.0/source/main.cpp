@@ -28,7 +28,7 @@ int main()
         glm::vec3 lightPos(6.0f, 2.0f, 0.0f);
 
         shapes.push_back(std::make_unique<Sphere>(1.0,36,18,"",true,"../shader/light/light.vs","../shader/light/light.fs"));
-        shapes.push_back(std::make_unique<Cube>("",false,"../shader/light/lamp.vs","../shader/light/lamp.fs"));
+        shapes.push_back(std::make_unique<Sphere>(1.0f,36,18,"",false,"../shader/light/lamp.vs","../shader/light/lamp.fs"));
         
         glm::mat4 model_cube = glm::mat4(1.0f);
         model_cube = glm::translate(model_cube, cubePos);
