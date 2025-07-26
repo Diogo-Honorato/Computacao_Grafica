@@ -14,7 +14,7 @@ A versão 2.0.0 foi projetada para ser mais acessível e fácil de usar. Nela, o
 
 - Criação de objetos com classes derivadas (`Sphere`, `Cube`, etc).
 
-- Cada objeto pode acabar instanciando seu próprio shader ou malha, mesmo quando são idênticos a outros objetos — isso facilita o isolamento de lógica, mas gera redundância.
+- Cada objeto pode acabar instanciando seu próprio shader ou malha, mesmo quando são idênticos a outros objetos isso facilita o isolamento de lógica, mas gera redundância.
 
 - Ideal para iniciantes ou quem deseja explorar a engine com menos complexidade interna.
 
