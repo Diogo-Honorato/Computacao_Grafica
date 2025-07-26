@@ -24,12 +24,14 @@ int main()
     {   
         glm::vec3 lightPos(1.2f, 1.0f, -2.0f);
 
-        Shader *cubeSH = new Shader("../shader/light/light.vs","../shader/light/light.fs");
+        Shader *cubeSH = new Shader("../shader/light/maps/specular/map_spec.vs","../shader/light/maps/specular/map_spec.fs");
         Shader *lampSH = new Shader("../shader/light/lamp.vs","../shader/light/lamp.fs");
-        Mesh   *mesh = Mesh::sphereMesh(false,true);
+        Texture *diffuseMap = new Texture("../texture/container2.png");
+        Texture *specularMap = new Texture("../texture/container2_specular.png");
+        Mesh   *mesh = Mesh::cubeMesh(true,true);
 
-        Shape cube(mesh,cubeSH,nullptr,true);
-        Shape lamp(mesh,lampSH,nullptr,true);
+        Shape cube(mesh,true,true);
+        Shape lamp(mesh,false,false);
         mesh->clearCPUData();
 
         glm::mat4 model_cube = glm::mat4(1.0f);
@@ -37,7 +39,11 @@ int main()
         glm::mat4 model_lamp = glm::mat4(1.0f);
         model_lamp = glm::translate(model_cube,lightPos);
         model_lamp = glm::scale(model_lamp,glm::vec3(0.5f));
-            
+        
+        cubeSH->useShaders();
+        cubeSH->setInt("material.diffuse", 0);
+        cubeSH->setInt("material.specular", 1);
+
         // Loop principal de renderização
         while (!glfwWindowShouldClose(window))
         {   
@@ -47,26 +53,35 @@ int main()
             glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
-            lamp.getShader()->useShaders();
-            lamp.getShader()->setMat4("projection",projection);
-            lamp.getShader()->setMat4("view",view);
-            lamp.getShader()->setMat4("model",model_lamp);
+            lampSH->useShaders();
+            lampSH->setMat4("projection",projection);
+            lampSH->setMat4("view",view);
+            lampSH->setMat4("model",model_lamp);
 
             lamp.desenharElem();
 
 
-            cube.getShader()->useShaders();
-            cube.getShader()->setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-            cube.getShader()->setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-            cube.getShader()->setVec3("lightPos", lightPos);
-            cube.getShader()->setVec3("viewPos", Globals::camera.Position);
-    
-            cube.getShader()->setMat4("projection",projection);
-            cube.getShader()->setMat4("view",view);
-            cube.getShader()->setMat4("model",model_cube);
+            cubeSH->useShaders();
+            cubeSH->setVec3("light.position", lightPos);
+            cubeSH->setVec3("viewPos", Globals::camera.Position);
+
+            cubeSH->setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
+            cubeSH->setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
+            cubeSH->setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+
+            cubeSH->setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+            cubeSH->setVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
+            cubeSH->setVec3("material.specular", 0.5f, 0.5f, 0.5f);
+            cubeSH->setFloat("material.shininess", 32.0f);
+
+            cubeSH->setMat4("projection",projection);
+            cubeSH->setMat4("view",view);
+            cubeSH->setMat4("model",model_cube);
+
+            diffuseMap->Bind();
+            specularMap->Bind(GL_TEXTURE1);
 
             cube.desenharElem();
-
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);
@@ -76,6 +91,8 @@ int main()
         delete cubeSH;
         delete lampSH;
         delete mesh;
+        delete diffuseMap;
+        delete specularMap;
     }
 
     glfwDestroyWindow(window);

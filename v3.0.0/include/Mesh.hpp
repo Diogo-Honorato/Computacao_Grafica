@@ -13,8 +13,10 @@ public:
     std::vector<GLuint> indices;
     VBO* vbo = nullptr;
     EBO* ebo = nullptr;
+    bool withTexture; 
+    bool withNormals;
 
-    Mesh(const std::vector<float>& verts, const std::vector<GLuint>& inds);
+    Mesh(const std::vector<float>& verts, const std::vector<GLuint>& inds,bool withTexture=false, bool withNormals=false);
     ~Mesh();
 
     void bindBuffers() const;

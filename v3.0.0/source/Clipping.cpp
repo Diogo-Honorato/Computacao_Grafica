@@ -6,9 +6,9 @@ Clipping::Clipping(float xmin,float ymin,float xmax,float ymax):x_min(xmin),y_mi
     sh = new Shader(DEFAULT_LINE_VERTEX,DEFAULT_LINE_FRAGMENT);
     tsh = new Shader("../shader/shaders_clipping/CS_square.vs","../shader/shaders_clipping/CS_square.fs");
     Mesh *telaMesh = Mesh::squareMesh(false,false);
-    tela = new Shape(telaMesh,tsh);
+    tela = new Shape(telaMesh);
     telaMesh->clearCPUData();
-    if(telaMesh)delete telaMesh;
+    if(telaMesh)delete telaMesh; 
 }
 
 Clipping::~Clipping(){
@@ -36,7 +36,7 @@ void Clipping::generateRandomLines() {
 
         try {
             Mesh *line = Mesh::lineMesh(points,indices);
-            originalLines.push_back(std::make_unique<Shape>(line,sh));
+            originalLines.push_back(std::make_unique<Shape>(line));
             line->clearCPUData();
             if(line)delete line;
 
@@ -48,21 +48,21 @@ void Clipping::generateRandomLines() {
 }
 
 void Clipping::draw() {
-    tela->getShader()->useShaders();
+    tsh->useShaders();
     tela->desenharElem();
 
     // Desenha linhas originais (vermelhas)
     for (size_t i = 0; i < originalLines.size(); ++i) {
         
-        originalLines[i]->getShader()->useShaders();
-        originalLines[i]->getShader()->setVec3("lineColor", outsideColor);
+        sh->useShaders();
+        sh->setVec3("lineColor", outsideColor);
         originalLines[i]->desenharLine();
     }
 
     // Desenha linhas recortadas (azuis)
     for (size_t i = 0; i < clippedLines.size(); ++i) {
-        clippedLines[i]->getShader()->useShaders();
-        clippedLines[i]->getShader()->setVec3("lineColor", insideColor);
+        sh->useShaders();
+        sh->setVec3("lineColor", insideColor);
         clippedLines[i]->desenharLine();
     }
 }
@@ -126,7 +126,7 @@ void Clipping::clipLine(float x1, float y1, float x2, float y2) {
         try {
             
             Mesh *line = Mesh::lineMesh(points,indices);
-            clippedLines.push_back(std::make_unique<Shape>(line,sh));
+            clippedLines.push_back(std::make_unique<Shape>(line));
             line->clearCPUData();
             if(line)delete line;
             

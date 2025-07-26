@@ -13,11 +13,10 @@ class Shape {
 protected:
     VAO vao;
     Mesh* mesh = nullptr;
-    Texture* texture = nullptr;
-    Shader* shader = nullptr;
     GLsizei indexCount = 0;
     GLsizei verticesCount = 0;
     bool lightingEnabled;
+    bool textureEnabled;
 
 public:
     void setupVAO();
@@ -25,10 +24,7 @@ public:
     void desenharArrays();
     void desenharLine();
     
-    Shader* getShader();
-    Texture* getTexture();
-
-    Shape(Mesh *mesh, Shader* shader, Texture *tex = nullptr, bool lightingEnabled = false);
+    Shape(Mesh *mesh, bool textureEnabled = false,bool lightingEnabled = false);
 };
 
 #endif

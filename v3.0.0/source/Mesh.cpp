@@ -73,8 +73,8 @@ namespace
 
 }
 
-Mesh::Mesh(const std::vector<float> &verts, const std::vector<GLuint> &inds)
-    : vertices(verts), indices(inds){
+Mesh::Mesh(const std::vector<float> &verts, const std::vector<GLuint> &inds,bool withTexture, bool withNormals)
+    : vertices(verts), indices(inds), withTexture(withTexture), withNormals(withNormals){
 
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
 
@@ -193,7 +193,7 @@ Mesh *Mesh::cubeMesh(bool withTex, bool withNormals)
         indices.push_back(startIndex);
     }
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices, withTex, withNormals);
 }
 
 Mesh *Mesh::axialExtruderMesh(bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float baseRadius, float topRadius, float height, int slices, int stacks)
@@ -391,7 +391,7 @@ Mesh *Mesh::axialExtruderMesh(bool withTexture, bool withNormals, bool hasBottom
         }
     }
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::circleMesh(bool withTexture, bool withNormals, float radius, int segments)
@@ -454,13 +454,13 @@ Mesh *Mesh::circleMesh(bool withTexture, bool withNormals, float radius, int seg
             indices.push_back(i + 1);
         }
     }
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::lineMesh(std::vector<float> &pointsRef, std::vector<GLuint> &indicesRef)
 {
 
-    return new Mesh(pointsRef, indicesRef);
+    return new Mesh(pointsRef, indicesRef,false,false);
 }
 
 Mesh *Mesh::paraboloidMesh(bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float height, float radius, int slices, int stacks)
@@ -642,7 +642,7 @@ Mesh *Mesh::paraboloidMesh(bool withTexture, bool withNormals, bool hasBottomCap
         }
     }
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::pipeMesh(std::vector<glm::vec3> &pathPoints, bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float topRadius, float baseRadius, int slices)
@@ -651,7 +651,7 @@ Mesh *Mesh::pipeMesh(std::vector<glm::vec3> &pathPoints, bool withTexture, bool 
     std::vector<float> vertices;
     std::vector<GLuint> indices;
     if (pathPoints.size() < 2)
-        return new Mesh(vertices, indices);
+        return new Mesh(vertices, indices,withTexture, withNormals);
 
     auto unitCircle = buildUnitCircleVertices(slices);
     int stacks = static_cast<int>(pathPoints.size());
@@ -743,7 +743,7 @@ Mesh *Mesh::pipeMesh(std::vector<glm::vec3> &pathPoints, bool withTexture, bool 
     if (hasTopCap)
         addCap(true);
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::sphereMesh(bool withTexture, bool withNormals, float radius, int slices, int stacks)
@@ -828,7 +828,7 @@ Mesh *Mesh::sphereMesh(bool withTexture, bool withNormals, float radius, int sli
         }
     }
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::squareMesh(bool withTexture, bool withNormals)
@@ -881,7 +881,7 @@ Mesh *Mesh::squareMesh(bool withTexture, bool withNormals)
         0, 1, 2,
         2, 3, 0};
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
 
 Mesh *Mesh::triangleMesh(bool withTexture, bool withNormals)
@@ -930,5 +930,5 @@ Mesh *Mesh::triangleMesh(bool withTexture, bool withNormals)
 
     indices = {0, 1, 2};
 
-    return new Mesh(vertices, indices);
+    return new Mesh(vertices, indices,withTexture, withNormals);
 }
