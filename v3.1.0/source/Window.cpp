@@ -9,6 +9,7 @@ namespace Globals {
     float lastFrame = 0.0f;
     int windowWidth = static_cast<int>(WIN_WIDTH);
     int windowHeight = static_cast<int>(WIN_HEIGHT);
+    bool cameraControlEnabled = false;
 }
 
 void processInput(GLFWwindow *window)
@@ -31,17 +32,21 @@ void processInputCamera(GLFWwindow *window, float deltaTime)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        Globals::camera.ProcessKeyboard(FORWARD, deltaTime);
+    // Movimento WASD só funciona com a câmera "ativa" (mouse travado)
+    if (Globals::cameraControlEnabled)
+    {
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+            Globals::camera.ProcessKeyboard(FORWARD, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        Globals::camera.ProcessKeyboard(BACKWARD, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+            Globals::camera.ProcessKeyboard(BACKWARD, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        Globals::camera.ProcessKeyboard(LEFT, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+            Globals::camera.ProcessKeyboard(LEFT, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        Globals::camera.ProcessKeyboard(RIGHT, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+            Globals::camera.ProcessKeyboard(RIGHT, deltaTime);
+    }
 
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -63,6 +68,9 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 
 void mouse_callback(GLFWwindow* window,double xposIn, double yposIn)
 {
+    if (!Globals::cameraControlEnabled)
+        return; // mouse pertence à UI agora, não mexe na câmera
+
     float xpos = static_cast<float>(xposIn);
     float ypos = static_cast<float>(yposIn);
 
@@ -86,7 +94,19 @@ void mouse_callback(GLFWwindow* window,double xposIn, double yposIn)
 // ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow* window,double xoffset, double yoffset)
 {
+    if (!Globals::cameraControlEnabled)
+        return;
+
     Globals::camera.ProcessMouseScroll(static_cast<float>(yoffset));
+}
+
+// TAB alterna entre "câmera ativa" (mouse travado) e "UI ativa" (mouse livre)
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_TAB && action == GLFW_PRESS)
+    {
+        SetCameraControl(window, !Globals::cameraControlEnabled);
+    }
 }
 
 // Inicializa GLFW, cria a janela e configura o contexto OpenGL
@@ -169,9 +189,10 @@ GLFWwindow *startWindowCamera(int width, int height, const char *title)
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
+    glfwSetKeyCallback(window, key_callback);
 
-    // tell GLFW to capture our mouse
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
     // Ativa sincronização com o monitor (VSync)
     glfwSwapInterval(1);

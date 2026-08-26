@@ -1,5 +1,6 @@
 # Computacao_Grafica
-Repositório destinado para códigos de computação gráfica. 
+
+Repositório destinado para códigos de computação gráfica.
 
 ## Requisitos
 
@@ -25,13 +26,15 @@ make
 ```
 
 ## Edição
-Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#como-compilar) novamente para assim poder apenas usar os comandos ```make && ./engine```.
+
+Para executar modificações feitas no código será preciso [compila-lo](https://github.com/Diogo-Honorato/Computacao_Grafica?tab=readme-ov-file#como-compilar) novamente para assim poder apenas usar os comandos ``make && ./engine``.
 
 ## Dependências
+
 Dependências já inclusas. Código testado em Linux.
 
 ## Créditos
 
 - Parte do código de geração de esfera e cilindro foi baseada no trabalho de **Song Ho Ahn**:
 - [OpenGL Sphere Tessellation](https://www.songho.ca/opengl/gl_sphere.html)
-- [OpenGL Cylinder, Prism & Pipe](https://www.songho.ca/opengl/gl_cylinder.html#cylinder)
+- [OpenGL Cylinder, Prism &amp; Pipe](https://www.songho.ca/opengl/gl_cylinder.html#cylinder)

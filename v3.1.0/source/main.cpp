@@ -4,13 +4,14 @@
     Teclas de controle:
         - ESC: Fecha a janela.
         - W, A, S, D: Movimento da câmera (frente, trás, esquerda, direita).
-        - Mouse: Controla rotação da câmera.
-        - Scroll: Controla zoom (campo de visão).
+        - Botão direito do mouse (segurar): ativa o controle da câmera.
+        - TAB: alterna entre controle de câmera e controle da UI.
+        - Mouse: Controla rotação da câmera (quando ativa).
+        - Scroll: Controla zoom (campo de visão, quando a câmera está ativa).
         - Q: Define modo de renderização como preenchido (GL_FILL).
         - E: Define modo de renderização como wireframe (GL_LINE).
         - R: Define modo de renderização como pontos (GL_POINT).
 */
-
 
 int main()
 {
@@ -21,67 +22,93 @@ int main()
         return -1;
     }
 
-    {   
-        glm::vec3 lightPos(1.2f, 1.0f, -2.0f);
+    ImGuiOverlay::Init(window);
 
-        Shader *cubeSH = new Shader("../shader/light/maps/specular/map_spec.vs","../shader/light/maps/specular/map_spec.fs");
-        Shader *lampSH = new Shader("../shader/light/lamp.vs","../shader/light/lamp.fs");
-        Texture *diffuseMap = new Texture("../texture/container2.png");
-        Texture *specularMap = new Texture("../texture/container2_specular.png");
-        Mesh   *mesh = Mesh::cubeMesh(true,true);
-
-        Shape cube(mesh,true,true);
-        Shape lamp(mesh,false,false);
+    {
+        Shader *cubeSH = new Shader(DEFAULT_CUBE_VERTEX, DEFAULT_CUBE_FRAGMENT);
+        Mesh *mesh = Mesh::cubeMesh(false, false);
+        Shape cube(mesh, false, false);
         mesh->clearCPUData();
 
-        glm::mat4 model_cube = glm::mat4(1.0f);
+        std::vector<SceneObject> sceneObjects;
 
-        glm::mat4 model_lamp = glm::mat4(1.0f);
-        model_lamp = glm::translate(model_cube,lightPos);
-        model_lamp = glm::scale(model_lamp,glm::vec3(0.5f));
-        
-        cubeSH->useShaders();
-        cubeSH->setInt("material.diffuse", 0);
-        cubeSH->setInt("material.specular", 1);
+        SceneObject cubeObj;
+        cubeObj.name = "Cube";
+        cubeObj.shape = &cube;
+        cubeObj.shader = cubeSH;
+        sceneObjects.push_back(cubeObj);
 
-        // Loop principal de renderização
+        int selectedIndex = 0;
+
+
         while (!glfwWindowShouldClose(window))
-        {   
+        {
             glm::mat4 projection, view;
-            updateFrameCamera(window,projection,view);
+            updateFrameCamera(window, projection, view);
 
             glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            lampSH->useShaders();
-            lampSH->setMat4("projection",projection);
-            lampSH->setMat4("view",view);
-            lampSH->setMat4("model",model_lamp);
+            ImGuiOverlay::Begin();
 
-            lamp.desenharElem();
+            bool rightMouseHeld = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS;
+            bool mouseOverUI = ImGui::GetIO().WantCaptureMouse;
+
+            if (rightMouseHeld && !mouseOverUI)
+                SetCameraControl(window, true);
+            else if (!rightMouseHeld && Globals::cameraControlEnabled)
+                SetCameraControl(window, false);
+
+            ImGui::SetNextWindowSize(ImVec2(320, 260), ImGuiCond_FirstUseEver);
+            ImGui::Begin("Inspector");
 
 
-            cubeSH->useShaders();
-            cubeSH->setVec3("light.position", lightPos);
-            cubeSH->setVec3("viewPos", Globals::camera.Position);
+            ImGui::Text("Scene Objects");
+            for (int i = 0; i < (int)sceneObjects.size(); i++)
+            {
+                bool isSelected = (selectedIndex == i);
+                if (ImGui::Selectable(sceneObjects[i].name.c_str(), isSelected))
+                    selectedIndex = i;
+            }
 
-            cubeSH->setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
-            cubeSH->setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
-            cubeSH->setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+            ImGui::Separator();
 
-            cubeSH->setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
-            cubeSH->setVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
-            cubeSH->setVec3("material.specular", 0.5f, 0.5f, 0.5f);
-            cubeSH->setFloat("material.shininess", 32.0f);
 
-            cubeSH->setMat4("projection",projection);
-            cubeSH->setMat4("view",view);
-            cubeSH->setMat4("model",model_cube);
+            if (selectedIndex >= 0 && selectedIndex < (int)sceneObjects.size())
+            {
+                SceneObject &sel = sceneObjects[selectedIndex];
 
-            diffuseMap->Bind();
-            specularMap->Bind(GL_TEXTURE1);
+                ImGui::Text("Properties: %s", sel.name.c_str());
+                ImGui::DragFloat3("Position", &sel.position.x, 0.05f, -20.0f, 20.0f);
+                ImGui::DragFloat3("Rotation", &sel.rotation.x, 1.0f, -180.0f, 180.0f);
+                ImGui::DragFloat3("Scale", &sel.scale.x, 0.05f, 0.01f, 10.0f);
+                ImGui::ColorEdit3("Color", &sel.color.x);
+            }
 
-            cube.desenharElem();
+            ImGui::Separator();
+            ImGui::TextDisabled(Globals::cameraControlEnabled
+                ? "Camera ativa (solte o botao direito para usar a UI)"
+                : "UI ativa (segure o botao direito para mover a camera)");
+
+            ImGui::End();
+
+
+
+            for (auto &obj : sceneObjects)
+            {
+                obj.shader->useShaders();
+                obj.shader->setMat4("projection", projection);
+                obj.shader->setMat4("view", view);
+                obj.shader->setMat4("model", obj.GetModelMatrix());
+                obj.shader->setVec3("uColor", obj.color);
+
+                obj.shape->desenharElem();
+            }
+
+
+
+
+            ImGuiOverlay::End();
 
             // Troca buffers e trata eventos
             glfwSwapBuffers(window);
@@ -89,12 +116,10 @@ int main()
         }
 
         delete cubeSH;
-        delete lampSH;
         delete mesh;
-        delete diffuseMap;
-        delete specularMap;
     }
 
+    ImGuiOverlay::Shutdown();
     glfwDestroyWindow(window);
     glfwTerminate();
 
