@@ -34,6 +34,7 @@ public:
 
 
     bool lightingEnabled = false;
+    int selectedIndex = -1;
     SceneLight light;
 
 private:

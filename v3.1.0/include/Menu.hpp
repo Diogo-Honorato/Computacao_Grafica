@@ -2,6 +2,7 @@
 
 #include "imgui.h"
 #include "SceneObject.hpp"
+#include "Scene.hpp"
 #include <fstream>
 #include <iostream>
 #include <concepts>
@@ -102,7 +103,7 @@ namespace Menu{
     {
     public:
        
-        bool LoadFromFile(const std::string& path);
+        bool loadFromFile(const std::string& path);
         
         template <typename T>
         requires std::is_enum_v<T>
@@ -111,11 +112,22 @@ namespace Menu{
             return findButtonRecursive(root, enumKey);
         }
 
-        Button* Render();
+        void renderMenu(Scene &scene);
 
     private:
         std::vector<Button> root;
-        
-        Button* RenderRecursive(std::vector<Button>& buttons);
+        Button* render();
+        Button* renderRecursive(std::vector<Button>& buttons);
     };
+
+
+
+    namespace Panel{
+
+
+        void hierarchyConfig(Scene &scene);
+        void sceneConfig(Scene &scene);
+        void propertiesConfig(Scene &scene,Texture *placeholderDiffuse,Texture *placeholderSpecular);
+
+    }
 }
