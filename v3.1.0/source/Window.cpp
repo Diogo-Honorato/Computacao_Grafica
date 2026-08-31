@@ -9,13 +9,15 @@ namespace Globals {
     float lastFrame = 0.0f;
     int windowWidth = static_cast<int>(WIN_WIDTH);
     int windowHeight = static_cast<int>(WIN_HEIGHT);
-    bool cameraControlEnabled = false;
+    bool cameraControlEnabled = false; // começa livre, pra você mexer na UI
+
+    bool panActive = false;
+    double panLastX = 0.0;
+    double panLastY = 0.0;
 }
 
 void processInput(GLFWwindow *window)
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -69,7 +71,7 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 void mouse_callback(GLFWwindow* window,double xposIn, double yposIn)
 {
     if (!Globals::cameraControlEnabled)
-        return; // mouse pertence à UI agora, não mexe na câmera
+        return; // mouse pertence à UI (ou ao pan) agora, não mexe na rotação da câmera
 
     float xpos = static_cast<float>(xposIn);
     float ypos = static_cast<float>(yposIn);
@@ -191,7 +193,8 @@ GLFWwindow *startWindowCamera(int width, int height, const char *title)
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetKeyCallback(window, key_callback);
 
-
+    // Começa com o cursor livre, para permitir interação com a UI (ImGui).
+    // Segure o botão direito do mouse ou pressione TAB para ativar a câmera.
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
     // Ativa sincronização com o monitor (VSync)

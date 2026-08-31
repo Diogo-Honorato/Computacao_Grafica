@@ -11,6 +11,7 @@ const float PITCH       =  0.0f;
 const float SPEED       =  6.5f;
 const float SENSITIVITY =  0.09f;
 const float ZOOM        =  45.0f;
+const float PAN_SPEED   =  0.005f;
 
 // Defines several possible options for camera movement. Used as abstraction to stay away from window-system specific input methods
 enum Camera_Movement {
@@ -37,6 +38,7 @@ public:
     float MovementSpeed;
     float MouseSensitivity;
     float Zoom;
+    float PanSpeed;
 
     // constructor with vectors
     Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH);
@@ -56,6 +58,9 @@ public:
 
     // processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
     void ProcessMouseScroll(float yoffset);
+
+    // desloca a câmera lateralmente/verticalmente (pan), sem girar
+    void ProcessMousePan(float xoffset, float yoffset);
 
 private:
     // calculates the front vector from the Camera's (updated) Euler Angles

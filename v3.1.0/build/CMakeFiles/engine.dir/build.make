@@ -86,24 +86,10 @@ CMakeFiles/engine.dir/source/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Camera.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Camera.cpp -o CMakeFiles/engine.dir/source/Camera.cpp.s
 
-CMakeFiles/engine.dir/source/Clipping.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/source/Clipping.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Clipping.cpp
-CMakeFiles/engine.dir/source/Clipping.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/source/Clipping.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Clipping.cpp.o -MF CMakeFiles/engine.dir/source/Clipping.cpp.o.d -o CMakeFiles/engine.dir/source/Clipping.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Clipping.cpp
-
-CMakeFiles/engine.dir/source/Clipping.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/Clipping.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Clipping.cpp > CMakeFiles/engine.dir/source/Clipping.cpp.i
-
-CMakeFiles/engine.dir/source/Clipping.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Clipping.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Clipping.cpp -o CMakeFiles/engine.dir/source/Clipping.cpp.s
-
 CMakeFiles/engine.dir/source/EBO.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/EBO.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/EBO.cpp
 CMakeFiles/engine.dir/source/EBO.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/source/EBO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/source/EBO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/EBO.cpp.o -MF CMakeFiles/engine.dir/source/EBO.cpp.o.d -o CMakeFiles/engine.dir/source/EBO.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/EBO.cpp
 
 CMakeFiles/engine.dir/source/EBO.cpp.i: cmake_force
@@ -117,7 +103,7 @@ CMakeFiles/engine.dir/source/EBO.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/ImGuiOverlay.cpp
 CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o -MF CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o.d -o CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/ImGuiOverlay.cpp
 
 CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.i: cmake_force
@@ -127,6 +113,20 @@ CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.i: cmake_force
 CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/ImGuiOverlay.cpp -o CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.s
+
+CMakeFiles/engine.dir/source/Menu.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/Menu.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Menu.cpp
+CMakeFiles/engine.dir/source/Menu.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/source/Menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Menu.cpp.o -MF CMakeFiles/engine.dir/source/Menu.cpp.o.d -o CMakeFiles/engine.dir/source/Menu.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Menu.cpp
+
+CMakeFiles/engine.dir/source/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Menu.cpp > CMakeFiles/engine.dir/source/Menu.cpp.i
+
+CMakeFiles/engine.dir/source/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Menu.cpp -o CMakeFiles/engine.dir/source/Menu.cpp.s
 
 CMakeFiles/engine.dir/source/Mesh.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/Mesh.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Mesh.cpp
@@ -142,10 +142,24 @@ CMakeFiles/engine.dir/source/Mesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Mesh.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Mesh.cpp -o CMakeFiles/engine.dir/source/Mesh.cpp.s
 
+CMakeFiles/engine.dir/source/Scene.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/Scene.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Scene.cpp
+CMakeFiles/engine.dir/source/Scene.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/source/Scene.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Scene.cpp.o -MF CMakeFiles/engine.dir/source/Scene.cpp.o.d -o CMakeFiles/engine.dir/source/Scene.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Scene.cpp
+
+CMakeFiles/engine.dir/source/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/Scene.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Scene.cpp > CMakeFiles/engine.dir/source/Scene.cpp.i
+
+CMakeFiles/engine.dir/source/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Scene.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Scene.cpp -o CMakeFiles/engine.dir/source/Scene.cpp.s
+
 CMakeFiles/engine.dir/source/Shader.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/Shader.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shader.cpp
 CMakeFiles/engine.dir/source/Shader.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/source/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/source/Shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Shader.cpp.o -MF CMakeFiles/engine.dir/source/Shader.cpp.o.d -o CMakeFiles/engine.dir/source/Shader.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shader.cpp
 
 CMakeFiles/engine.dir/source/Shader.cpp.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/engine.dir/source/Shader.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/Shape.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/Shape.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shape.cpp
 CMakeFiles/engine.dir/source/Shape.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/source/Shape.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/source/Shape.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Shape.cpp.o -MF CMakeFiles/engine.dir/source/Shape.cpp.o.d -o CMakeFiles/engine.dir/source/Shape.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shape.cpp
 
 CMakeFiles/engine.dir/source/Shape.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/engine.dir/source/Shape.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/Texture.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/Texture.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Texture.cpp
 CMakeFiles/engine.dir/source/Texture.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/source/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/source/Texture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Texture.cpp.o -MF CMakeFiles/engine.dir/source/Texture.cpp.o.d -o CMakeFiles/engine.dir/source/Texture.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Texture.cpp
 
 CMakeFiles/engine.dir/source/Texture.cpp.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/engine.dir/source/Texture.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/VAO.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/VAO.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/VAO.cpp
 CMakeFiles/engine.dir/source/VAO.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/source/VAO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/source/VAO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/VAO.cpp.o -MF CMakeFiles/engine.dir/source/VAO.cpp.o.d -o CMakeFiles/engine.dir/source/VAO.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/VAO.cpp
 
 CMakeFiles/engine.dir/source/VAO.cpp.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/engine.dir/source/VAO.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/VBO.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/VBO.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/VBO.cpp
 CMakeFiles/engine.dir/source/VBO.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/source/VBO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/source/VBO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/VBO.cpp.o -MF CMakeFiles/engine.dir/source/VBO.cpp.o.d -o CMakeFiles/engine.dir/source/VBO.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/VBO.cpp
 
 CMakeFiles/engine.dir/source/VBO.cpp.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/engine.dir/source/VBO.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/Window.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/Window.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Window.cpp
 CMakeFiles/engine.dir/source/Window.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/source/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/source/Window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Window.cpp.o -MF CMakeFiles/engine.dir/source/Window.cpp.o.d -o CMakeFiles/engine.dir/source/Window.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Window.cpp
 
 CMakeFiles/engine.dir/source/Window.cpp.i: cmake_force
@@ -229,7 +243,7 @@ CMakeFiles/engine.dir/source/Window.cpp.s: cmake_force
 CMakeFiles/engine.dir/source/main.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/source/main.cpp.o: /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/main.cpp
 CMakeFiles/engine.dir/source/main.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/source/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/source/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/main.cpp.o -MF CMakeFiles/engine.dir/source/main.cpp.o.d -o CMakeFiles/engine.dir/source/main.cpp.o -c /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/main.cpp
 
 CMakeFiles/engine.dir/source/main.cpp.i: cmake_force
@@ -243,10 +257,11 @@ CMakeFiles/engine.dir/source/main.cpp.s: cmake_force
 # Object files for target engine
 engine_OBJECTS = \
 "CMakeFiles/engine.dir/source/Camera.cpp.o" \
-"CMakeFiles/engine.dir/source/Clipping.cpp.o" \
 "CMakeFiles/engine.dir/source/EBO.cpp.o" \
 "CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o" \
+"CMakeFiles/engine.dir/source/Menu.cpp.o" \
 "CMakeFiles/engine.dir/source/Mesh.cpp.o" \
+"CMakeFiles/engine.dir/source/Scene.cpp.o" \
 "CMakeFiles/engine.dir/source/Shader.cpp.o" \
 "CMakeFiles/engine.dir/source/Shape.cpp.o" \
 "CMakeFiles/engine.dir/source/Texture.cpp.o" \
@@ -259,10 +274,11 @@ engine_OBJECTS = \
 engine_EXTERNAL_OBJECTS =
 
 engine: CMakeFiles/engine.dir/source/Camera.cpp.o
-engine: CMakeFiles/engine.dir/source/Clipping.cpp.o
 engine: CMakeFiles/engine.dir/source/EBO.cpp.o
 engine: CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o
+engine: CMakeFiles/engine.dir/source/Menu.cpp.o
 engine: CMakeFiles/engine.dir/source/Mesh.cpp.o
+engine: CMakeFiles/engine.dir/source/Scene.cpp.o
 engine: CMakeFiles/engine.dir/source/Shader.cpp.o
 engine: CMakeFiles/engine.dir/source/Shape.cpp.o
 engine: CMakeFiles/engine.dir/source/Texture.cpp.o
@@ -279,7 +295,7 @@ engine: dep/glfw/src/libglfw3.a
 engine: /usr/lib64/librt.a
 engine: /usr/lib64/libm.so
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

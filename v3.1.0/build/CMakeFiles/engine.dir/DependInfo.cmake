@@ -9,10 +9,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Camera.cpp" "CMakeFiles/engine.dir/source/Camera.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Camera.cpp.o.d"
-  "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Clipping.cpp" "CMakeFiles/engine.dir/source/Clipping.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Clipping.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/EBO.cpp" "CMakeFiles/engine.dir/source/EBO.cpp.o" "gcc" "CMakeFiles/engine.dir/source/EBO.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/ImGuiOverlay.cpp" "CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o" "gcc" "CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.o.d"
+  "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Menu.cpp" "CMakeFiles/engine.dir/source/Menu.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Menu.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Mesh.cpp" "CMakeFiles/engine.dir/source/Mesh.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Mesh.cpp.o.d"
+  "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Scene.cpp" "CMakeFiles/engine.dir/source/Scene.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Scene.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shader.cpp" "CMakeFiles/engine.dir/source/Shader.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Shader.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shape.cpp" "CMakeFiles/engine.dir/source/Shape.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Shape.cpp.o.d"
   "/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Texture.cpp" "CMakeFiles/engine.dir/source/Texture.cpp.o" "gcc" "CMakeFiles/engine.dir/source/Texture.cpp.o.d"

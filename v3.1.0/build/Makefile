@@ -455,30 +455,6 @@ source/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Camera.cpp.s
 .PHONY : source/Camera.cpp.s
 
-source/Clipping.o: source/Clipping.cpp.o
-.PHONY : source/Clipping.o
-
-# target to build an object file
-source/Clipping.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.o
-.PHONY : source/Clipping.cpp.o
-
-source/Clipping.i: source/Clipping.cpp.i
-.PHONY : source/Clipping.i
-
-# target to preprocess a source file
-source/Clipping.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.i
-.PHONY : source/Clipping.cpp.i
-
-source/Clipping.s: source/Clipping.cpp.s
-.PHONY : source/Clipping.s
-
-# target to generate assembly for a file
-source/Clipping.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Clipping.cpp.s
-.PHONY : source/Clipping.cpp.s
-
 source/EBO.o: source/EBO.cpp.o
 .PHONY : source/EBO.o
 
@@ -527,6 +503,30 @@ source/ImGuiOverlay.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/ImGuiOverlay.cpp.s
 .PHONY : source/ImGuiOverlay.cpp.s
 
+source/Menu.o: source/Menu.cpp.o
+.PHONY : source/Menu.o
+
+# target to build an object file
+source/Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Menu.cpp.o
+.PHONY : source/Menu.cpp.o
+
+source/Menu.i: source/Menu.cpp.i
+.PHONY : source/Menu.i
+
+# target to preprocess a source file
+source/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Menu.cpp.i
+.PHONY : source/Menu.cpp.i
+
+source/Menu.s: source/Menu.cpp.s
+.PHONY : source/Menu.s
+
+# target to generate assembly for a file
+source/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Menu.cpp.s
+.PHONY : source/Menu.cpp.s
+
 source/Mesh.o: source/Mesh.cpp.o
 .PHONY : source/Mesh.o
 
@@ -550,6 +550,30 @@ source/Mesh.s: source/Mesh.cpp.s
 source/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Mesh.cpp.s
 .PHONY : source/Mesh.cpp.s
+
+source/Scene.o: source/Scene.cpp.o
+.PHONY : source/Scene.o
+
+# target to build an object file
+source/Scene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Scene.cpp.o
+.PHONY : source/Scene.cpp.o
+
+source/Scene.i: source/Scene.cpp.i
+.PHONY : source/Scene.i
+
+# target to preprocess a source file
+source/Scene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Scene.cpp.i
+.PHONY : source/Scene.cpp.i
+
+source/Scene.s: source/Scene.cpp.s
+.PHONY : source/Scene.s
+
+# target to generate assembly for a file
+source/Scene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Scene.cpp.s
+.PHONY : source/Scene.cpp.s
 
 source/Shader.o: source/Shader.cpp.o
 .PHONY : source/Shader.o
@@ -764,18 +788,21 @@ help:
 	@echo "... source/Camera.o"
 	@echo "... source/Camera.i"
 	@echo "... source/Camera.s"
-	@echo "... source/Clipping.o"
-	@echo "... source/Clipping.i"
-	@echo "... source/Clipping.s"
 	@echo "... source/EBO.o"
 	@echo "... source/EBO.i"
 	@echo "... source/EBO.s"
 	@echo "... source/ImGuiOverlay.o"
 	@echo "... source/ImGuiOverlay.i"
 	@echo "... source/ImGuiOverlay.s"
+	@echo "... source/Menu.o"
+	@echo "... source/Menu.i"
+	@echo "... source/Menu.s"
 	@echo "... source/Mesh.o"
 	@echo "... source/Mesh.i"
 	@echo "... source/Mesh.s"
+	@echo "... source/Scene.o"
+	@echo "... source/Scene.i"
+	@echo "... source/Scene.s"
 	@echo "... source/Shader.o"
 	@echo "... source/Shader.i"
 	@echo "... source/Shader.s"

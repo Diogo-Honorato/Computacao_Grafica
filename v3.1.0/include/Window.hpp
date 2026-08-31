@@ -18,6 +18,11 @@ namespace Globals {
     extern int windowWidth;
     extern int windowHeight;
     extern bool cameraControlEnabled; // true = mouse controla a câmera (travado); false = mouse livre pra UI
+
+    // Estado do pan (arrastar com o botão do meio)
+    extern bool panActive;
+    extern double panLastX;
+    extern double panLastY;
 }
 
 void processInput(GLFWwindow *window);
@@ -34,13 +39,43 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 inline void SetCameraControl(GLFWwindow* window, bool enabled)
 {
     if (enabled == Globals::cameraControlEnabled)
-        return; // já está nesse estado, nada a fazer
-
+        return;
+        
     Globals::cameraControlEnabled = enabled;
     glfwSetInputMode(window, GLFW_CURSOR, enabled ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
 
     if (enabled)
         Globals::firstMouse = true; // evita "pulo" da câmera ao reativar
+}
+
+
+inline void UpdatePan(GLFWwindow* window, bool wantsPan)
+{
+    double mx, my;
+    glfwGetCursorPos(window, &mx, &my);
+
+    if (wantsPan && !Globals::panActive)
+    {
+
+        Globals::panActive = true;
+        Globals::panLastX = mx;
+        Globals::panLastY = my;
+        return;
+    }
+
+    if (!wantsPan)
+    {
+        Globals::panActive = false;
+        return;
+    }
+
+    float xoffset = static_cast<float>(mx - Globals::panLastX);
+    float yoffset = static_cast<float>(my - Globals::panLastY);
+
+    Globals::camera.ProcessMousePan(xoffset, yoffset);
+
+    Globals::panLastX = mx;
+    Globals::panLastY = my;
 }
 
 inline void updateFrameCamera(GLFWwindow* window, glm::mat4& projection, glm::mat4& view) {

@@ -5,22 +5,58 @@
 #include <string>
 #include "Shape.hpp"
 #include "Shader.hpp"
+#include "Mesh.hpp"
+#include "Texture.hpp"
+
+enum class PrimitiveTypeObj
+{
+    Cube,
+    Sphere,
+    Circle,
+    Triangle,
+    Square,
+    Cylinder,
+    Paraboloid,
+};
 
 struct SceneObject
 {
 
     std::string name = "Object";
+    PrimitiveTypeObj type = PrimitiveTypeObj::Cube;
+
 
     glm::vec3 position = glm::vec3(0.0f);
     glm::vec3 rotation = glm::vec3(0.0f);
     glm::vec3 scale    = glm::vec3(1.0f);
 
 
-    glm::vec3 color = glm::vec3(0.5f);
+    glm::vec3 color    = glm::vec3(1.0f);
+    glm::vec3 ambient  = glm::vec3(1.0f);
+    glm::vec3 specular = glm::vec3(0.5f);
     float shininess = 32.0f;
+
+
+    bool useTexture  = false;
+    Texture* diffuseTex  = nullptr;
+    Texture* specularTex = nullptr;
+
+    //Parâmetros de geração de malha
+    int   slices     = 36;
+    int   stacks     = 18;
+    bool  capBottom  = true;
+    bool  capTop     = true;
+    float radius     = 1.0f;
+    float baseRadius = 1.0f;
+    float topRadius  = 1.0f;
+    float height     = 2.0f;
 
     Shape*  shape  = nullptr;
     Shader* shader = nullptr;
+
+
+    bool  ownsShape  = false;
+    Mesh* ownedMesh  = nullptr;
 
     glm::mat4 GetModelMatrix() const
     {

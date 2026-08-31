@@ -431,4 +431,42 @@ CMakeFiles/engine.dir/source/main.cpp.o: \
  /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/Mesh.hpp \
  /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/VBO.hpp \
  /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/EBO.hpp \
- /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/Texture.hpp
+ /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/Texture.hpp \
+ /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/Scene.hpp \
+ /usr/include/c++/16/unordered_map \
+ /usr/include/c++/16/bits/unordered_map.h \
+ /usr/include/c++/16/bits/hashtable.h \
+ /usr/include/c++/16/bits/hashtable_policy.h \
+ /usr/include/c++/16/bits/node_handle.h \
+ /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/Menu.hpp \
+ /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/../include/../dep/json/json.hpp \
+ /usr/include/c++/16/algorithm /usr/include/c++/16/bits/ranges_algo.h \
+ /usr/include/c++/16/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/16/functional /usr/include/c++/16/bits/std_function.h \
+ /usr/include/c++/16/bits/binders.h /usr/include/c++/16/bits/funcwrap.h \
+ /usr/include/c++/16/bits/mofunc_impl.h /usr/include/c++/16/iterator \
+ /usr/include/c++/16/bits/stream_iterator.h /usr/include/c++/16/utility \
+ /usr/include/c++/16/bits/stl_relops.h /usr/include/c++/16/bits/intcmp.h \
+ /usr/include/c++/16/forward_list /usr/include/c++/16/bits/forward_list.h \
+ /usr/include/c++/16/bits/forward_list.tcc /usr/include/c++/16/map \
+ /usr/include/c++/16/bits/stl_tree.h /usr/include/c++/16/bits/stl_map.h \
+ /usr/include/c++/16/bits/stl_multimap.h /usr/include/c++/16/valarray \
+ /usr/include/c++/16/bits/valarray_array.h \
+ /usr/include/c++/16/bits/valarray_array.tcc \
+ /usr/include/c++/16/bits/valarray_before.h \
+ /usr/include/c++/16/bits/slice_array.h \
+ /usr/include/c++/16/bits/valarray_after.h \
+ /usr/include/c++/16/bits/gslice.h \
+ /usr/include/c++/16/bits/gslice_array.h \
+ /usr/include/c++/16/bits/mask_array.h \
+ /usr/include/c++/16/bits/indirect_array.h /usr/include/c++/16/version \
+ /usr/include/c++/16/filesystem /usr/include/c++/16/bits/fs_fwd.h \
+ /usr/include/c++/16/bits/chrono.h /usr/include/c++/16/ratio \
+ /usr/include/c++/16/bits/parse_numbers.h \
+ /usr/include/c++/16/bits/fs_path.h /usr/include/c++/16/iomanip \
+ /usr/include/c++/16/bits/quoted_string.h /usr/include/c++/16/codecvt \
+ /usr/include/c++/16/bits/fs_dir.h /usr/include/c++/16/bits/fs_ops.h \
+ /usr/include/c++/16/ranges /usr/include/c++/16/variant \
+ /usr/include/c++/16/bits/elements_of.h /usr/include/c++/16/numeric \
+ /usr/include/c++/16/bits/stl_numeric.h \
+ /usr/include/c++/16/pstl/glue_numeric_defs.h /usr/include/c++/16/any

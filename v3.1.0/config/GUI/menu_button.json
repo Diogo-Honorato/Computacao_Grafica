@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Project",
+    "type": "PROJECT",
+    "subButton": [
+      { "label": "New Project", "type": "NEW" },
+      { "label": "Open...", "type": "OPEN" },
+      { "label": "Save", "type": "SAVE" },
+      {
+        "label": "Export As",
+        "type": "EXPORT",
+        "subButton": [
+          { "label": "Export to OBJ", "type": "OPEN_OBJ" },
+          { "label": "Delete Cache", "type": "DELETE" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Object",
+    "type": "OBJECT",
+    "subButton": [
+      {
+        "label": "Add Object",
+        "type": "ADD_OBJ",
+        "subButton": [
+          { "label": "Cube",       "type": "ADD_OBJ", "primitiveType": "Cube" },
+          { "label": "Sphere",     "type": "ADD_OBJ", "primitiveType": "Sphere" },
+          { "label": "Circle",     "type": "ADD_OBJ", "primitiveType": "Circle" },
+          { "label": "Triangle",   "type": "ADD_OBJ", "primitiveType": "Triangle" },
+          { "label": "Square",     "type": "ADD_OBJ", "primitiveType": "Square" },
+          { "label": "Cylinder",   "type": "ADD_OBJ", "primitiveType": "Cylinder" },
+          { "label": "Paraboloid", "type": "ADD_OBJ", "primitiveType": "Paraboloid" }
+        ]
+      },
+      { "label": "Load Texture", "type": "OPEN_TEX" },
+      { "label": "Load Mesh (.obj)", "type": "OPEN_OBJ" },
+      { "label": "Show Gizmo", "type": "GIZMO_OBJ" }
+    ]
+  },
+  {
+    "label": "Scene",
+    "type": "SCENE",
+    "subButton": [
+      { "label": "Toggle Light", "type": "LIGHT" , "toggle": true},
+      { "label": "Enable Grid", "type": "GRID" },
+      { "label": "Show Metrics", "type": "METRICS" }
+    ]
+  },
+  {
+    "label": "Camera",
+    "type": "CAM",
+    "subButton": [
+      { "label": "Camera Gizmo", "type": "GIZMO_CAM" },
+      { "label": "Reset Position", "type": "POS_FIRST" }
+    ]
+  }
+]
