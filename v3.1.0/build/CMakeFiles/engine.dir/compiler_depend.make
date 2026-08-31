@@ -553,6 +553,7 @@ CMakeFiles/engine.dir/source/Menu.cpp.o: /home/diogo/Documentos/Projetos/Computa
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Menu.hpp \
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Mesh.hpp \
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Paths.hpp \
+  /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Scene.hpp \
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/SceneObject.hpp \
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Shader.hpp \
   /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Shape.hpp \
@@ -4206,8 +4207,6 @@ CMakeFiles/engine.dir/source/Camera.cpp.o:
 
 /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/source/Shape.cpp:
 
-/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Scene.hpp:
-
 /usr/include/wctype.h:
 
 /usr/include/wchar.h:
@@ -4243,6 +4242,8 @@ CMakeFiles/engine.dir/source/Camera.cpp.o:
 /usr/include/c++/16/utility:
 
 /usr/include/c++/16/tuple:
+
+/usr/include/c++/16/system_error:
 
 /usr/include/c++/16/x86_64-redhat-linux/bits/c++allocator.h:
 
@@ -5016,8 +5017,6 @@ CMakeFiles/engine.dir/source/EBO.cpp.o:
 
 /usr/include/strings.h:
 
-/usr/include/c++/16/system_error:
-
 /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/glm/detail/type_float.hpp:
 
 /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/glm/detail/type_quat.hpp:
@@ -5089,6 +5088,8 @@ CMakeFiles/engine.dir/source/EBO.cpp.o:
 /usr/include/c++/16/bits/streambuf.tcc:
 
 /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Paths.hpp:
+
+/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/Scene.hpp:
 
 /home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/include/SceneObject.hpp:
 
