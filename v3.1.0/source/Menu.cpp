@@ -96,7 +96,7 @@ namespace Menu
 
                 case Menu::TypeButton::ADD_OBJ:
 
-                    scene.AddObject(actionBtt->primitiveType);
+                    scene.AddObject(actionBtt->primitiveType,DEFAULT_DIFFUSE_TEXTURE,DEFAULT_SPECULAR_TEXTURE);
                     scene.selectedIndex = (int)scene.GetObjects().size() - 1;
                     break;
 
@@ -158,15 +158,15 @@ namespace Menu
         return btt.primitiveType == key;
     }
 
-
     namespace Panel
     {
-        void hierarchyConfig(Scene &scene){
+        void hierarchyConfig(Scene &scene)
+        {
 
             auto &objects = scene.GetObjects();
 
             // PAINEL HIERARCHY
-            ImGui::Begin("Hierarchy");
+            ImGui::Begin("HIERARCHY");
 
             for (int i = 0; i < (int)objects.size(); i++)
             {
@@ -176,14 +176,15 @@ namespace Menu
             }
 
             ImGui::End();
-
         }
 
-        void sceneConfig(Scene &scene){
+        void sceneConfig(Scene &scene)
+        {
+
+            ImGui::Begin("SCENE SETTINGS");
 
             if (scene.lightingEnabled)
             {
-                ImGui::Begin("Scene Settings");
 
                 ImGui::Text("Light");
                 ImGui::DragFloat3("Light Position", &scene.light.position.x, 0.05f, -20.0f, 20.0f);
@@ -191,17 +192,52 @@ namespace Menu
                 ImGui::ColorEdit3("Light Diffuse", &scene.light.diffuse.x);
                 ImGui::ColorEdit3("Light Specular", &scene.light.specular.x);
 
-                ImGui::End();
             }
+
+            ImGui::Separator();
+
+            ImGui::Text("Objects");
+
+            if(ImGui::Button("Add Object")){
+
+                ImGui::OpenPopup("Object List");
+            }
+
+            if (ImGui::BeginPopup("Object List"))
+            {
+                
+                for(auto &btt : Menu::Panel::subButtonAdd){
+
+                    if(ImGui::Selectable(btt.label.c_str())){
+
+                        scene.AddObject(btt.primitiveType,DEFAULT_DIFFUSE_TEXTURE,DEFAULT_SPECULAR_TEXTURE);
+                        scene.selectedIndex = (int)scene.GetObjects().size() - 1;
+                    }
+                }
+
+                ImGui::EndPopup();
+            }
+
+            ImGui::SameLine();
+
+            if (ImGui::Button("Remove Object"))
+            {
+                scene.RemoveObject(scene.selectedIndex);
+                scene.selectedIndex = -1;
+            }
+
+            
+            ImGui::End();
         }
 
-        void propertiesConfig(Scene &scene,Texture *placeholderDiffuse,Texture *placeholderSpecular){
+        void propertiesConfig(Scene &scene)
+        {
 
             if (scene.selectedIndex >= 0 && scene.selectedIndex < (int)scene.GetObjects().size())
             {
                 SceneObject &sel = scene.GetObjects()[scene.selectedIndex];
 
-                ImGui::Begin("Properties");
+                ImGui::Begin("PROPERTIES");
 
                 ImGui::Text("%s", sel.name.c_str());
                 ImGui::Separator();
@@ -213,30 +249,14 @@ namespace Menu
 
                 ImGui::Separator();
 
-                // Aparência
-                ImGui::ColorEdit3("Color", &sel.color.x);
-                ImGui::Checkbox("Use Texture", &sel.useTexture);
-                if (sel.useTexture)
-                {
-                    sel.diffuseTex = placeholderDiffuse;
-                    sel.specularTex = placeholderSpecular;
-                }
-                else
-                {
-                    sel.diffuseTex = nullptr;
-                    sel.specularTex = nullptr;
-                }
+                // Cores do Material
+                ImGui::Text("Material");
+                ImGui::ColorEdit3("Color (Diffuse)", &sel.color.x);
+                ImGui::ColorEdit3("Ambient", &sel.ambient.x);
+                ImGui::ColorEdit3("Specular", &sel.specular.x);
+                ImGui::DragFloat("Shininess", &sel.shininess, 1.0f, 1.0f, 256.0f);
+    
 
-                // Ambient/Specular/Shininess
-                if (scene.lightingEnabled)
-                {
-                    ImGui::DragFloat("Shininess", &sel.shininess, 1.0f, 1.0f, 256.0f);
-                    if (!sel.useTexture)
-                    {
-                        ImGui::ColorEdit3("Ambient", &sel.ambient.x);
-                        ImGui::ColorEdit3("Specular", &sel.specular.x);
-                    }
-                }
 
                 // Geometria específica
                 bool geometryChanged = false;
@@ -290,19 +310,91 @@ namespace Menu
                 if (geometryChanged)
                     scene.RegenerateMesh(sel);
 
-                ImGui::Separator();
-                if (ImGui::Button("Remove Object"))
-                {
-                    scene.RemoveObject(scene.selectedIndex);
-                    scene.selectedIndex = -1;
 
+                ImGui::Separator();
+
+
+                //Texture
+                ImGui::Text("Texture");
+
+                if (ImGui::Button("Choose Diffuse "))
+                {
+                    pendingSlot = TextureSlot::Diffuse;
+                    ImGui::OpenPopup("Object List");
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Remove Diffuse "))
+                {
+                    sel.diffuseTex = scene.getTexture(DEFAULT_DIFFUSE_TEXTURE);
+                    sel.nameDiffTexture = DEFAULT_DIFFUSE_TEXTURE;
+                }
+
+                if (ImGui::Button("Choose Specular"))
+                {
+                    pendingSlot = TextureSlot::Specular;
+                    ImGui::OpenPopup("Object List");
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Remove Specular"))
+                {
+                    sel.specularTex = scene.getTexture(DEFAULT_SPECULAR_TEXTURE);
+                    sel.nameSpecTexture = DEFAULT_SPECULAR_TEXTURE;
+                }
+
+                ImGui::Text(("CURRENT DIFFUSE TEXTURE:  " + sel.nameDiffTexture).c_str());
+                ImGui::Text(("CURRENT SPECULAR TEXTURE: " + sel.nameSpecTexture).c_str());
+
+                if (ImGui::BeginPopup("Object List"))
+                {
+                    static std::vector<std::string> files = listTexture(DEFAULT_DIRECTORY_TEXTURE);
+
+                    for (auto& file : files)
+                    {
+                        if (ImGui::Selectable(file.c_str()))
+                        {
+                            Texture* tex = scene.getTexture(DEFAULT_DIRECTORY_TEXTURE + file);
+
+                            if (pendingSlot == TextureSlot::Diffuse)
+                            {
+                                sel.diffuseTex = tex;
+                                sel.nameDiffTexture = file;
+                            }
+                            else if (pendingSlot == TextureSlot::Specular)
+                            {
+                                sel.specularTex = tex;
+                                sel.nameSpecTexture = file;
+                            }
+
+                            ImGui::CloseCurrentPopup();
+                        }
+                    }
+
+                    ImGui::EndPopup();
                 }
 
                 ImGui::End();
+            }
+        }
 
+        std::vector<std::string> listTexture(const std::string &pathDir)
+        {
+            namespace fs = std::filesystem;
+
+            std::vector<std::string> files;
+
+            for (const auto &entry : fs::directory_iterator(pathDir))
+            {
+                if (!entry.is_regular_file())
+                    continue;
+
+                std::string ext = entry.path().extension().string();
+                if (ext == ".png" || ext == ".jpg" || ext == ".jpeg")
+                    files.push_back(entry.path().filename().string());
             }
 
+            return files;
         }
-    } 
-    
+
+    }
+
 }

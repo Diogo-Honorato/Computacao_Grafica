@@ -1,6 +1,10 @@
 #include "../include/Scene.hpp"
 
-Scene::Scene(Shader* defaultShader) : defaultShader(defaultShader) {}
+Scene::Scene(Shader* defaultShader) : defaultShader(defaultShader) {
+
+    textureCache[DEFAULT_DIFFUSE_TEXTURE] = new Texture(255, 255, 255, 255);
+    textureCache[DEFAULT_SPECULAR_TEXTURE] = new Texture(0, 0, 0, 255);
+}
 
 Scene::~Scene()
 {
@@ -16,6 +20,7 @@ Scene::~Scene()
     // Libera a geometria compartilhada do cache (um único delete por tipo).
     for (auto &pair : shapeCache) delete pair.second;
     for (auto &pair : meshCache)  delete pair.second;
+    for (auto &pair : textureCache)  delete pair.second;
 }
 
 std::string Scene::TypeName(PrimitiveTypeObj type)
@@ -87,7 +92,20 @@ Shape* Scene::GetPrimitiveShape(PrimitiveTypeObj type)
     return shape;
 }
 
-SceneObject& Scene::AddObject(PrimitiveTypeObj type)
+Texture* Scene::getTexture(std::string nameTexture){
+
+    auto it = textureCache.find(nameTexture);
+    if(it != textureCache.end())
+        return it->second;
+
+    
+    Texture* tex = new Texture(nameTexture);
+    textureCache[nameTexture] = tex;
+    
+    return tex;
+}
+
+SceneObject& Scene::AddObject(PrimitiveTypeObj type, std::string textureDiff,std::string textureSpec)
 {
     nameCounters[type]++;
 
@@ -95,6 +113,10 @@ SceneObject& Scene::AddObject(PrimitiveTypeObj type)
     obj.name = TypeName(type) + " " + std::to_string(nameCounters[type]);
     obj.type = type;
     obj.shape = GetPrimitiveShape(type);
+    obj.diffuseTex = getTexture(textureDiff);
+    obj.specularTex = getTexture(textureSpec);
+    obj.nameDiffTexture = textureDiff;
+    obj.nameSpecTexture = textureSpec;
     obj.shader = defaultShader;
     obj.ownsShape = false; // começa usando a malha compartilhada do cache
 

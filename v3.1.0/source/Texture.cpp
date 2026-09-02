@@ -31,6 +31,24 @@ Texture::Texture(const std::string& imagePath, GLenum textureType, GLenum format
     glBindTexture(type, 0);
 }
 
+
+Texture::Texture(unsigned char r, unsigned char g, unsigned char b, unsigned char a, GLenum textureType): type(textureType) {
+    
+    glGenTextures(1, &texID);
+    glBindTexture(type, texID);
+
+    glTexParameteri(type, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(type, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(type, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(type, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+    unsigned char pixelData[] = { r, g, b, a };
+
+    glTexImage2D(type, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixelData);
+
+    glBindTexture(type, 0);
+}
+
 Texture::~Texture() {
     glDeleteTextures(1, &texID);
 }

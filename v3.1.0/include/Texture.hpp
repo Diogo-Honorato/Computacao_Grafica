@@ -11,6 +11,8 @@ private:
 
 public:
     Texture(const std::string& imagePath, GLenum textureType = GL_TEXTURE_2D, GLenum format = GL_RGBA, bool flip = true);
+    Texture(unsigned char r, unsigned char g, unsigned char b, unsigned char a = 255, GLenum textureType = GL_TEXTURE_2D);
+    
     ~Texture();
     void Bind(GLenum textureUnit = GL_TEXTURE0) const;
     void Unbind() const;

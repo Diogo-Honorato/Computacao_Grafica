@@ -23,7 +23,7 @@ public:
     explicit Scene(Shader* defaultShader);
     ~Scene();
 
-    SceneObject& AddObject(PrimitiveTypeObj type);
+    SceneObject& AddObject(PrimitiveTypeObj type, std::string textureDiff,std::string textureSpec);
     void RemoveObject(int index);
     void RegenerateMesh(SceneObject& obj);
 
@@ -31,6 +31,7 @@ public:
 
     // Retorna a malha compartilhada (cache) 
     Shape* GetPrimitiveShape(PrimitiveTypeObj type);
+    Texture* getTexture(std::string nameTexture);
 
 
     bool lightingEnabled = false;
@@ -42,6 +43,7 @@ private:
 
     std::unordered_map<PrimitiveTypeObj, Mesh*>  meshCache;
     std::unordered_map<PrimitiveTypeObj, Shape*> shapeCache;
+    std::unordered_map<std::string, Texture*>    textureCache;
     std::unordered_map<PrimitiveTypeObj, int>    nameCounters;
 
     Shader* defaultShader;

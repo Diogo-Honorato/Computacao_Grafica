@@ -36,8 +36,8 @@ struct SceneObject
     glm::vec3 specular = glm::vec3(0.5f);
     float shininess = 32.0f;
 
-
-    bool useTexture  = false;
+    std::string nameDiffTexture;
+    std::string nameSpecTexture;
     Texture* diffuseTex  = nullptr;
     Texture* specularTex = nullptr;
 

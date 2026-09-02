@@ -26,20 +26,23 @@ int main()
         // menu principal
         Menu::MenuButton menu;
         menu.loadFromFile("../config/GUI/menu_button.json");//arquivo de configs do menu
-
+        auto bttPtr = menu.findButton(Menu::TypeButton::ADD_OBJ);//gera botao extra
+        if (bttPtr != nullptr) {
+    
+            Menu::Panel::subButtonAdd = bttPtr->subButton;
+        } else {
+            std::cerr << "[ERROR]: Not Found in JSON!" << std::endl;
+        }
 
         Shader *uberSH = new Shader(DEFAULT_UBER_VERTEX, DEFAULT_UBER_FRAGMENT);
-
-        Texture *placeholderDiffuse = new Texture("../texture/container2.png");
-        Texture *placeholderSpecular = new Texture("../texture/container2_specular.png");
-
 
         //configs iniciais e start da cena
         Scene scene(uberSH);
         scene.lightingEnabled = true;
-        scene.AddObject(PrimitiveTypeObj::Cube);
+        scene.AddObject(PrimitiveTypeObj::Cube,DEFAULT_DIFFUSE_TEXTURE,DEFAULT_SPECULAR_TEXTURE);
         auto &objects = scene.GetObjects();
         scene.selectedIndex = (int)objects.size() - 1;
+        Shape *sphereShape = scene.GetPrimitiveShape(PrimitiveTypeObj::Sphere);
 
 
         //mouse variables
@@ -92,7 +95,7 @@ int main()
             Menu::Panel::sceneConfig(scene);
 
             // PAINEL PROPERTIES
-            Menu::Panel::propertiesConfig(scene,placeholderDiffuse,placeholderSpecular);
+            Menu::Panel::propertiesConfig(scene);
 
             
 
@@ -100,28 +103,27 @@ int main()
             // RENDERIZAÇÃO DA CENA
             for (auto &obj : objects)
             {
+
                 obj.shader->useShaders();
                 obj.shader->setMat4("projection", projection);
                 obj.shader->setMat4("view", view);
                 obj.shader->setMat4("model", obj.GetModelMatrix());
 
-                obj.shader->setBool("useTexture", obj.useTexture);
-                if (obj.useTexture && obj.diffuseTex && obj.specularTex)
-                {
-                    obj.diffuseTex->Bind(GL_TEXTURE0);
-                    obj.specularTex->Bind(GL_TEXTURE1);
-                    obj.shader->setInt("diffuseMap", 0);
-                    obj.shader->setInt("specularMap", 1);
-                }
-                else
-                {
-                    obj.shader->setVec3("material.ambient", obj.ambient);
-                    obj.shader->setVec3("material.diffuse", obj.color);
-                    obj.shader->setVec3("material.specular", obj.specular);
-                }
+
+                
+                obj.diffuseTex->Bind(GL_TEXTURE0);
+                obj.specularTex->Bind(GL_TEXTURE1);
+                obj.shader->setInt("diffuseMap", 0);
+                obj.shader->setInt("specularMap", 1);
+
+                obj.shader->setVec3("material.ambient", obj.ambient);
+                obj.shader->setVec3("material.diffuse", obj.color);
+                obj.shader->setVec3("material.specular", obj.specular);
                 obj.shader->setFloat("material.shininess", obj.shininess);
 
+
                 obj.shader->setBool("useLighting", scene.lightingEnabled);
+
                 if (scene.lightingEnabled)
                 {
                     obj.shader->setVec3("viewPos", Globals::camera.Position);
@@ -140,15 +142,15 @@ int main()
                 glm::mat4 lightModel = glm::translate(glm::mat4(1.0f), scene.light.position);
                 lightModel = glm::scale(lightModel, glm::vec3(0.2f));
 
+                
                 uberSH->useShaders();
                 uberSH->setMat4("projection", projection);
                 uberSH->setMat4("view", view);
                 uberSH->setMat4("model", lightModel);
-                uberSH->setBool("useTexture", false);
+                scene.getTexture(DEFAULT_DIFFUSE_TEXTURE)->Bind(GL_TEXTURE0);
                 uberSH->setBool("useLighting", false);
                 uberSH->setVec3("material.diffuse", scene.light.diffuse);
 
-                Shape *sphereShape = scene.GetPrimitiveShape(PrimitiveTypeObj::Sphere);
                 sphereShape->desenharElem();
             }
 
@@ -160,8 +162,6 @@ int main()
         }
 
         delete uberSH;
-        delete placeholderDiffuse;
-        delete placeholderSpecular;
     }
 
     ImGuiOverlay::Shutdown();

@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <concepts>
+#include <filesystem>
 #include "../dep/json/json.hpp"
 
 
@@ -124,10 +125,20 @@ namespace Menu{
 
     namespace Panel{
 
+        enum class TextureSlot { 
+            None, 
+            Diffuse, 
+            Specular 
+        };
 
         void hierarchyConfig(Scene &scene);
         void sceneConfig(Scene &scene);
-        void propertiesConfig(Scene &scene,Texture *placeholderDiffuse,Texture *placeholderSpecular);
+        void propertiesConfig(Scene &scene);
+
+        std::vector<std::string> listTexture(const std::string &pathTex);
+        inline std::vector<Button> subButtonAdd;
+        inline TextureSlot pendingSlot = TextureSlot::None;
+
 
     }
 }
