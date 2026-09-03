@@ -4,7 +4,7 @@
     "type": "PROJECT",
     "subButton": [
       { "label": "New Project", "type": "NEW" },
-      { "label": "Open...", "type": "OPEN" },
+      { "label": "Open", "type": "OPEN" },
       { "label": "Save", "type": "SAVE" },
       {
         "label": "Export As",
@@ -33,8 +33,16 @@
           { "label": "Paraboloid", "type": "ADD_OBJ", "primitiveType": "Paraboloid" }
         ]
       },
-      { "label": "Load Texture", "type": "OPEN_TEX" },
-      { "label": "Load Mesh (.obj)", "type": "OPEN_OBJ" },
+      { "label": "Texture", 
+        "type": "TEX", 
+        "subButton":[
+          {"label": "Load Folder Texture", "type": "LOAD_FOLDER_TEX"},
+          {"label": "Load File Texture", "type": "LOAD_FILE_TEX"}
+
+        ]
+      },
+      {"label": "Load Folder Object", "type": "LOAD_FOLDER_OBJ"},
+      {"label": "Load File Object", "type": "LOAD_FILE_OBJ"},
       { "label": "Show Gizmo", "type": "GIZMO_OBJ" }
     ]
   },

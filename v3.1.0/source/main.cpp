@@ -24,12 +24,12 @@ int main()
 
     {
         // menu principal
-        Menu::MenuButton menu;
+        Gui::Menu::MenuButton menu;
         menu.loadFromFile("../config/GUI/menu_button.json");//arquivo de configs do menu
-        auto bttPtr = menu.findButton(Menu::TypeButton::ADD_OBJ);//gera botao extra
+        auto bttPtr = menu.findButton(Gui::Menu::TypeButton::ADD_OBJ);//gera botao extra
         if (bttPtr != nullptr) {
     
-            Menu::Panel::subButtonAdd = bttPtr->subButton;
+            Gui::Menu::Panel::subButtonAdd = bttPtr->subButton;
         } else {
             std::cerr << "[ERROR]: Not Found in JSON!" << std::endl;
         }
@@ -43,7 +43,6 @@ int main()
         auto &objects = scene.GetObjects();
         scene.selectedIndex = (int)objects.size() - 1;
         Shape *sphereShape = scene.GetPrimitiveShape(PrimitiveTypeObj::Sphere);
-
 
         //mouse variables
         bool mouseOverUI;
@@ -89,15 +88,16 @@ int main()
             menu.renderMenu(scene);
 
             //Panel HIERARCHY
-            Menu::Panel::hierarchyConfig(scene);
+            Gui::Menu::Panel::hierarchyConfig(scene);
 
             // PAINEL SCENE SETTINGS
-            Menu::Panel::sceneConfig(scene);
+            Gui::Menu::Panel::sceneConfig(scene);
 
             // PAINEL PROPERTIES
-            Menu::Panel::propertiesConfig(scene);
+            Gui::Menu::Panel::propertiesConfig(scene);
 
-            
+            //GUIZMO
+            Gui::Guizmo::drawGuizmo(scene,projection, view);
 
 
             // RENDERIZAÇÃO DA CENA
@@ -154,6 +154,7 @@ int main()
                 sphereShape->desenharElem();
             }
 
+           
             ImGuiOverlay::End();
 
             // Troca buffers e trata eventos

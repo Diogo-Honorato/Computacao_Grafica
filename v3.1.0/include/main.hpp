@@ -9,6 +9,6 @@
 #include "ImGuiOverlay.hpp"
 #include "SceneObject.hpp"
 #include "Scene.hpp"
-#include "Menu.hpp"
+#include "Gui.hpp"
 
 #endif
