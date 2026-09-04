@@ -31,7 +31,7 @@ namespace Gui{
         enum class TypeButton {
             PROJECT, NEW, OPEN, EXPORT, SAVE, DELETE,
 
-            OBJECT, ADD_OBJ, TEX, LOAD_FOLDER_TEX, LOAD_FILE_TEX,  LOAD_FOLDER_OBJ,  LOAD_FILE_OBJ, GIZMO_OBJ,
+            OBJECT, ADD_OBJ, TEX, LOAD_FOLDER_TEX, LOAD_FILE_TEX,  LOAD_FOLDER_OBJ,  LOAD_FILE_OBJ,
 
             SCENE, LIGHT, GRID, METRICS,
 
@@ -54,7 +54,6 @@ namespace Gui{
             {TypeButton::LOAD_FILE_TEX,   "LOAD_FILE_TEX"},
             {TypeButton::LOAD_FOLDER_OBJ, "LOAD_FOLDER_OBJ"},
             {TypeButton::LOAD_FILE_OBJ,   "LOAD_FILE_OBJ"},
-            {TypeButton::GIZMO_OBJ,       "GIZMO_OBJ"},
             {TypeButton::SCENE,           "SCENE"},
             {TypeButton::LIGHT,           "LIGHT"},
             {TypeButton::GRID,            "GRID"},
@@ -157,7 +156,8 @@ namespace Gui{
             bool guizmoTranslate = true;
             bool guizmoRotation = false;
             bool guizmoScale = false;
-            ImGuizmo::OPERATION operation;
+            ImGuizmo::OPERATION operation = ImGuizmo::TRANSLATE;
+            ImGuizmo::MODE mode = ImGuizmo::LOCAL;
         };
 
         inline Guizmo::Render render;

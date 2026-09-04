@@ -114,9 +114,6 @@ namespace Gui
                     case Menu::TypeButton::LOAD_FILE_TEX:
                         break;
 
-                    case Menu::TypeButton::GIZMO_OBJ:
-                        break;
-
                     case Menu::TypeButton::LIGHT:
 
                         scene.lightingEnabled = actionBtt->toggle;
@@ -238,6 +235,7 @@ namespace Gui
                     ImGui::Begin("PROPERTIES");
 
                     ImGui::Text("%s", sel.name.c_str());
+
                     ImGui::Separator();
 
                     //Guizmo options
@@ -247,10 +245,21 @@ namespace Gui
                     ImGui::SameLine();
                     ImGui::Checkbox("Scale", &Guizmo::render.guizmoScale);
 
+                    ImGui::Separator();
+
                     // Transform
+                    glm::vec3 eulerDegrees = glm::degrees(glm::eulerAngles(sel.rotation));
+
                     ImGui::DragFloat3("Traslate", &sel.position.x, 0.05f, -20.0f, 20.0f);
-                    ImGui::DragFloat3("Rotation", &sel.rotation.x, 1.0f, -180.0f, 180.0f);
+                    if(ImGui::DragFloat3("Rotation", &eulerDegrees.x, 1.0f))
+                        sel.rotation = glm::quat(glm::radians(eulerDegrees));
                     ImGui::DragFloat3("Scale", &sel.scale.x, 0.05f, 0.01f, 10.0f);
+
+                    ImGui::Separator();
+
+                    ImGui::RadioButton("Local", (int*)&Guizmo::render.mode,ImGuizmo::MODE::LOCAL);
+                    ImGui::SameLine();
+                    ImGui::RadioButton("World", (int*)&Guizmo::render.mode,ImGuizmo::MODE::WORLD);
 
                     ImGui::Separator();
 
@@ -417,15 +426,16 @@ namespace Gui
                 
                 glm::mat4 model = sel.GetModelMatrix();
                 
-                if(render.guizmoTranslate)
-                    ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),ImGuizmo::OPERATION::TRANSLATE, ImGuizmo::LOCAL,glm::value_ptr(model));
+                int operation = 0;
+                if(render.guizmoTranslate)  operation |= static_cast<int>(ImGuizmo::TRANSLATE);
 
-                if(render.guizmoRotation)
-                    ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),ImGuizmo::OPERATION::ROTATE, ImGuizmo::LOCAL,glm::value_ptr(model));
+                if(render.guizmoRotation)   operation |= static_cast<int>(ImGuizmo::ROTATE);
                     
-                if(render.guizmoScale)
-                    ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),ImGuizmo::OPERATION::SCALE, ImGuizmo::LOCAL,glm::value_ptr(model));
+                if(render.guizmoScale)      operation |= static_cast<int>(ImGuizmo::SCALE);
+                    
+                render.operation = static_cast<ImGuizmo::OPERATION>(operation);
                 
+                ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),render.operation, render.mode, glm::value_ptr(model));
                 
                 if(ImGuizmo::IsUsing()){
   
@@ -433,8 +443,8 @@ namespace Gui
                     ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(model), translation, rotation, scale);
 
                     sel.position = glm::vec3(translation[0], translation[1], translation[2]);
-                    sel.rotation = glm::vec3(rotation[0], rotation[1], rotation[2]);
-                    sel.scale    = glm::vec3(scale[0], scale[1], scale[2]);          
+                    sel.rotation = glm::quat(glm::radians(glm::vec3(rotation[0], rotation[1], rotation[2])));//Usando quaternion para evitar gimbal lock
+                    sel.scale    = glm::vec3(scale[0], scale[1], scale[2]);
                 }
             }
 

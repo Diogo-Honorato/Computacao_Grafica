@@ -42,8 +42,7 @@
         ]
       },
       {"label": "Load Folder Object", "type": "LOAD_FOLDER_OBJ"},
-      {"label": "Load File Object", "type": "LOAD_FILE_OBJ"},
-      { "label": "Show Gizmo", "type": "GIZMO_OBJ" }
+      {"label": "Load File Object", "type": "LOAD_FILE_OBJ"}
     ]
   },
   {
