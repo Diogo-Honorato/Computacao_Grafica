@@ -248,11 +248,13 @@ namespace Gui
                     ImGui::Separator();
 
                     // Transform
-                    glm::vec3 eulerDegrees = glm::degrees(glm::eulerAngles(sel.rotation));
-
                     ImGui::DragFloat3("Traslate", &sel.position.x, 0.05f, -20.0f, 20.0f);
+
+                    glm::vec3 eulerDegrees = glm::degrees(glm::eulerAngles(sel.rotation));
+                    
                     if(ImGui::DragFloat3("Rotation", &eulerDegrees.x, 1.0f))
                         sel.rotation = glm::quat(glm::radians(eulerDegrees));
+
                     ImGui::DragFloat3("Scale", &sel.scale.x, 0.05f, 0.01f, 10.0f);
 
                     ImGui::Separator();
@@ -434,16 +436,26 @@ namespace Gui
                 if(render.guizmoScale)      operation |= static_cast<int>(ImGuizmo::SCALE);
                     
                 render.operation = static_cast<ImGuizmo::OPERATION>(operation);
+
+                glm::mat4 deltaMatrix;
                 
-                ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),render.operation, render.mode, glm::value_ptr(model));
+                ImGuizmo::Manipulate(glm::value_ptr(view), glm::value_ptr(projection),render.operation, render.mode, glm::value_ptr(model), glm::value_ptr(deltaMatrix));
                 
                 if(ImGuizmo::IsUsing()){
   
                     float translation[3], rotation[3], scale[3];
                     ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(model), translation, rotation, scale);
 
+                    glm::mat3 rotationColumn = glm::mat3(deltaMatrix);
+
+                    rotationColumn[0] = glm::normalize(rotationColumn[0]);
+                    rotationColumn[1] = glm::normalize(rotationColumn[1]);
+                    rotationColumn[2] = glm::normalize(rotationColumn[2]);
+
+                    glm::quat deltaRotation = glm::quat_cast(rotationColumn);
+
                     sel.position = glm::vec3(translation[0], translation[1], translation[2]);
-                    sel.rotation = glm::quat(glm::radians(glm::vec3(rotation[0], rotation[1], rotation[2])));//Usando quaternion para evitar gimbal lock
+                    sel.rotation = glm::normalize(deltaRotation * sel.rotation);//Usando quaternion para evitar gimbal lock
                     sel.scale    = glm::vec3(scale[0], scale[1], scale[2]);
                 }
             }
