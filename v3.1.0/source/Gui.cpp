@@ -123,6 +123,7 @@ namespace Gui
                         break;
 
                     case Menu::TypeButton::METRICS:
+                        scene.showMetrics = actionBtt->toggle;
                         break;
 
                     case Menu::TypeButton::GIZMO_CAM:
@@ -331,20 +332,28 @@ namespace Gui
 
                     if (ImGui::Button("Choose Diffuse "))
                     {
-                        pendingSlot = TextureSlot::Diffuse;
-                        ImGui::OpenPopup("Object List");
+                        requestTextureAsync(diffuseAsync,Menu::Panel::DEFAULT_DIRECTORY_TEXTURE);
                     }
+
                     ImGui::SameLine();
                     if (ImGui::Button("Remove Diffuse "))
                     {
                         sel.diffuseTex = scene.getTexture(DEFAULT_DIFFUSE_TEXTURE);
                         sel.nameDiffTexture = DEFAULT_DIFFUSE_TEXTURE;
+                    }  
+                    
+                    if(capturingTexture(diffuseAsync,fileDialogPath)){
+
+                        sel.diffuseTex = scene.getTexture(fileDialogPath);
+                        sel.nameDiffTexture = std::filesystem::path(fileDialogPath).filename().string();
+                        fileDialogPath.clear();
                     }
+
+                    drawThumbnail("diffuse texture",sel.diffuseTex,sel.nameDiffTexture);
 
                     if (ImGui::Button("Choose Specular"))
                     {
-                        pendingSlot = TextureSlot::Specular;
-                        ImGui::OpenPopup("Object List");
+                        requestTextureAsync(specularAsync,Menu::Panel::DEFAULT_DIRECTORY_TEXTURE);
                     }
                     ImGui::SameLine();
                     if (ImGui::Button("Remove Specular"))
@@ -353,60 +362,93 @@ namespace Gui
                         sel.nameSpecTexture = DEFAULT_SPECULAR_TEXTURE;
                     }
 
-                    ImGui::Text(("CURRENT DIFFUSE TEXTURE:  " + sel.nameDiffTexture).c_str());
-                    ImGui::Text(("CURRENT SPECULAR TEXTURE: " + sel.nameSpecTexture).c_str());
+                    if(capturingTexture(specularAsync,fileDialogPath)){
 
-                    if (ImGui::BeginPopup("Object List"))
-                    {
-                        static std::vector<std::string> files = listTexture(Menu::Panel::DEFAULT_DIRECTORY_TEXTURE);
-
-                        for (auto &file : files)
-                        {
-                            if (ImGui::Selectable(file.c_str()))
-                            {
-                                Texture *tex = scene.getTexture(Menu::Panel::DEFAULT_DIRECTORY_TEXTURE + file);
-
-                                if (pendingSlot == TextureSlot::Diffuse)
-                                {
-                                    sel.diffuseTex = tex;
-                                    sel.nameDiffTexture = file;
-                                }
-                                else if (pendingSlot == TextureSlot::Specular)
-                                {
-                                    sel.specularTex = tex;
-                                    sel.nameSpecTexture = file;
-                                }
-
-                                ImGui::CloseCurrentPopup();
-                            }
-                        }
-
-                        ImGui::EndPopup();
+                        sel.specularTex = scene.getTexture(fileDialogPath);
+                        sel.nameSpecTexture = std::filesystem::path(fileDialogPath).filename().string();
+                        fileDialogPath.clear();
                     }
 
+                    drawThumbnail("specular texture",sel.specularTex,sel.nameSpecTexture);
+                    
+                                 
                     ImGui::End();
                 }
             }
 
-            std::vector<std::string> listTexture(const std::string &pathDir)
-            {
-                namespace fs = std::filesystem;
+            void showMetrics(Scene &scene){
 
-                std::vector<std::string> files;
+                if(scene.showMetrics){
+                    
+                    ImGui::ShowMetricsWindow(&scene.showMetrics);
 
-                for (const auto &entry : fs::directory_iterator(pathDir))
-                {
-                    if (!entry.is_regular_file())
-                        continue;
-
-                    std::string ext = entry.path().extension().string();
-                    if (ext == ".png" || ext == ".jpg" || ext == ".jpeg")
-                        files.push_back(entry.path().filename().string());
                 }
-
-                return files;
             }
 
+            nfdchar_t* openFileDialog(const std::string &pathDir)
+            {
+
+                nfdchar_t* outPath = nullptr;
+
+                nfdfilteritem_t filters[1] = {{"Images", "png,jpg,jpeg"}};
+
+                nfdresult_t result = NFD_OpenDialog(&outPath,filters,1,pathDir.c_str());
+
+                if(result == NFD_ERROR){
+
+                    std::cerr << "[NFD] Erro: " << NFD_GetError() << std::endl;
+                    return nullptr;
+                }
+
+                return outPath;
+            }
+
+            void drawThumbnail(const char* label, Texture* tex, const std::string& path)
+            {
+
+                ImGui::Image((ImTextureID)(intptr_t)tex->getTexID(), ImVec2(48, 48),ImVec2(0, 1), ImVec2(1, 0));
+                ImGui::SameLine();
+                
+                ImGui::BeginGroup();
+                ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "%s", label);
+                ImGui::Text("%s", path.c_str());
+                ImGui::EndGroup();
+            }
+            
+            void requestTextureAsync(AsyncTexture& asyncTex, const std::string& initialDir){
+
+                if (asyncTex.inProgress) return;
+
+                asyncTex.inProgress = true;
+
+                std::thread([&asyncTex,initialDir](){
+
+                    nfdchar_t* pathTex = openFileDialog(initialDir);
+
+                    if(pathTex){
+
+                        std::lock_guard<std::mutex> lock(asyncTex.mutex);
+                        asyncTex.pendingPath = pathTex;
+                        asyncTex.hasPending = true;
+                        NFD_FreePath(pathTex);
+                    }
+
+                    asyncTex.inProgress = false;
+
+                }).detach();
+            }
+
+            bool capturingTexture(AsyncTexture& asyncTex, std::string& outPath){
+
+                std::lock_guard<std::mutex> lock(asyncTex.mutex);
+
+                if(!asyncTex.hasPending) 
+                    return false;
+
+                outPath = asyncTex.pendingPath;
+                asyncTex.hasPending = false;
+                return true;
+            }
         }
 
     }

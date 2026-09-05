@@ -6,7 +6,11 @@
 #include <fstream>
 #include <iostream>
 #include <concepts>
+#include <nfd.h>
 #include <filesystem>
+#include <thread>
+#include <atomic>
+#include <mutex>
 #include "../dep/json/json.hpp"
 #include "ImGuizmo.h"
 
@@ -127,22 +131,31 @@ namespace Gui{
 
         namespace Panel{
 
-            enum class TextureSlot { 
-                None, 
-                Diffuse, 
-                Specular 
+            struct AsyncTexture
+            {
+                std::atomic<bool> inProgress = false;
+                std::mutex mutex;
+                std::string pendingPath;
+                bool hasPending = false;
             };
 
+            inline AsyncTexture diffuseAsync;
+            inline AsyncTexture specularAsync;
+            inline std::string fileDialogPath;
+            
+            void requestTextureAsync(AsyncTexture& asyncTex, const std::string& initialDir);
+            bool capturingTexture(AsyncTexture& asyncTex, std::string& outPath);
 
             void hierarchyConfig(Scene &scene);
             void sceneConfig(Scene &scene);
             void propertiesConfig(Scene &scene);
+            void showMetrics(Scene &scene);
 
 
-            std::vector<std::string> listTexture(const std::string &pathTex);
+            nfdchar_t* openFileDialog(const std::string &pathDir);
+            void drawThumbnail(const char* label, Texture* tex, const std::string& path);
             inline std::vector<Button> subButtonAdd;
-            inline TextureSlot pendingSlot = TextureSlot::None;
-            inline std::string DEFAULT_DIRECTORY_TEXTURE =  "../texture/";
+            inline std::string DEFAULT_DIRECTORY_TEXTURE =  std::filesystem::absolute("../texture/").string();
 
 
         }

@@ -22,6 +22,9 @@ int main()
 
     ImGuiOverlay::Init(window);
 
+    //iniciando file dialog
+    NFD_Init();
+
     //iniciando um novo frame buffer para selecionar objetos da cena com mouse
     Gui::MousePicking::setupFrameBufferPicking(Globals::windowWidth,Globals::windowHeight);
 
@@ -103,6 +106,8 @@ int main()
             //GUIZMO
             Gui::Guizmo::drawGuizmo(scene,projection, view);
 
+            //Metrics
+            Gui::Menu::Panel::showMetrics(scene);
 
             // RENDERIZAÇÃO DA CENA
             for (auto &obj : objects)
@@ -180,6 +185,7 @@ int main()
     }
 
     ImGuiOverlay::Shutdown();
+    NFD_Quit();
     glfwDestroyWindow(window);
     glfwTerminate();
 

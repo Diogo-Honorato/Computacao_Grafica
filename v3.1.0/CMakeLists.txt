@@ -11,6 +11,9 @@ target_include_directories(glad PUBLIC dep/glad/include)
 set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE)
 add_subdirectory(dep/glfw)
 
+#NFD
+add_subdirectory(dep/nativefiledialog-extended)
+
 #IMGUI
 set(IMGUI_DIR dep/imgui)
 add_library(imgui STATIC
@@ -48,4 +51,4 @@ target_include_directories(
 )
 
 #LINK
-target_link_libraries(engine PRIVATE glad glfw imgui)
+target_link_libraries(engine PRIVATE glad glfw imgui nfd)

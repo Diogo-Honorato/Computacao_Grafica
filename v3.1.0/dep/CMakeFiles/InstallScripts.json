@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/cmake_install.cmake",
+		"/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/dep/nativefiledialog-extended/cmake_install.cmake",
+		"/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/dep/nativefiledialog-extended/src/cmake_install.cmake",
+		"/home/diogo/Documentos/Projetos/Computacao_Grafica/v3.1.0/dep/dep/nativefiledialog-extended/docs/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
