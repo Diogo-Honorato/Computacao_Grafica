@@ -22,8 +22,11 @@ int main()
 
     ImGuiOverlay::Init(window);
 
+    //iniciando um novo frame buffer para selecionar objetos da cena com mouse
+    Gui::MousePicking::setupFrameBufferPicking(Globals::windowWidth,Globals::windowHeight);
+
     {
-        // menu principal
+        // menu principal e iniciação das configurações da engine
         Gui::Menu::MenuButton menu;
         menu.loadFromFile("../config/GUI/menu_button.json");//arquivo de configs do menu
         auto bttPtr = menu.findButton(Gui::Menu::TypeButton::ADD_OBJ);//gera botao extra
@@ -33,7 +36,8 @@ int main()
         } else {
             std::cerr << "[ERROR]: Not Found in JSON!" << std::endl;
         }
-
+        
+        Shader *mousePickSH = new Shader(DEFAULT_MOUSE_PICKING_VERTEX,DEFAULT_MOUSE_PICKING_FRAGMENT);
         Shader *uberSH = new Shader(DEFAULT_UBER_VERTEX, DEFAULT_UBER_FRAGMENT);
 
         //configs iniciais e start da cena
@@ -154,7 +158,16 @@ int main()
                 sphereShape->desenharElem();
             }
 
-           
+            //mouse picking render
+            if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && !mouseOverUI)
+            {   
+                double mouseX, mouseY;
+                glfwGetCursorPos(window, &mouseX, &mouseY);
+
+                scene.selectedIndex = Gui::MousePicking::indexSelectedMouse((int)mouseX,(int)mouseY,Globals::windowHeight,scene.GetObjects(),mousePickSH,projection,view);
+                
+            }
+
             ImGuiOverlay::End();
 
             // Troca buffers e trata eventos
@@ -163,6 +176,7 @@ int main()
         }
 
         delete uberSH;
+        delete mousePickSH;
     }
 
     ImGuiOverlay::Shutdown();

@@ -164,4 +164,13 @@ namespace Gui{
 
         void drawGuizmo(Scene &scene, glm::mat4 &projection, glm::mat4 &view);
     }
+
+    namespace MousePicking{
+
+        inline GLuint pickingFBO;
+
+
+        void setupFrameBufferPicking(int &windowWidth ,int &windowHeight);
+        int indexSelectedMouse (int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view);
+    }
 }

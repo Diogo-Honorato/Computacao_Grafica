@@ -451,5 +451,77 @@ namespace Gui
         }
         
     }
-    
+   
+    namespace MousePicking{
+
+        void setupFrameBufferPicking(int &windowWidth ,int &windowHeight){
+
+            GLuint pickingTexture;
+            GLuint pickingDepthRBO;
+
+            glGenFramebuffers(1, &MousePicking::pickingFBO);
+            glBindFramebuffer(GL_FRAMEBUFFER, MousePicking::pickingFBO);
+
+            glGenTextures(1, &pickingTexture);
+            glBindTexture(GL_TEXTURE_2D, pickingTexture);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, windowWidth, windowHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, pickingTexture, 0);
+
+            
+            glGenRenderbuffers(1, &pickingDepthRBO);
+            glBindRenderbuffer(GL_RENDERBUFFER, pickingDepthRBO);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, windowWidth, windowHeight);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, pickingDepthRBO);
+            
+            if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+                std::cerr << "[MousePicking] Framebuffer incompleto!" << std::endl;
+
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);//voltar para o frame buffer 0
+        }
+
+        int indexSelectedMouse(int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view){
+
+
+            glBindFramebuffer(GL_FRAMEBUFFER, Gui::MousePicking::pickingFBO);
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            pickingMouseShader->useShaders();
+            pickingMouseShader->setMat4("projection", projection);
+            pickingMouseShader->setMat4("view", view);
+            
+            for (int i = 0; i < (int)objects.size(); i++)
+            {
+            
+                int id = i + 1;
+                
+                //16.777.216 objetos
+                float r = (id & 0x000000FF) / 255.0f;
+                float g = ((id & 0x0000FF00) >> 8) / 255.0f;
+                float b = ((id & 0x00FF0000) >> 16) / 255.0f;
+
+                pickingMouseShader->setVec3("idColor", glm::vec3(r, g, b));
+                pickingMouseShader->setMat4("model", objects[i].GetModelMatrix());
+                objects[i].shape->desenharElem();
+            }
+            
+            unsigned char pixel[3];
+            glReadPixels(mouseX, windowHeight - mouseY, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, pixel);
+
+            int pickedID = pixel[0] | (pixel[1] << 8) | (pixel[2] << 16);
+            int pickedIndex = pickedID - 1;
+
+            if (pickedIndex < 0 || pickedIndex >= (int)objects.size()){
+                pickedIndex = -1;
+            }
+                
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            
+            return pickedIndex;
+        }
+
+
+    }
 }

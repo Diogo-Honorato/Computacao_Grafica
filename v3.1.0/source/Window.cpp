@@ -31,8 +31,6 @@ void processInput(GLFWwindow *window)
 
 void processInputCamera(GLFWwindow *window, float deltaTime)
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
 
     // Movimento WASD só funciona com a câmera "ativa" (mouse travado)
     if (Globals::cameraControlEnabled)
