@@ -34,6 +34,7 @@ std::string Scene::TypeName(PrimitiveTypeObj type)
         case PrimitiveTypeObj::Square:     return "Square";
         case PrimitiveTypeObj::Cylinder:   return "Cylinder";
         case PrimitiveTypeObj::Paraboloid: return "Paraboloid";
+        case PrimitiveTypeObj::Grid:       return "Grid";
     }
     return "Object";
 }
@@ -67,6 +68,10 @@ Mesh* Scene::BuildMesh(const SceneObject& obj)
         case PrimitiveTypeObj::Paraboloid:
             return Mesh::paraboloidMesh(true, true, obj.capBottom, obj.capTop,
                                          obj.height, obj.radius, obj.slices, obj.stacks);
+
+        case PrimitiveTypeObj::Grid:
+                return Mesh::gridMesh(obj.linesGrid,obj.columnsGrid);
+
     }
 
     return Mesh::cubeMesh(true, true);
@@ -84,7 +89,7 @@ Shape* Scene::GetPrimitiveShape(PrimitiveTypeObj type)
     defaults.type = type;
 
     Mesh* mesh = BuildMesh(defaults);
-    Shape* shape = new Shape(mesh, true, true);
+    Shape* shape = new Shape(mesh, mesh->drawMode,mesh->withTexture,mesh->withNormals);
     mesh->clearCPUData();
 
     meshCache[type] = mesh;
@@ -113,10 +118,12 @@ SceneObject& Scene::AddObject(PrimitiveTypeObj type, std::string textureDiff,std
     obj.name = TypeName(type) + " " + std::to_string(nameCounters[type]);
     obj.type = type;
     obj.shape = GetPrimitiveShape(type);
+    
     obj.diffuseTex = getTexture(textureDiff);
     obj.specularTex = getTexture(textureSpec);
     obj.nameDiffTexture = textureDiff;
     obj.nameSpecTexture = textureSpec;
+
     obj.shader = defaultShader;
     obj.ownsShape = false; // começa usando a malha compartilhada do cache
 
@@ -127,7 +134,7 @@ SceneObject& Scene::AddObject(PrimitiveTypeObj type, std::string textureDiff,std
 void Scene::RegenerateMesh(SceneObject& obj)
 {
     Mesh* newMesh = BuildMesh(obj);
-    Shape* newShape = new Shape(newMesh, true, true);
+    Shape* newShape = new Shape(newMesh, newMesh->drawMode, newMesh->withTexture, newMesh->withNormals);
     newMesh->clearCPUData();
 
     // se o objeto já tinha uma malha exclusiva de uma edição anterior, e liberado o antigo

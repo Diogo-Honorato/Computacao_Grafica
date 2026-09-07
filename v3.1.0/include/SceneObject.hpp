@@ -17,6 +17,7 @@ enum class PrimitiveTypeObj
     Square,
     Cylinder,
     Paraboloid,
+    Grid,
 };
 
 struct SceneObject
@@ -24,7 +25,6 @@ struct SceneObject
 
     std::string name = "Object";
     PrimitiveTypeObj type = PrimitiveTypeObj::Cube;
-
 
     glm::vec3 position = glm::vec3(0.0f);
     glm::quat rotation = glm::quat(1, 0, 0, 0);
@@ -50,6 +50,10 @@ struct SceneObject
     float baseRadius = 1.0f;
     float topRadius  = 1.0f;
     float height     = 2.0f;
+
+    //Parâmetros de geração do grid
+    int linesGrid   = 10;
+    int columnsGrid = 10;
 
     Shape*  shape  = nullptr;
     Shader* shader = nullptr;

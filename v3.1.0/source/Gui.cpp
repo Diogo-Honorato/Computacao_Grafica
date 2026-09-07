@@ -119,9 +119,6 @@ namespace Gui
                         scene.lightingEnabled = actionBtt->toggle;
                         break;
 
-                    case Menu::TypeButton::GRID:
-                        break;
-
                     case Menu::TypeButton::METRICS:
                         scene.showMetrics = actionBtt->toggle;
                         break;
@@ -316,6 +313,13 @@ namespace Gui
                         geometryChanged |= ImGui::Checkbox("Cap Top", &sel.capTop);
                         break;
 
+                    case PrimitiveTypeObj::Grid:
+                        ImGui::Separator();
+                        ImGui::Text("Grid Dimensions");
+                        geometryChanged |= ImGui::SliderInt("Lines",&sel.linesGrid,1, 50);
+                        geometryChanged |= ImGui::SliderInt("Columns",&sel.columnsGrid,1, 50);
+                        break;
+
                     case PrimitiveTypeObj::Cube:
                     case PrimitiveTypeObj::Triangle:
                     case PrimitiveTypeObj::Square:
@@ -390,7 +394,7 @@ namespace Gui
 
                 nfdchar_t* outPath = nullptr;
 
-                nfdfilteritem_t filters[1] = {{"Images", "png,jpg,jpeg"}};
+                nfdfilteritem_t filters[1] = {{"Images", "png,jpeg"}};
 
                 nfdresult_t result = NFD_OpenDialog(&outPath,filters,1,pathDir.c_str());
 
@@ -558,7 +562,7 @@ namespace Gui
 
                 pickingMouseShader->setVec3("idColor", glm::vec3(r, g, b));
                 pickingMouseShader->setMat4("model", objects[i].GetModelMatrix());
-                objects[i].shape->desenharElem();
+                objects[i].shape->drawObject();
             }
             
             unsigned char pixel[3];

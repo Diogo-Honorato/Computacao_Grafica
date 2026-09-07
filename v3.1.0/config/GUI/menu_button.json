@@ -30,7 +30,8 @@
           { "label": "Triangle",   "type": "ADD_OBJ", "primitiveType": "Triangle" },
           { "label": "Square",     "type": "ADD_OBJ", "primitiveType": "Square" },
           { "label": "Cylinder",   "type": "ADD_OBJ", "primitiveType": "Cylinder" },
-          { "label": "Paraboloid", "type": "ADD_OBJ", "primitiveType": "Paraboloid" }
+          { "label": "Paraboloid", "type": "ADD_OBJ", "primitiveType": "Paraboloid" },
+          { "label": "Grid",       "type": "ADD_OBJ", "primitiveType": "Grid" }
         ]
       },
       { "label": "Texture", 
@@ -50,7 +51,6 @@
     "type": "SCENE",
     "subButton": [
       { "label": "Toggle Light", "type": "LIGHT" , "toggle": true},
-      { "label": "Enable Grid", "type": "GRID" },
       { "label": "Show Metrics", "type": "METRICS" }
     ]
   },

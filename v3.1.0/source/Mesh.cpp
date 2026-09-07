@@ -73,8 +73,8 @@ namespace
 
 }
 
-Mesh::Mesh(const std::vector<float> &verts, const std::vector<GLuint> &inds,bool withTexture, bool withNormals)
-    : vertices(verts), indices(inds), withTexture(withTexture), withNormals(withNormals){
+Mesh::Mesh(const std::vector<float> &verts, const std::vector<GLuint> &inds,GLenum drawMode,bool withTexture, bool withNormals)
+    : vertices(verts), indices(inds),drawMode(drawMode),withTexture(withTexture), withNormals(withNormals){
 
     vbo = new VBO(vertices.data(), vertices.size() * sizeof(float));
 
@@ -193,7 +193,7 @@ Mesh *Mesh::cubeMesh(bool withTex, bool withNormals)
         indices.push_back(startIndex);
     }
 
-    return new Mesh(vertices, indices, withTex, withNormals);
+    return new Mesh(vertices, indices, GL_TRIANGLES,withTex, withNormals);
 }
 
 Mesh *Mesh::axialExtruderMesh(bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float baseRadius, float topRadius, float height, int slices, int stacks)
@@ -391,7 +391,7 @@ Mesh *Mesh::axialExtruderMesh(bool withTexture, bool withNormals, bool hasBottom
         }
     }
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::circleMesh(bool withTexture, bool withNormals, float radius, int segments)
@@ -454,13 +454,66 @@ Mesh *Mesh::circleMesh(bool withTexture, bool withNormals, float radius, int seg
             indices.push_back(i + 1);
         }
     }
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::lineMesh(std::vector<float> &pointsRef, std::vector<GLuint> &indicesRef)
 {
 
-    return new Mesh(pointsRef, indicesRef,false,false);
+    return new Mesh(pointsRef, indicesRef,GL_LINES,false,false);
+}
+
+Mesh *Mesh::gridMesh(uint lines, uint columns){
+
+    //visao onde o plano e XZ
+    float stepCol = 2.0 /(float)columns;//x
+    float stepLine = 2.0 /(float)lines;//z
+ 
+    GLuint baseIndex;
+    std::vector<float>pointsRef;
+    std::vector<GLuint>indicesRef;
+
+    //preenchendo valores das linhas verticais com eixo z em -1/+1 para um grid deitado
+    for(int i = 0; i <= columns; i++){
+
+        float pos = -1.0f + i * stepCol;
+        baseIndex = pointsRef.size()/3;
+
+        pointsRef.push_back(pos);  // x
+        pointsRef.push_back(0.0f); // y
+        pointsRef.push_back(-1);   // z
+
+        pointsRef.push_back(pos);  // x
+        pointsRef.push_back(0.0f); // y
+        pointsRef.push_back(1);   // z
+
+        //(x,y)
+        indicesRef.push_back(baseIndex);
+        indicesRef.push_back(baseIndex +1);
+    }
+
+    //preenchendo valores das linhas horizontais com eixo x em -1/+1
+    for(int i = 0; i <= lines; i++){
+
+        float pos = -1.0f + i * stepLine;
+        baseIndex = pointsRef.size()/3;
+
+        pointsRef.push_back(-1);  // x
+        pointsRef.push_back(0.0f); // y
+        pointsRef.push_back(pos);   // z
+
+        pointsRef.push_back(1);  // x
+        pointsRef.push_back(0.0f); // y
+        pointsRef.push_back(pos);   // z
+
+        //(x,y)
+        indicesRef.push_back(baseIndex);
+        indicesRef.push_back(baseIndex +1);
+    }
+
+
+
+    return lineMesh(pointsRef,indicesRef);
 }
 
 Mesh *Mesh::paraboloidMesh(bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float height, float radius, int slices, int stacks)
@@ -642,7 +695,7 @@ Mesh *Mesh::paraboloidMesh(bool withTexture, bool withNormals, bool hasBottomCap
         }
     }
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::pipeMesh(std::vector<glm::vec3> &pathPoints, bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float topRadius, float baseRadius, int slices)
@@ -743,7 +796,7 @@ Mesh *Mesh::pipeMesh(std::vector<glm::vec3> &pathPoints, bool withTexture, bool 
     if (hasTopCap)
         addCap(true);
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::sphereMesh(bool withTexture, bool withNormals, float radius, int slices, int stacks)
@@ -828,7 +881,7 @@ Mesh *Mesh::sphereMesh(bool withTexture, bool withNormals, float radius, int sli
         }
     }
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::squareMesh(bool withTexture, bool withNormals)
@@ -881,7 +934,7 @@ Mesh *Mesh::squareMesh(bool withTexture, bool withNormals)
         0, 1, 2,
         2, 3, 0};
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }
 
 Mesh *Mesh::triangleMesh(bool withTexture, bool withNormals)
@@ -930,5 +983,5 @@ Mesh *Mesh::triangleMesh(bool withTexture, bool withNormals)
 
     indices = {0, 1, 2};
 
-    return new Mesh(vertices, indices,withTexture, withNormals);
+    return new Mesh(vertices, indices,GL_TRIANGLES,withTexture, withNormals);
 }

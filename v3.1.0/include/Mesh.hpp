@@ -13,10 +13,11 @@ public:
     std::vector<GLuint> indices;
     VBO* vbo = nullptr;
     EBO* ebo = nullptr;
+    GLenum drawMode;
     bool withTexture; 
     bool withNormals;
 
-    Mesh(const std::vector<float>& verts, const std::vector<GLuint>& inds,bool withTexture=false, bool withNormals=false);
+    Mesh(const std::vector<float>& verts, const std::vector<GLuint>& inds, GLenum drawMode,bool withTexture=false, bool withNormals=false);
     ~Mesh();
 
     void bindBuffers() const;
@@ -29,7 +30,9 @@ public:
     static Mesh* circleMesh(bool withTexture = false,bool withNormals = false,float radius = 0.5f, int segments = 30);
     
     static Mesh* lineMesh(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef);
-    
+
+    static Mesh* gridMesh(uint lines, uint columns);
+
     static Mesh* paraboloidMesh(bool withTexture = false,bool withNormals = false,bool hasBottomCap = false,bool hasTopCap = false,float height = 1.0f,float radius = 1.0f, int slices = 36, int stacks = 18);
     
     static Mesh* pipeMesh(std::vector<glm::vec3>& pathPoints,bool withTexture = false,bool withNormals = false,bool hasBottomCap = false,bool hasTopCap = false,float topRadius=0.5f,float baseRadius=0.5f,int slices = 16);

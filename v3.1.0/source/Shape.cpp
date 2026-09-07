@@ -1,7 +1,7 @@
 #include "../include/Shape.hpp"
 
-Shape::Shape(Mesh *mesh, bool textureEnabled,bool lightingEnabled)
-    :mesh(mesh), textureEnabled(textureEnabled),lightingEnabled(lightingEnabled) 
+Shape::Shape(Mesh *mesh, GLenum drawMode, bool textureEnabled,bool lightingEnabled)
+    :mesh(mesh), drawMode(drawMode),textureEnabled(textureEnabled),lightingEnabled(lightingEnabled) 
 {
     indexCount = static_cast<GLsizei>(mesh->indices.size());
     verticesCount = static_cast<GLsizei>(mesh->vertices.size());
@@ -34,20 +34,9 @@ void Shape::setupVAO() {
     vao.Unbind();
 }
 
-void Shape::desenharElem() {
+void Shape::drawObject() {
+    
     vao.Bind();
-    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
-    vao.Unbind();
-}
-
-void Shape::desenharArrays() {
-    vao.Bind();
-    glDrawArrays(GL_TRIANGLES,0,verticesCount);
-    vao.Unbind();
-}
-
-void Shape::desenharLine() {
-    vao.Bind();
-    glDrawElements(GL_LINES, indexCount, GL_UNSIGNED_INT, 0);
+    glDrawElements(drawMode, indexCount, GL_UNSIGNED_INT, 0);
     vao.Unbind();
 }

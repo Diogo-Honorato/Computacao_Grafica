@@ -11,7 +11,7 @@
 
 struct SceneLight
 {
-    glm::vec3 position = glm::vec3(3.0f, 3.0f, 3.0f);
+    glm::vec3 position = glm::vec3(100.0f, 100.0f, 100.0f);
     glm::vec3 ambient  = glm::vec3(0.2f, 0.2f, 0.2f);
     glm::vec3 diffuse  = glm::vec3(0.6f, 0.6f, 0.6f);
     glm::vec3 specular = glm::vec3(1.0f, 1.0f, 1.0f);

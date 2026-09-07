@@ -23,6 +23,7 @@
         {PrimitiveTypeObj::Square,     "Square"},
         {PrimitiveTypeObj::Cylinder,   "Cylinder"},
         {PrimitiveTypeObj::Paraboloid, "Paraboloid"},
+        {PrimitiveTypeObj::Grid,       "Grid"},
     })
 
 namespace Gui{
@@ -37,7 +38,7 @@ namespace Gui{
 
             OBJECT, ADD_OBJ, TEX, LOAD_FOLDER_TEX, LOAD_FILE_TEX,  LOAD_FOLDER_OBJ,  LOAD_FILE_OBJ,
 
-            SCENE, LIGHT, GRID, METRICS,
+            SCENE, LIGHT, METRICS,
 
             CAM, GIZMO_CAM, POS_FIRST, UNKNOWN
         };
@@ -60,7 +61,6 @@ namespace Gui{
             {TypeButton::LOAD_FILE_OBJ,   "LOAD_FILE_OBJ"},
             {TypeButton::SCENE,           "SCENE"},
             {TypeButton::LIGHT,           "LIGHT"},
-            {TypeButton::GRID,            "GRID"},
             {TypeButton::METRICS,         "METRICS"},
             {TypeButton::CAM,             "CAM"},
             {TypeButton::GIZMO_CAM,       "GIZMO_CAM"},

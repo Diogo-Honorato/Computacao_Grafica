@@ -142,7 +142,7 @@ int main()
                     obj.shader->setVec3("light.specular", scene.light.specular);
                 }
 
-                obj.shape->desenharElem();
+                obj.shape->drawObject();
             }
 
             // fonte de luz
@@ -160,7 +160,7 @@ int main()
                 uberSH->setBool("useLighting", false);
                 uberSH->setVec3("material.diffuse", scene.light.diffuse);
 
-                sphereShape->desenharElem();
+                sphereShape->drawObject();
             }
 
             //mouse picking render

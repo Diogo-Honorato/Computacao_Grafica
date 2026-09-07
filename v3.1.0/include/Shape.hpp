@@ -10,9 +10,10 @@
 #include "../dep/glm/glm.hpp"
 
 class Shape {
-protected:
+public:
     VAO vao;
     Mesh* mesh = nullptr;
+    GLenum drawMode;
     GLsizei indexCount = 0;
     GLsizei verticesCount = 0;
     bool lightingEnabled;
@@ -20,11 +21,9 @@ protected:
 
 public:
     void setupVAO();
-    void desenharElem();
-    void desenharArrays();
-    void desenharLine();
-    
-    Shape(Mesh *mesh, bool textureEnabled = false,bool lightingEnabled = false);
+    void drawObject();
+
+    Shape(Mesh *mesh, GLenum drawMode , bool textureEnabled = false, bool lightingEnabled = false);
 };
 
 #endif
