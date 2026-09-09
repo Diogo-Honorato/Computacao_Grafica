@@ -26,6 +26,7 @@ public:
     SceneObject& AddObject(PrimitiveTypeObj type, std::string textureDiff,std::string textureSpec);
     void RemoveObject(int index);
     void RegenerateMesh(SceneObject& obj);
+    void CopyObject(SceneObject& objToBeCopied);
 
     std::vector<SceneObject>& GetObjects();
 

@@ -149,6 +149,22 @@ void Scene::RegenerateMesh(SceneObject& obj)
     obj.ownsShape = true;
 }
 
+void Scene::CopyObject(SceneObject& objToBeCopied)
+{
+    nameCounters[objToBeCopied.type]++;
+    
+    SceneObject obj = objToBeCopied;
+    obj.name = TypeName(objToBeCopied.type) + " " + std::to_string(nameCounters[objToBeCopied.type]);
+
+    if(objToBeCopied.ownsShape){
+
+        obj.ownsShape = false;
+        RegenerateMesh(obj);
+    }
+
+    objects.push_back(obj);
+}
+
 void Scene::RemoveObject(int index)
 {
     if (index < 0 || index >= (int)objects.size())

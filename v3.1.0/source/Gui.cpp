@@ -220,6 +220,21 @@ namespace Gui
                     scene.selectedIndex = -1;
                 }
 
+                ImGui::SameLine();
+
+                if (ImGui::Button("Copy Object"))
+                {
+                    scene.CopyObject(scene.GetObjects()[scene.selectedIndex]);
+
+                    scene.selectedIndex  = scene.GetObjects().size() - 1;
+                }
+
+                if (ImGui::Button("Object Modeling"))
+                {
+                    //object modeling
+                }
+
+
                 ImGui::End();
             }
 
@@ -539,7 +554,7 @@ namespace Gui
             glBindFramebuffer(GL_FRAMEBUFFER, 0);//voltar para o frame buffer 0
         }
 
-        int indexSelectedMouse(int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view){
+        int objectPicking(int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view){
 
 
             glBindFramebuffer(GL_FRAMEBUFFER, Gui::MousePicking::pickingFBO);
@@ -567,7 +582,7 @@ namespace Gui
             
             unsigned char pixel[3];
             glReadPixels(mouseX, windowHeight - mouseY, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, pixel);
-
+            
             int pickedID = pixel[0] | (pixel[1] << 8) | (pixel[2] << 16);
             int pickedIndex = pickedID - 1;
 
@@ -580,6 +595,6 @@ namespace Gui
             return pickedIndex;
         }
 
-
     }
+
 }

@@ -169,7 +169,7 @@ int main()
                 double mouseX, mouseY;
                 glfwGetCursorPos(window, &mouseX, &mouseY);
 
-                scene.selectedIndex = Gui::MousePicking::indexSelectedMouse((int)mouseX,(int)mouseY,Globals::windowHeight,scene.GetObjects(),mousePickSH,projection,view);
+                scene.selectedIndex = Gui::MousePicking::objectPicking((int)mouseX,(int)mouseY,Globals::windowHeight,scene.GetObjects(),mousePickSH,projection,view);
                 
             }
 

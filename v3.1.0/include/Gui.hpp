@@ -182,8 +182,7 @@ namespace Gui{
 
         inline GLuint pickingFBO;
 
-
         void setupFrameBufferPicking(int &windowWidth ,int &windowHeight);
-        int indexSelectedMouse (int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view);
+        int objectPicking (int mouseX, int mouseY, int windowHeight,std::vector<SceneObject>& objects, Shader* pickingMouseShader,const glm::mat4& projection, const glm::mat4& view);
     }
 }
