@@ -516,6 +516,48 @@ Mesh *Mesh::gridMesh(uint lines, uint columns){
     return lineMesh(pointsRef,indicesRef);
 }
 
+Mesh* Mesh::tileGridMesh(uint rows, uint cols, float cell, bool mode)
+{
+    std::vector<float>  v;
+    std::vector<GLuint> idx;
+
+    auto push = [&](float x, float z, float u, float w) {
+        v.insert(v.end(), { x, 0.0f, z,  u, w,  0.0f, 1.0f, 0.0f });
+    };
+
+    if (!mode)// 0 para vertices compartilhados e 1 para cada celula unica com vertices sobrepostos
+    {
+        
+        for (uint j = 0; j <= rows; j++)
+            for (uint i = 0; i <= cols; i++)
+                push(i * cell, j * cell, (float)i, (float)j);
+
+        for (uint j = 0; j < rows; j++)
+            for (uint i = 0; i < cols; i++)
+            {
+                GLuint a = j * (cols + 1) + i, b = a + 1;
+                GLuint c = a + (cols + 1),     d = c + 1;
+                idx.insert(idx.end(), { a, c, b,  b, c, d });
+            }
+    }
+    else
+    {
+        
+        for (uint j = 0; j < rows; j++)
+            for (uint i = 0; i < cols; i++)
+            {
+                GLuint base = v.size() / 8;
+                push( i      * cell,  j      * cell, 0.0f, 0.0f);
+                push((i + 1) * cell,  j      * cell, 1.0f, 0.0f);
+                push( i      * cell, (j + 1) * cell, 0.0f, 1.0f);
+                push((i + 1) * cell, (j + 1) * cell, 1.0f, 1.0f);
+                idx.insert(idx.end(), { base, base + 2, base + 1,base + 1, base + 2, base + 3 });
+            }
+    }
+
+    return new Mesh(v, idx, GL_TRIANGLES, true, true);
+}
+
 Mesh *Mesh::paraboloidMesh(bool withTexture, bool withNormals, bool hasBottomCap, bool hasTopCap, float height, float radius, int slices, int stacks)
 {
 

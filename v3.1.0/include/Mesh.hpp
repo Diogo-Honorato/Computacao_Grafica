@@ -32,6 +32,8 @@ public:
     static Mesh* lineMesh(std::vector<float>& pointsRef, std::vector<GLuint>& indicesRef);
 
     static Mesh* gridMesh(uint lines, uint columns);
+    
+    static Mesh* tileGridMesh(uint rows, uint cols, float cell, bool mode);
 
     static Mesh* paraboloidMesh(bool withTexture = false,bool withNormals = false,bool hasBottomCap = false,bool hasTopCap = false,float height = 1.0f,float radius = 1.0f, int slices = 36, int stacks = 18);
     

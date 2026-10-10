@@ -24,7 +24,8 @@
           { "label": "Square",     "type": "ADD_OBJ", "primitiveType": "Square" },
           { "label": "Cylinder",   "type": "ADD_OBJ", "primitiveType": "Cylinder" },
           { "label": "Paraboloid", "type": "ADD_OBJ", "primitiveType": "Paraboloid" },
-          { "label": "Grid",       "type": "ADD_OBJ", "primitiveType": "Grid" }
+          { "label": "Grid",       "type": "ADD_OBJ", "primitiveType": "Grid" },
+          { "label": "Tile Grid",  "type": "ADD_OBJ", "primitiveType": "TileGrid" }
         ]
       },
       {"label": "Load File Object", "type": "LOAD_FILE_OBJ"}

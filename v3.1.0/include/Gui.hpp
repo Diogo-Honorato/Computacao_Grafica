@@ -25,6 +25,7 @@
         {PrimitiveTypeObj::Cylinder,   "Cylinder"},
         {PrimitiveTypeObj::Paraboloid, "Paraboloid"},
         {PrimitiveTypeObj::Grid,       "Grid"},
+        {PrimitiveTypeObj::TileGrid,   "TileGrid"},
     })
 
 namespace Gui{

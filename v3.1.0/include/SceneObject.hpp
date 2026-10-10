@@ -19,6 +19,7 @@ enum class PrimitiveTypeObj
     Cylinder,
     Paraboloid,
     Grid,
+    TileGrid,
 };
 
 struct SceneObject
@@ -55,6 +56,8 @@ struct SceneObject
     float height     = 2.0f;
 
     //Parâmetros de geração do grid
+    float cellSize  = 1.0f;
+    bool tilePerCellMode = false; // false = compartilhado, true = per cell
     int linesGrid   = 10;
     int columnsGrid = 10;
 
@@ -97,5 +100,7 @@ inline void to_json(json& j, const SceneObject& obj)
         {"height", obj.height},
         {"linesGrid", obj.linesGrid},
         {"columnsGrid", obj.columnsGrid},
+        {"tileMode", obj.tilePerCellMode ? 1 : 0},
+        {"cellSize", obj.cellSize},
     };
 }

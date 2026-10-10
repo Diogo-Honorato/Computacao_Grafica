@@ -357,6 +357,15 @@ namespace Gui
                         geometryChanged |= ImGui::SliderInt("Columns",&sel.columnsGrid,1, 50);
                         break;
 
+                    case PrimitiveTypeObj::TileGrid:
+                        ImGui::Separator();
+                        ImGui::Text("Tile Grid");
+                        geometryChanged |= ImGui::SliderInt("Lines",   &sel.linesGrid,   1, 50);
+                        geometryChanged |= ImGui::SliderInt("Columns", &sel.columnsGrid, 1, 50);
+                        geometryChanged |= ImGui::DragFloat("Cell Size", &sel.cellSize, 0.05f, 0.1f, 10.0f);
+                        geometryChanged |= ImGui::Checkbox("Per Cell Vertices", &sel.tilePerCellMode);
+                        break;
+
                     case PrimitiveTypeObj::Cube:
                     case PrimitiveTypeObj::Triangle:
                     case PrimitiveTypeObj::Square:

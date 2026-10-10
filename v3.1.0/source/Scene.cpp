@@ -74,6 +74,9 @@ Mesh* Scene::BuildMesh(const SceneObject& obj)
 
         case PrimitiveTypeObj::Grid:
                 return Mesh::gridMesh(obj.linesGrid,obj.columnsGrid);
+        
+        case PrimitiveTypeObj::TileGrid:
+            return Mesh::tileGridMesh(obj.linesGrid, obj.columnsGrid, obj.cellSize, obj.tilePerCellMode);
 
     }
 
@@ -279,8 +282,10 @@ void Scene::LoadFromJson(const json& j)
         obj.height     = jo.value("height", obj.height);
         obj.linesGrid   = jo.value("linesGrid", obj.linesGrid);
         obj.columnsGrid = jo.value("columnsGrid", obj.columnsGrid);
+        obj.tilePerCellMode = jo.value("tileMode", 0) != 0;
+        obj.cellSize    = jo.value("cellSize", obj.cellSize);
 
-        if (jo.contains("slices") || jo.contains("radius") || jo.contains("baseRadius") || jo.contains("linesGrid")|| jo.contains("columnsGrid"))
+        if (jo.contains("slices") || jo.contains("radius") || jo.contains("baseRadius") || jo.contains("linesGrid")|| jo.contains("columnsGrid") || jo.contains("cellSize")|| jo.contains("tileMode"))
             RegenerateMesh(obj);
     }
 }
