@@ -65,7 +65,7 @@ namespace Gui
             return clicked;
         }
 
-        void MenuButton::renderMenu(Scene &scene)
+        void MenuButton::renderMenu(Project &proj)
         {
 
             float menuBarHeight = 0.0f;
@@ -76,21 +76,39 @@ namespace Gui
 
                 Button *actionBtt = render();
 
+                auto &scene = proj.getCurrentScene();
+
                 if (actionBtt != nullptr)
                 {
                     switch (actionBtt->type)
                     {
 
-                    case Menu::TypeButton::NEW:
+                    case Menu::TypeButton::NEW_PROJECT:
+
+                        proj.saveProject();
+                        Gui::Menu::Panel::isOpenPopupSave = true;
+                        Gui::Menu::Panel::isOpenNewProject = actionBtt->toggle;
+                        
                         break;
 
-                    case Menu::TypeButton::OPEN:
+                    case Menu::TypeButton::OPEN_PROJECT:
+                        proj.saveProject();
+                        Gui::Menu::Panel::isOpenPopupSave = true;
+                        Gui::Menu::Panel::isOpenLoadProject = actionBtt->toggle;
+                        
                         break;
 
-                    case Menu::TypeButton::SAVE:
+                    case Menu::TypeButton::LOAD_SCENE:
+                        
+                        proj.saveProject();
+                        Gui::Menu::Panel::isOpenLoadScene = actionBtt->toggle;
                         break;
 
-                    case Menu::TypeButton::LOAD_FOLDER_OBJ:
+                    case Menu::TypeButton::SAVE_PROJECT:
+                        proj.saveProject();
+                        Gui::Menu::Panel::isOpenPopupSave = true;
+                        Gui::Menu::Panel::popupSaveOpenTime = ImGui::GetTime();
+                        
                         break;
 
                     case Menu::TypeButton::LOAD_FILE_OBJ:
@@ -100,23 +118,13 @@ namespace Gui
 
                         scene.AddObject(actionBtt->primitiveType, DEFAULT_DIFFUSE_TEXTURE, DEFAULT_SPECULAR_TEXTURE);
                         scene.selectedIndex = (int)scene.GetObjects().size() - 1;
-                        break;
-
-                    case Menu::TypeButton::EXPORT:
-                        break;
-
-                    case Menu::TypeButton::DELETE:
-                        break;
-
-                    case Menu::TypeButton::LOAD_FOLDER_TEX:
-                        break;
-
-                    case Menu::TypeButton::LOAD_FILE_TEX:
+                        proj.markDirty();
                         break;
 
                     case Menu::TypeButton::LIGHT:
 
                         scene.lightingEnabled = actionBtt->toggle;
+                        proj.markDirty();
                         break;
 
                     case Menu::TypeButton::METRICS:
@@ -170,19 +178,23 @@ namespace Gui
                 ImGui::End();
             }
 
-            void sceneConfig(Scene &scene)
+            void sceneConfig(Project &proj)
             {
 
+                auto &scene = proj.getCurrentScene();
+
                 ImGui::Begin("SCENE SETTINGS");
+
+                bool anyChanged = false;
 
                 if (scene.lightingEnabled)
                 {
 
                     ImGui::Text("Light");
-                    ImGui::DragFloat3("Light Position", &scene.light.position.x, 0.05f, -20.0f, 20.0f);
-                    ImGui::ColorEdit3("Light Ambient", &scene.light.ambient.x);
-                    ImGui::ColorEdit3("Light Diffuse", &scene.light.diffuse.x);
-                    ImGui::ColorEdit3("Light Specular", &scene.light.specular.x);
+                    anyChanged |=ImGui::DragFloat3("Light Position", &scene.light.position.x, 0.05f, -20.0f, 20.0f);
+                    anyChanged |=ImGui::ColorEdit3("Light Ambient", &scene.light.ambient.x);
+                    anyChanged |=ImGui::ColorEdit3("Light Diffuse", &scene.light.diffuse.x);
+                    anyChanged |=ImGui::ColorEdit3("Light Specular", &scene.light.specular.x);
                 }
 
                 ImGui::Separator();
@@ -206,6 +218,7 @@ namespace Gui
 
                             scene.AddObject(btt.primitiveType, DEFAULT_DIFFUSE_TEXTURE, DEFAULT_SPECULAR_TEXTURE);
                             scene.selectedIndex = (int)scene.GetObjects().size() - 1;
+                            anyChanged = true;
                         }
                     }
 
@@ -218,15 +231,16 @@ namespace Gui
                 {
                     scene.RemoveObject(scene.selectedIndex);
                     scene.selectedIndex = -1;
+                    anyChanged = true;
                 }
 
                 ImGui::SameLine();
 
-                if (ImGui::Button("Copy Object"))
+                if (ImGui::Button("Copy Object") && scene.selectedIndex >= 0)
                 {
                     scene.CopyObject(scene.GetObjects()[scene.selectedIndex]);
-
-                    scene.selectedIndex  = scene.GetObjects().size() - 1;
+                    scene.selectedIndex = (int)scene.GetObjects().size() - 1;
+                    anyChanged = true;
                 }
 
                 if (ImGui::Button("Object Modeling"))
@@ -236,14 +250,21 @@ namespace Gui
 
 
                 ImGui::End();
+
+                if(anyChanged){
+                    proj.markDirty();
+                }
             }
 
-            void propertiesConfig(Scene &scene)
+            void propertiesConfig(Project &proj)
             {
+                auto &scene = proj.getCurrentScene();
 
                 if (scene.selectedIndex >= 0 && scene.selectedIndex < (int)scene.GetObjects().size())
                 {
                     SceneObject &sel = scene.GetObjects()[scene.selectedIndex];
+
+                    bool anyChanged = false;
 
                     ImGui::Begin("PROPERTIES");
 
@@ -261,14 +282,15 @@ namespace Gui
                     ImGui::Separator();
 
                     // Transform
-                    ImGui::DragFloat3("Traslate", &sel.position.x, 0.05f, -20.0f, 20.0f);
+                    anyChanged |=ImGui::DragFloat3("Traslate", &sel.position.x, 0.05f, -20.0f, 20.0f);
 
                     glm::vec3 eulerDegrees = glm::degrees(glm::eulerAngles(sel.rotation));
                     
                     if(ImGui::DragFloat3("Rotation", &eulerDegrees.x, 1.0f))
                         sel.rotation = glm::quat(glm::radians(eulerDegrees));
+                        anyChanged = true;
 
-                    ImGui::DragFloat3("Scale", &sel.scale.x, 0.05f, 0.01f, 10.0f);
+                    anyChanged |=ImGui::DragFloat3("Scale", &sel.scale.x, 0.05f, 0.01f, 10.0f);
 
                     ImGui::Separator();
 
@@ -280,10 +302,10 @@ namespace Gui
 
                     // Cores do Material
                     ImGui::Text("Material");
-                    ImGui::ColorEdit3("Color (Diffuse)", &sel.color.x);
-                    ImGui::ColorEdit3("Ambient", &sel.ambient.x);
-                    ImGui::ColorEdit3("Specular", &sel.specular.x);
-                    ImGui::DragFloat("Shininess", &sel.shininess, 1.0f, 1.0f, 256.0f);
+                    anyChanged |=ImGui::ColorEdit3("Color (Diffuse)", &sel.color.x);
+                    anyChanged |=ImGui::ColorEdit3("Ambient", &sel.ambient.x);
+                    anyChanged |=ImGui::ColorEdit3("Specular", &sel.specular.x);
+                    anyChanged |=ImGui::DragFloat("Shininess", &sel.shininess, 1.0f, 1.0f, 256.0f);
 
                     // Geometria específica
                     bool geometryChanged = false;
@@ -341,17 +363,20 @@ namespace Gui
                         break;
                     }
 
+                    anyChanged |=geometryChanged;
+
                     if (geometryChanged)
                         scene.RegenerateMesh(sel);
 
                     ImGui::Separator();
 
+                    
                     // Texture
                     ImGui::Text("Texture");
 
                     if (ImGui::Button("Choose Diffuse "))
                     {
-                        requestTextureAsync(diffuseAsync,Menu::Panel::DEFAULT_DIRECTORY_TEXTURE);
+                        requestTextureAsync(diffuseAsync,scene.textureDir);
                     }
 
                     ImGui::SameLine();
@@ -359,41 +384,58 @@ namespace Gui
                     {
                         sel.diffuseTex = scene.getTexture(DEFAULT_DIFFUSE_TEXTURE);
                         sel.nameDiffTexture = DEFAULT_DIFFUSE_TEXTURE;
+                        anyChanged = true;
                     }  
                     
-                    if(capturingTexture(diffuseAsync,fileDialogPath)){
+                    if(capturingTexture(diffuseAsync,sel.diffuseTexPathKey)){
 
-                        sel.diffuseTex = scene.getTexture(fileDialogPath);
-                        sel.nameDiffTexture = std::filesystem::path(fileDialogPath).filename().string();
-                        fileDialogPath.clear();
+                        sel.nameDiffTexture = scene.importTexture(sel.diffuseTexPathKey);
+
+                        sel.diffuseTex = scene.getTexture(sel.nameDiffTexture);
+                        
+                        sel.diffuseTexPathKey.clear();
+
+                        anyChanged = true;
                     }
 
                     drawThumbnail("diffuse texture",sel.diffuseTex,sel.nameDiffTexture);
 
                     if (ImGui::Button("Choose Specular"))
                     {
-                        requestTextureAsync(specularAsync,Menu::Panel::DEFAULT_DIRECTORY_TEXTURE);
+                        requestTextureAsync(specularAsync,scene.textureDir);
                     }
                     ImGui::SameLine();
                     if (ImGui::Button("Remove Specular"))
                     {
                         sel.specularTex = scene.getTexture(DEFAULT_SPECULAR_TEXTURE);
                         sel.nameSpecTexture = DEFAULT_SPECULAR_TEXTURE;
+                        anyChanged = true;
                     }
 
-                    if(capturingTexture(specularAsync,fileDialogPath)){
+                    if(capturingTexture(specularAsync,sel.specularTexPathKey)){
 
-                        sel.specularTex = scene.getTexture(fileDialogPath);
-                        sel.nameSpecTexture = std::filesystem::path(fileDialogPath).filename().string();
-                        fileDialogPath.clear();
+                        sel.nameSpecTexture = scene.importTexture(sel.specularTexPathKey);
+
+                        sel.specularTex = scene.getTexture(sel.nameSpecTexture);
+
+                        sel.specularTexPathKey.clear();
+
+                        anyChanged = true;
                     }
 
                     drawThumbnail("specular texture",sel.specularTex,sel.nameSpecTexture);
                     
                                  
                     ImGui::End();
+
+                    if(anyChanged){
+
+                        proj.markDirty();
+                    }
                 }
             }
+
+
 
             void showMetrics(Scene &scene){
 
@@ -403,6 +445,313 @@ namespace Gui
 
                 }
             }
+
+            void newProject(Project &proj,Shader *uberSH){
+
+                if(isOpenNewProject){
+
+                    newProjectWindow(proj,uberSH);
+                }
+                else if(!isOpenNewProject && isFirstOpenNewProject){
+
+                    buttonReturnNewProject();
+                    
+                }
+            }
+
+            void loadProject(Project &proj, Shader *uberSH){
+
+                if(isOpenLoadProject){
+
+                    loadProjectWindow(proj,uberSH);
+                }
+            }
+
+            void loadScene(Project &proj, Shader *uberSH){
+
+                if(isOpenLoadScene){
+
+                    loadSceneWindow(proj,uberSH);
+                }
+            }
+
+            void exitConfirm(Project& proj, GLFWwindow* window){
+
+                if(isOpenExitConfirm){
+
+                    exitConfirmWindow(proj,window);
+                }
+            }
+
+
+
+            void buttonReturnNewProject(){
+
+                ImVec2 screenSize = ImGui::GetIO().DisplaySize;
+
+                ImVec2 windowSize = ImVec2(285.0f, 60.0f); 
+
+                ImVec2 windowPos;
+                windowPos.x = (screenSize.x - windowSize.x) * 0.5f;
+                windowPos.y = (screenSize.y - windowSize.y) * 0.5f;
+
+                ImGui::SetNextWindowPos(windowPos, ImGuiCond_Always);
+
+                ImGui::SetNextWindowSize(windowSize, ImGuiCond_Always);
+
+                if (ImGui::Begin(" ", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar)){
+
+                    ImGui::SetCursorPosX((ImGui::GetContentRegionAvail().x - 240.0f) * 0.75f);
+
+                    ImGui::SetCursorPosY((ImGui::GetContentRegionAvail().y - 40.0f) * 2.45f);
+
+                    ImGui::SetWindowFontScale(1.5f);
+
+                    if (ImGui::Button("+ NEW PROJECT", ImVec2(240, 40)))
+                    {
+                        isOpenNewProject = true;
+                    }
+                    
+                    ImGui::SetWindowFontScale(1.0f);
+                }
+                ImGui::End();
+            }
+            
+            void newProjectWindow(Project &proj, Shader *uberSH)
+            {
+                ImGui::SetNextWindowSize(ImVec2(520, 360), ImGuiCond_FirstUseEver);
+            
+                if (ImGui::Begin("Create New Project", nullptr, ImGuiWindowFlags_NoCollapse ))
+                {
+                    static std::string nameProj = "";
+                    static std::string pathDirectory = std::filesystem::path(getenv(HOME_VAR)).string();
+                    static std::string firstNameScene = "MainScene";
+                    static std::string errorMessage = "";
+                    static std::string labelPath = "";
+                
+                    ImGui::Text("Name Project:");
+                    ImGui::InputText("##NameProject", &nameProj);
+                    
+                    if (ImGui::Button("Load Project", ImVec2(240, 0)))
+                    {
+                        isOpenNewProject = false;
+                        isOpenLoadProject = true;
+                    }
+                
+                    ImGui::Spacing();
+                
+                    ImGui::Text("Browse: ");
+                    ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x - 110.0f);
+                    labelPath = (std::filesystem::path(pathDirectory) / nameProj);
+                    ImGui::InputText("##Path", &labelPath);
+                    ImGui::PopItemWidth();
+                
+                    ImGui::SameLine();
+                
+                    if (ImGui::Button("Search", ImVec2(100, 0)))
+                    {
+                        std::string pickDir = openFolderDialog(pathDirectory);
+                        if (!pickDir.empty())
+                            pathDirectory = pickDir;
+                    }
+                
+                    ImGui::Spacing();
+                
+                    ImGui::Text("Name Current Scene:");
+                    ImGui::InputText("##Scene", &firstNameScene);
+                
+                    ImGui::Spacing();
+                
+                    if (!errorMessage.empty())
+                    {
+                        ImGui::TextColored(ImVec4(1.0f, 0.35f, 0.35f, 1.0f), "%s", errorMessage.c_str());
+                        ImGui::Spacing();
+                    }
+                
+                    ImGui::Separator();
+                    ImGui::Spacing();
+                
+                    bool canCreate = !nameProj.empty() && !pathDirectory.empty() && !firstNameScene.empty();
+                
+                    float availWidth = ImGui::GetContentRegionAvail().x;
+                    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + availWidth - 200.0f);
+                    
+
+                    if (ImGui::Button("Cancel", ImVec2(90, 0)))
+                    {
+                        errorMessage = "";
+                        if (isOpenNewProject) isOpenNewProject = false;
+                    }
+                
+                    ImGui::SameLine();
+                
+                    ImGui::BeginDisabled(!canCreate);
+
+                    if (ImGui::Button("Ok", ImVec2(90, 0)))
+                    {
+                        proj = Project(pathDirectory, nameProj);
+                    
+                        if (proj.createScene(firstNameScene, uberSH) != nullptr)
+                        {
+                            errorMessage = "";
+                            nameProj = "";
+                            firstNameScene = "MainScene";
+                            labelPath = "";
+                            std::string projectCfg = (std::filesystem::path(proj.getPathProject()) / "project.cfg").string();
+                            Project::saveLastProjectPath(projectCfg);
+                            proj.markDirty();
+
+                            if (isOpenNewProject) {
+                                isOpenNewProject = false; 
+                                isFirstOpenNewProject = false;
+                            }
+                            
+                        }
+                        else
+                        {
+                            errorMessage = "Failed to create the project. Check if the path is valid and if you have write permission there.";
+                        }
+                    }
+                    ImGui::EndDisabled();
+                }
+                ImGui::End();
+            }               
+
+            void loadProjectWindow(Project &proj, Shader *uberSH)
+            {
+                ImGui::SetNextWindowSize(ImVec2(420, 150), ImGuiCond_FirstUseEver);
+
+                if (ImGui::Begin("Load Project", &isOpenLoadProject, ImGuiWindowFlags_NoCollapse))
+                {
+                    static std::string errorMessage = "";
+
+                    ImGui::Text("Select the project folder:");
+                    ImGui::Spacing();
+
+                    if (ImGui::Button("Browse", ImVec2(120, 0)))
+                    {
+                        static std::string pathDirectory = std::filesystem::path(getenv(HOME_VAR)).string();
+
+                        std::string selectedDir = openFolderDialog(pathDirectory);
+
+                        if (!selectedDir.empty())
+                        {
+                            std::filesystem::path cfgPath = std::filesystem::path(selectedDir) / "project.cfg";
+
+                            if (std::filesystem::exists(cfgPath))
+                            {
+                                if (proj.loadProject(cfgPath.string(), uberSH))
+                                {
+                                    errorMessage = "";
+                                    isOpenLoadProject = false;
+                                    Project::saveLastProjectPath(cfgPath.string());
+                                }
+                                else
+                                {
+                                    errorMessage = "The project.cfg file exists, but could not be read (invalid format?).";
+                                }
+                            }
+                            else
+                            {
+                                errorMessage = "This folder does not contain a valid project (project.cfg not found).";
+                            }
+                        }
+                    }
+
+                    if (!errorMessage.empty())
+                    {
+                        ImGui::Spacing();
+                        ImGui::TextColored(ImVec4(1.0f, 0.35f, 0.35f, 1.0f), "%s", errorMessage.c_str());
+                    }
+                }
+                ImGui::End();
+            }
+
+            void loadSceneWindow(Project &proj, Shader *uberSH)
+            {
+                ImGui::SetNextWindowSize(ImVec2(300, 200), ImGuiCond_FirstUseEver);
+
+                if (ImGui::Begin("Load Scene", &isOpenLoadScene, ImGuiWindowFlags_NoCollapse))
+                {
+                    for (auto& [sceneName, scenePath] : proj.getPathScenes())
+                    {
+                        bool isCurrent = (sceneName == proj.getCurrentSceneName());
+
+                        if (ImGui::Selectable(sceneName.c_str(), isCurrent))
+                        {
+                            proj.loadScene(sceneName, uberSH);
+                            proj.setCurrentScene(sceneName);
+                            isOpenLoadScene = false;
+                        }
+                    }
+                }
+                ImGui::End();
+                
+            }
+
+            void exitConfirmWindow(Project& proj, GLFWwindow* window)
+            {
+                if (!isOpenExitConfirm) return;
+
+                ImGui::OpenPopup("Exit without saving?");
+
+                if (ImGui::BeginPopupModal("Exit without saving?", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+                {
+                    ImGui::Text("You have unsaved changes in the current project.");
+                    ImGui::Spacing();
+
+                    if (ImGui::Button("Exit and saving", ImVec2(130, 0)))
+                    {
+                        proj.saveProject();
+                        isOpenExitConfirm = false;
+                        ImGui::CloseCurrentPopup();
+                        glfwSetWindowShouldClose(window, GLFW_TRUE);
+                    }
+                    ImGui::SameLine();
+                    if (ImGui::Button("Exit without saving", ImVec2(150, 0)))
+                    {
+                        isOpenExitConfirm = false;
+                        ImGui::CloseCurrentPopup();
+                        glfwSetWindowShouldClose(window, GLFW_TRUE);
+                    }
+                    ImGui::SameLine();
+                    if (ImGui::Button("Cancel", ImVec2(100, 0)))
+                    {
+                        isOpenExitConfirm = false;
+                        ImGui::CloseCurrentPopup();
+                    }
+
+                    ImGui::EndPopup();
+                }
+            }
+            
+            void savePopup(){
+
+                if (isOpenPopupSave) {
+                
+                    ImGuiViewport* viewport = ImGui::GetMainViewport();
+                    ImVec2 posWindow = ImVec2(viewport->Pos.x, viewport->Pos.y + 80);
+
+                    ImGui::SetNextWindowPos(posWindow, ImGuiCond_Always);
+
+                    ImGui::SetNextWindowBgAlpha(0.85f);
+
+                    ImGuiWindowFlags flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove | 
+                        ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoNav;
+
+                    if (ImGui::Begin("##Saved Notification", &isOpenPopupSave, flags)) {
+                    
+                        ImGui::Text("Project saved successfully!");
+                    }
+
+                    ImGui::End();
+
+                    if (ImGui::GetTime() - popupSaveOpenTime > 2.0) {
+                        isOpenPopupSave = false;
+                    }
+                }
+            }
+
 
             nfdchar_t* openFileDialog(const std::string &pathDir)
             {
@@ -420,6 +769,26 @@ namespace Gui
                 }
 
                 return outPath;
+            }
+            
+            std::string openFolderDialog(const std::string& pathDir)
+            {
+                nfdchar_t* outPath = nullptr;
+                
+                nfdresult_t result = NFD_PickFolder(&outPath, pathDir.c_str());
+
+                if (result == NFD_OKAY)
+                {
+                    std::string selectedPath = outPath;
+                    NFD_FreePath(outPath);
+                    return selectedPath;
+                }
+                else if (result == NFD_ERROR)
+                {
+                    std::cerr << "[NFD] Erro: " << NFD_GetError() << std::endl;
+                }
+
+                return "";
             }
 
             void drawThumbnail(const char* label, Texture* tex, const std::string& path)

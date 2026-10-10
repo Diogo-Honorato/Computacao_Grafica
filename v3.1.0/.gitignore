@@ -1,2 +1,4 @@
 build/
+build_debug/
 TODO.md
+config/project.init

@@ -2,6 +2,7 @@
 
 #include "../dep/glm/glm.hpp"
 #include "../dep/glm/gtc/matrix_transform.hpp"
+#include "JsonGlm.hpp"
 #include <string>
 #include "Shape.hpp"
 #include "Shader.hpp"
@@ -38,6 +39,8 @@ struct SceneObject
 
     std::string nameDiffTexture;
     std::string nameSpecTexture;
+    std::string diffuseTexPathKey;
+    std::string specularTexPathKey;
     Texture* diffuseTex  = nullptr;
     Texture* specularTex = nullptr;
 
@@ -58,8 +61,6 @@ struct SceneObject
     Shape*  shape  = nullptr;
     Shader* shader = nullptr;
 
-
-    bool  ownsShape  = false;
     Mesh* ownedMesh  = nullptr;
 
     glm::mat4 GetModelMatrix() const
@@ -71,3 +72,30 @@ struct SceneObject
         return model;
     }
 };
+
+inline void to_json(json& j, const SceneObject& obj)
+{
+    j = json{
+        {"name", obj.name},
+        {"type", obj.type},
+        {"position", obj.position},
+        {"rotation", obj.rotation},
+        {"scale", obj.scale},
+        {"color", obj.color},
+        {"ambient", obj.ambient},
+        {"specular", obj.specular},
+        {"shininess", obj.shininess},
+        {"nameDiffTexture", obj.nameDiffTexture},
+        {"nameSpecTexture", obj.nameSpecTexture},
+        {"slices", obj.slices},
+        {"stacks", obj.stacks},
+        {"capBottom", obj.capBottom},
+        {"capTop", obj.capTop},
+        {"radius", obj.radius},
+        {"baseRadius", obj.baseRadius},
+        {"topRadius", obj.topRadius},
+        {"height", obj.height},
+        {"linesGrid", obj.linesGrid},
+        {"columnsGrid", obj.columnsGrid},
+    };
+}

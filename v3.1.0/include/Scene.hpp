@@ -15,6 +15,7 @@ struct SceneLight
     glm::vec3 ambient  = glm::vec3(0.2f, 0.2f, 0.2f);
     glm::vec3 diffuse  = glm::vec3(0.6f, 0.6f, 0.6f);
     glm::vec3 specular = glm::vec3(1.0f, 1.0f, 1.0f);
+    Shape *cubeShape = nullptr;
 };
 
 class Scene
@@ -33,8 +34,14 @@ public:
     // Retorna a malha compartilhada (cache) 
     Shape* GetPrimitiveShape(PrimitiveTypeObj type);
     Texture* getTexture(std::string nameTexture);
+    std::string importTexture(const std::string& sourceAbsPath);
 
+    //Save .json
+    bool saveScene(const std::string& pathScene);
+    bool loadScene(const std::string& pathScene);
 
+    std::string nameScene = "MainScene";
+    std::string textureDir = "";
     bool lightingEnabled = false;
     bool showMetrics = false;
     int selectedIndex = -1;
@@ -52,4 +59,6 @@ private:
 
     Mesh* BuildMesh(const SceneObject& obj);
     std::string TypeName(PrimitiveTypeObj type);
+    json ToJson() const;
+    void LoadFromJson(const json& j);
 };

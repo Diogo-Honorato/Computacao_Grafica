@@ -2,6 +2,13 @@ cmake_minimum_required(VERSION 3.10.0)
 project(engine VERSION 3.1.0)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(NFD_PORTAL ON CACHE BOOL "" FORCE)
+
+#DEBUG
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_compile_options(-fsanitize=address -fsanitize=undefined -g)
+    add_link_options(-fsanitize=address -fsanitize=undefined)
+endif()
 
 #GLAD
 add_library(glad STATIC dep/glad/src/glad.c)
@@ -25,6 +32,7 @@ add_library(imgui STATIC
     ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
     ${IMGUI_DIR}/ImGuizmo.cpp
+    ${IMGUI_DIR}/misc/cpp/imgui_stdlib.cpp
 )
 target_include_directories(imgui PUBLIC
     ${IMGUI_DIR}
@@ -49,6 +57,7 @@ target_include_directories(
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
 )
+
 
 #LINK
 target_link_libraries(engine PRIVATE glad glfw imgui nfd)

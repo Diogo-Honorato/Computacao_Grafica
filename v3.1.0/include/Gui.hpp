@@ -2,17 +2,18 @@
 
 #include "imgui.h"
 #include "SceneObject.hpp"
+#include "Project.hpp"
 #include "Scene.hpp"
-#include <fstream>
+#include "ImGuizmo.h"
+#include "../dep/imgui/misc/cpp/imgui_stdlib.h"
+#include "Window.hpp"
 #include <iostream>
 #include <concepts>
 #include <nfd.h>
-#include <filesystem>
 #include <thread>
 #include <atomic>
 #include <mutex>
-#include "../dep/json/json.hpp"
-#include "ImGuizmo.h"
+
 
 
     NLOHMANN_JSON_SERIALIZE_ENUM(PrimitiveTypeObj, {
@@ -34,9 +35,9 @@ namespace Gui{
 
 
         enum class TypeButton {
-            PROJECT, NEW, OPEN, EXPORT, SAVE, DELETE,
+            PROJECT, NEW_PROJECT, OPEN_PROJECT, LOAD_SCENE, SAVE_PROJECT,
 
-            OBJECT, ADD_OBJ, TEX, LOAD_FOLDER_TEX, LOAD_FILE_TEX,  LOAD_FOLDER_OBJ,  LOAD_FILE_OBJ,
+            OBJECT, ADD_OBJ, LOAD_FILE_OBJ,
 
             SCENE, LIGHT, METRICS,
 
@@ -47,24 +48,19 @@ namespace Gui{
         NLOHMANN_JSON_SERIALIZE_ENUM(TypeButton, {
             {TypeButton::UNKNOWN,         "UNKNOWN"},
             {TypeButton::PROJECT,         "PROJECT"},
-            {TypeButton::NEW,             "NEW"},
-            {TypeButton::OPEN,            "OPEN"},
-            {TypeButton::EXPORT,          "EXPORT"},
-            {TypeButton::SAVE,            "SAVE"},
-            {TypeButton::DELETE,          "DELETE"},
+            {TypeButton::NEW_PROJECT,     "NEW_PROJECT"},
+            {TypeButton::OPEN_PROJECT,    "OPEN_PROJECT"},
+            {TypeButton::LOAD_SCENE,      "LOAD_SCENE"},
+            {TypeButton::SAVE_PROJECT,    "SAVE_PROJECT"},
             {TypeButton::OBJECT,          "OBJECT"},
             {TypeButton::ADD_OBJ,         "ADD_OBJ"},
-            {TypeButton::TEX,             "TEX"},
-            {TypeButton::LOAD_FOLDER_TEX, "LOAD_FOLDER_TEX"},
-            {TypeButton::LOAD_FILE_TEX,   "LOAD_FILE_TEX"},
-            {TypeButton::LOAD_FOLDER_OBJ, "LOAD_FOLDER_OBJ"},
             {TypeButton::LOAD_FILE_OBJ,   "LOAD_FILE_OBJ"},
             {TypeButton::SCENE,           "SCENE"},
             {TypeButton::LIGHT,           "LIGHT"},
             {TypeButton::METRICS,         "METRICS"},
             {TypeButton::CAM,             "CAM"},
             {TypeButton::GIZMO_CAM,       "GIZMO_CAM"},
-            {TypeButton::POS_FIRST,       "POS_FIRST"}
+            {TypeButton::POS_FIRST,       "POS_FIRST"},
         })
 
 
@@ -120,7 +116,7 @@ namespace Gui{
                 return findButtonRecursive(root, enumKey);
             }
 
-            void renderMenu(Scene &scene);
+            void renderMenu(Project &proj);
 
         private:
             std::vector<Button> root;
@@ -141,21 +137,43 @@ namespace Gui{
 
             inline AsyncTexture diffuseAsync;
             inline AsyncTexture specularAsync;
-            inline std::string fileDialogPath;
+            inline bool isOpenNewProject = false;
+            inline bool isOpenLoadProject = false;
+            inline bool isOpenLoadScene = false;
+            inline bool isOpenExitConfirm =false;
+            inline bool isFirstOpenLoadProject = true;
+            inline bool isFirstOpenNewProject = true;
+            inline bool isOpenPopupSave = false;
+            inline double popupSaveOpenTime = 0.0;
+
+
             
             void requestTextureAsync(AsyncTexture& asyncTex, const std::string& initialDir);
             bool capturingTexture(AsyncTexture& asyncTex, std::string& outPath);
 
             void hierarchyConfig(Scene &scene);
-            void sceneConfig(Scene &scene);
-            void propertiesConfig(Scene &scene);
+            void sceneConfig(Project &proj);
+            void propertiesConfig(Project &proj);
+            
             void showMetrics(Scene &scene);
+            void newProject(Project &proj,Shader *uberSH);
+            void loadProject(Project &proj, Shader *uberSH);
+            void loadScene(Project &proj, Shader *uberSH);
+            void exitConfirm(Project& proj, GLFWwindow* window);
 
+            void buttonReturnNewProject();
+            void newProjectWindow(Project &proj, Shader *uberSH);
+            void loadProjectWindow(Project &proj, Shader *uberSH);
+            void loadSceneWindow(Project &proj, Shader *uberSH);
+            void exitConfirmWindow(Project& proj, GLFWwindow* window);
+            void savePopup();
 
+            
             nfdchar_t* openFileDialog(const std::string &pathDir);
+            std::string openFolderDialog(const std::string& pathDir);
             void drawThumbnail(const char* label, Texture* tex, const std::string& path);
             inline std::vector<Button> subButtonAdd;
-            inline std::string DEFAULT_DIRECTORY_TEXTURE =  std::filesystem::absolute("../texture/").string();
+
 
 
         }

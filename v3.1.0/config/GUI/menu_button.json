@@ -3,17 +3,10 @@
     "label": "Project",
     "type": "PROJECT",
     "subButton": [
-      { "label": "New Project", "type": "NEW" },
-      { "label": "Open", "type": "OPEN" },
-      { "label": "Save", "type": "SAVE" },
-      {
-        "label": "Export As",
-        "type": "EXPORT",
-        "subButton": [
-          { "label": "Export to OBJ", "type": "OPEN_OBJ" },
-          { "label": "Delete Cache", "type": "DELETE" }
-        ]
-      }
+      { "label": "New Project", "type": "NEW_PROJECT" },
+      { "label": "Load Project", "type": "OPEN_PROJECT" },
+      { "label": "Load Scene", "type": "LOAD_SCENE" },
+      { "label": "Save", "type": "SAVE_PROJECT" }
     ]
   },
   {
@@ -34,15 +27,6 @@
           { "label": "Grid",       "type": "ADD_OBJ", "primitiveType": "Grid" }
         ]
       },
-      { "label": "Texture", 
-        "type": "TEX", 
-        "subButton":[
-          {"label": "Load Folder Texture", "type": "LOAD_FOLDER_TEX"},
-          {"label": "Load File Texture", "type": "LOAD_FILE_TEX"}
-
-        ]
-      },
-      {"label": "Load Folder Object", "type": "LOAD_FOLDER_OBJ"},
       {"label": "Load File Object", "type": "LOAD_FILE_OBJ"}
     ]
   },

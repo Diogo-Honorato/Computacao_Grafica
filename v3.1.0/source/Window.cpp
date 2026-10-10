@@ -14,6 +14,17 @@ namespace Globals {
     bool panActive = false;
     double panLastX = 0.0;
     double panLastY = 0.0;
+
+}
+
+void window_close_callback(GLFWwindow* window)
+{
+    if (Globals::onCloseRequested)
+    {
+        bool canClose = Globals::onCloseRequested();
+        if (!canClose)
+            glfwSetWindowShouldClose(window, GLFW_FALSE);
+    }
 }
 
 void processInput(GLFWwindow *window)
@@ -48,11 +59,11 @@ void processInputCamera(GLFWwindow *window, float deltaTime)
             Globals::camera.ProcessKeyboard(RIGHT, deltaTime);
     }
 
-    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
     if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
         glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
@@ -100,7 +111,6 @@ void scroll_callback(GLFWwindow* window,double xoffset, double yoffset)
     Globals::camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }
 
-// TAB alterna entre "câmera ativa" (mouse travado) e "UI ativa" (mouse livre)
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (key == GLFW_KEY_TAB && action == GLFW_PRESS)
@@ -190,7 +200,8 @@ GLFWwindow *startWindowCamera(int width, int height, const char *title)
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetKeyCallback(window, key_callback);
-
+    glfwSetWindowCloseCallback(window, window_close_callback);
+    
     // Começa com o cursor livre, para permitir interação com a UI (ImGui).
     // Segure o botão direito do mouse ou pressione TAB para ativar a câmera.
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);

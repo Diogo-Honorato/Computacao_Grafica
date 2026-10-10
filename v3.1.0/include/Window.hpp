@@ -1,6 +1,7 @@
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 #include <iostream>
+#include <functional>
 #include "../dep/glad/include/glad/glad.h"
 #include "../dep/glfw/include/GLFW/glfw3.h"
 #include "../include/Camera.hpp"
@@ -23,8 +24,11 @@ namespace Globals {
     extern bool panActive;
     extern double panLastX;
     extern double panLastY;
+
+    inline std::function<bool()> onCloseRequested = nullptr;
 }
 
+void window_close_callback(GLFWwindow* window);
 void processInput(GLFWwindow *window);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 GLFWwindow *startWindow(int width, int height, const char *title);
@@ -84,6 +88,7 @@ inline void updateFrameCamera(GLFWwindow* window, glm::mat4& projection, glm::ma
     Globals::lastFrame = currentFrame;
 
     processInputCamera(window, deltaTime);
+    void window_close_callback(GLFWwindow* window);
 
     float aspectRatio = static_cast<float>(Globals::windowWidth) / static_cast<float>(Globals::windowHeight);
     projection = glm::perspective(glm::radians(Globals::camera.Zoom), aspectRatio, 0.1f, 100.0f);

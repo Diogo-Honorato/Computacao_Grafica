@@ -31,7 +31,7 @@ int main()
     {
         // menu principal e iniciação das configurações da engine
         Gui::Menu::MenuButton menu;
-        menu.loadFromFile("../config/GUI/menu_button.json");//arquivo de configs do menu
+        menu.loadFromFile(INIT_FILE_MENU);//arquivo de configs do menu
         auto bttPtr = menu.findButton(Gui::Menu::TypeButton::ADD_OBJ);//gera botao extra
         if (bttPtr != nullptr) {
     
@@ -42,20 +42,45 @@ int main()
         
         Shader *mousePickSH = new Shader(DEFAULT_MOUSE_PICKING_VERTEX,DEFAULT_MOUSE_PICKING_FRAGMENT);
         Shader *uberSH = new Shader(DEFAULT_UBER_VERTEX, DEFAULT_UBER_FRAGMENT);
+        
+        
+        //Iniciar um Projeto
+        Project proj;
+        bool showNewProjectScreen = false;
 
-        //configs iniciais e start da cena
-        Scene scene(uberSH);
-        scene.lightingEnabled = true;
-        scene.AddObject(PrimitiveTypeObj::Cube,DEFAULT_DIFFUSE_TEXTURE,DEFAULT_SPECULAR_TEXTURE);
-        auto &objects = scene.GetObjects();
-        scene.selectedIndex = (int)objects.size() - 1;
-        Shape *sphereShape = scene.GetPrimitiveShape(PrimitiveTypeObj::Sphere);
+        std::string projectInitPath = Project::loadProjectInit();
+
+        if (!projectInitPath.empty())
+        {
+            if (!proj.loadProject(projectInitPath, uberSH)){
+
+                Gui::Menu::Panel::isOpenNewProject = true;
+
+            }else{
+                Gui::Menu::Panel::isFirstOpenNewProject = false;
+            }
+        }
+        else
+        {
+            Gui::Menu::Panel::isOpenNewProject = true;
+        }
+
 
         //mouse variables
         bool mouseOverUI;
         bool rightMouseHeld;
         bool middleMouseHeld;
 
+        //in exit button
+        Globals::onCloseRequested = [&proj,window]() -> bool
+        {
+            if (!proj.getWasSaved())
+            {
+                Gui::Menu::Panel::isOpenExitConfirm = true;
+                return false;
+            }
+            return true;
+        };
 
 
         //main render loop
@@ -90,87 +115,106 @@ int main()
             UpdatePan(window, middleMouseHeld && !mouseOverUI);
         
 
+            //New Project Fuction
+            Gui::Menu::Panel::newProject(proj,uberSH);
+            
+            //Load Project 
+            Gui::Menu::Panel::loadProject(proj, uberSH);
 
-            //renderização e execução dos menus e botoes
-            menu.renderMenu(scene);
+            //Exit Project 
+            Gui::Menu::Panel::exitConfirm(proj,window);
 
-            //Panel HIERARCHY
-            Gui::Menu::Panel::hierarchyConfig(scene);
+            //It only starts if you create or load a project
+            if(!Gui::Menu::Panel::isOpenNewProject && !Gui::Menu::Panel::isFirstOpenNewProject){
 
-            // PAINEL SCENE SETTINGS
-            Gui::Menu::Panel::sceneConfig(scene);
+                //renderização e execução dos menus e botoes
+                menu.renderMenu(proj);
 
-            // PAINEL PROPERTIES
-            Gui::Menu::Panel::propertiesConfig(scene);
+                //Panel HIERARCHY
+                Gui::Menu::Panel::hierarchyConfig(proj.getCurrentScene());
 
-            //GUIZMO
-            Gui::Guizmo::drawGuizmo(scene,projection, view);
+                // PAINEL SCENE SETTINGS
+                Gui::Menu::Panel::sceneConfig(proj);
 
-            //Metrics
-            Gui::Menu::Panel::showMetrics(scene);
+                // PAINEL PROPERTIES
+                Gui::Menu::Panel::propertiesConfig(proj);
 
-            // RENDERIZAÇÃO DA CENA
-            for (auto &obj : objects)
-            {
+                //GUIZMO
+                Gui::Guizmo::drawGuizmo(proj.getCurrentScene(),projection, view);
 
-                obj.shader->useShaders();
-                obj.shader->setMat4("projection", projection);
-                obj.shader->setMat4("view", view);
-                obj.shader->setMat4("model", obj.GetModelMatrix());
+                //Metrics
+                Gui::Menu::Panel::showMetrics(proj.getCurrentScene());
 
+                //load SCene
+                Gui::Menu::Panel::loadScene(proj, uberSH);
 
-                
-                obj.diffuseTex->Bind(GL_TEXTURE0);
-                obj.specularTex->Bind(GL_TEXTURE1);
-                obj.shader->setInt("diffuseMap", 0);
-                obj.shader->setInt("specularMap", 1);
-
-                obj.shader->setVec3("material.ambient", obj.ambient);
-                obj.shader->setVec3("material.diffuse", obj.color);
-                obj.shader->setVec3("material.specular", obj.specular);
-                obj.shader->setFloat("material.shininess", obj.shininess);
+                //Popup saved
+                Gui::Menu::Panel::savePopup();
 
 
-                obj.shader->setBool("useLighting", scene.lightingEnabled);
-
-                if (scene.lightingEnabled)
+                // RENDERIZAÇÃO DA CENA
+                for (auto &obj : proj.getCurrentScene().GetObjects())
                 {
-                    obj.shader->setVec3("viewPos", Globals::camera.Position);
-                    obj.shader->setVec3("light.position", scene.light.position);
-                    obj.shader->setVec3("light.ambient", scene.light.ambient);
-                    obj.shader->setVec3("light.diffuse", scene.light.diffuse);
-                    obj.shader->setVec3("light.specular", scene.light.specular);
+
+                    obj.shader->useShaders();
+                    obj.shader->setMat4("projection", projection);
+                    obj.shader->setMat4("view", view);
+                    obj.shader->setMat4("model", obj.GetModelMatrix());
+
+
+                    
+                    obj.diffuseTex->Bind(GL_TEXTURE0);
+                    obj.specularTex->Bind(GL_TEXTURE1);
+                    obj.shader->setInt("diffuseMap", 0);
+                    obj.shader->setInt("specularMap", 1);
+
+                    obj.shader->setVec3("material.ambient", obj.ambient);
+                    obj.shader->setVec3("material.diffuse", obj.color);
+                    obj.shader->setVec3("material.specular", obj.specular);
+                    obj.shader->setFloat("material.shininess", obj.shininess);
+
+
+                    obj.shader->setBool("useLighting", proj.getCurrentScene().lightingEnabled);
+
+                    if (proj.getCurrentScene().lightingEnabled)
+                    {
+                        obj.shader->setVec3("viewPos", Globals::camera.Position);
+                        obj.shader->setVec3("light.position", proj.getCurrentScene().light.position);
+                        obj.shader->setVec3("light.ambient", proj.getCurrentScene().light.ambient);
+                        obj.shader->setVec3("light.diffuse", proj.getCurrentScene().light.diffuse);
+                        obj.shader->setVec3("light.specular", proj.getCurrentScene().light.specular);
+                    }
+
+                    obj.shape->drawObject();
                 }
 
-                obj.shape->drawObject();
-            }
+                // fonte de luz
+                if (proj.getCurrentScene().lightingEnabled)
+                {
+                    glm::mat4 lightModel = glm::translate(glm::mat4(1.0f), proj.getCurrentScene().light.position);
+                    lightModel = glm::scale(lightModel, glm::vec3(0.2f));
 
-            // fonte de luz
-            if (scene.lightingEnabled)
-            {
-                glm::mat4 lightModel = glm::translate(glm::mat4(1.0f), scene.light.position);
-                lightModel = glm::scale(lightModel, glm::vec3(0.2f));
+                    
+                    uberSH->useShaders();
+                    uberSH->setMat4("projection", projection);
+                    uberSH->setMat4("view", view);
+                    uberSH->setMat4("model", lightModel);
+                    proj.getCurrentScene().getTexture(DEFAULT_DIFFUSE_TEXTURE)->Bind(GL_TEXTURE0);
+                    uberSH->setBool("useLighting", false);
+                    uberSH->setVec3("material.diffuse", proj.getCurrentScene().light.diffuse);
 
-                
-                uberSH->useShaders();
-                uberSH->setMat4("projection", projection);
-                uberSH->setMat4("view", view);
-                uberSH->setMat4("model", lightModel);
-                scene.getTexture(DEFAULT_DIFFUSE_TEXTURE)->Bind(GL_TEXTURE0);
-                uberSH->setBool("useLighting", false);
-                uberSH->setVec3("material.diffuse", scene.light.diffuse);
+                    proj.getCurrentScene().light.cubeShape->drawObject();
+                }
 
-                sphereShape->drawObject();
-            }
+                //mouse picking render
+                if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && !mouseOverUI)
+                {   
+                    double mouseX, mouseY;
+                    glfwGetCursorPos(window, &mouseX, &mouseY);
 
-            //mouse picking render
-            if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && !mouseOverUI)
-            {   
-                double mouseX, mouseY;
-                glfwGetCursorPos(window, &mouseX, &mouseY);
-
-                scene.selectedIndex = Gui::MousePicking::objectPicking((int)mouseX,(int)mouseY,Globals::windowHeight,scene.GetObjects(),mousePickSH,projection,view);
-                
+                    proj.getCurrentScene().selectedIndex = Gui::MousePicking::objectPicking((int)mouseX,(int)mouseY,Globals::windowHeight,proj.getCurrentScene().GetObjects(),mousePickSH,projection,view);
+                    
+                }
             }
 
             ImGuiOverlay::End();

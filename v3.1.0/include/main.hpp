@@ -7,8 +7,7 @@
 #include "../dep/glm/glm.hpp"
 #include "../dep/glm/gtc/type_ptr.hpp"
 #include "ImGuiOverlay.hpp"
-#include "SceneObject.hpp"
-#include "Scene.hpp"
 #include "Gui.hpp"
+#include "Project.hpp"
 
 #endif
